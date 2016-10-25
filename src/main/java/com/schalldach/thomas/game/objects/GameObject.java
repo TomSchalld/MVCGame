@@ -1,6 +1,6 @@
-package com.schalldach.thomas.gameSrc;
+package com.schalldach.thomas.game.objects;
 
-import com.schalldach.thomas.gameSrc.helper.Position;
+import com.schalldach.thomas.game.helper.Position;
 
 import java.awt.*;
 

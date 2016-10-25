@@ -1,4 +1,4 @@
-package com.schalldach.thomas.gameSrc;
+package com.schalldach.thomas.game.objects;
 
 /**
  * Created by B.Sc. Thomas Schalldach on 16/10/2016. The code of this application is free to use for non-commercial projects,

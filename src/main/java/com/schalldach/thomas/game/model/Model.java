@@ -16,7 +16,7 @@ import java.util.Timer;
  */
 public class Model implements IObservable{
     private List<IObserver> observers;
-    private Canon canon;
+    private Canon cannon;
     private List<Enemy> enemies;
     private List<Missile> missiles;
     private List<Collision> collisions;

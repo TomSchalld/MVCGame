@@ -1,4 +1,4 @@
-package mvcshooter.view;
+package com.schalldach.thomas.game.view;
 
 import javax.swing.*;
 import java.awt.*;

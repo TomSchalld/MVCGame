@@ -1,4 +1,4 @@
-package mvcshooter.view;
+package com.schalldach.thomas.game.view;
 
 import cz.fit.dpo.mvcshooter.Cannon;
 

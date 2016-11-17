@@ -8,14 +8,15 @@ import com.schalldach.thomas.game.objects.GameObject;
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
 
-public class EnemyFactory implements ConcreteFactory {
+public class EnemyFactory extends ConcreteFactory {
 
 
 
 
     @Override
     public GameObject create() {
-        Enemy e = new Enemy();
-        return e;
+        GameObject o = new Enemy();
+        o.setImage(getImage());
+        return o;
     }
 }

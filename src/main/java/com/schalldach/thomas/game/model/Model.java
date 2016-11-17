@@ -113,6 +113,18 @@ public class Model implements IObservable {
 
     }
 
+    public void moveCannonUp() {
+        TwoDimPosition pos = (TwoDimPosition) cannon.getPosition();
+        pos.addVector(Arrays.asList(0.0,-30.0));
+        notification();
+    }
+
+    public void moveCannonDown() {
+        TwoDimPosition pos = (TwoDimPosition) cannon.getPosition();
+        pos.addVector(Arrays.asList(0.0,30.0));
+        notification();
+    }
+
     //methods
     /*
     * moveCanonUp

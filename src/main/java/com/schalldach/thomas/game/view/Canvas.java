@@ -12,11 +12,11 @@ import java.util.List;
  * @author Ondrej Stuchlik
  */
 public class Canvas extends JPanel  {
+
     private List<GameObject> toBeDrawn;
     private GraphicsDrawer drawer;
 
     public Canvas(int x, int y, int width, int height) {
-        super();
         drawer = new GraphicsDrawer();
         toBeDrawn = new ArrayList<>();
         this.setBackground(Color.WHITE);
@@ -38,11 +38,14 @@ public class Canvas extends JPanel  {
         return toBeDrawn;
     }
 
+    public void setToBeDrawn(List<GameObject> toBeDrawn) {
+        this.toBeDrawn = toBeDrawn;
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         drawer.drawGameObject(toBeDrawn,g);
-        //drawer.drawGame(g);
     }
 
 }

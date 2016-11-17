@@ -14,7 +14,8 @@ import java.util.Timer;
  * Created by B.Sc. Thomas Schalldach on 16/10/2016. The code of this application is free to use for non-commercial projects,
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
-public class Model {
+public class Model implements IObservable{
+    private List<IObserver> observers;
     private Canon canon;
     private List<Enemy> enemies;
     private List<Missile> missiles;
@@ -22,6 +23,21 @@ public class Model {
     private Score score;
     private Gravity gravity;
     private Timer timer;
+
+
+    @Override
+    public void attach(IObserver observer) {
+        observers.add(observer);
+    }
+    @Override
+    public void detach(IObserver observer) {
+        observers.remove(observer);
+    }
+    @Override
+    public void notification() {
+        // Canvas must implement IObserver
+        observers.forEach(IObserver::update);
+    }
 
     //methods
     /*

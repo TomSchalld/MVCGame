@@ -15,15 +15,33 @@ public abstract class GameObjectFactory {
 
 
 
-    public static GameObject create(Method param){
+    public static GameObject createFactory(Method param){
 
         switch (param){
             case Canon:
-                return new Canon();
-            case
+                return new CanonFactory();
+                break;
+            case Missile:
+                return new MissileFactory();
+                break;
+            case Collision:
+                return new CollisionFactory();
+                break;
+            case Score:
+                return new ScoreFactoy();
+                break;
+            case Gravity:
+                return new GravityFactory();
+                break;
+            case Timer:
+                return new TimerFactory();
+                break;
+            default:
+                return null;
+                break;
         }
 
-        return null,
+        return null;
     }
 
 

@@ -3,8 +3,8 @@ package com.schalldach.thomas.game.objects;
 import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.helper.TwoDimPosition;
 
-import java.awt.*;
-import java.util.Arrays;
+import java.awt.image.BufferedImage;
+import java.util.List;
 
 /**
  * Created by B.Sc. Thomas Schalldach on 16/10/2016. The code of this application is free to use for non-commercial projects,
@@ -12,24 +12,26 @@ import java.util.Arrays;
  */
 public abstract class GameObject {
     protected APosition position;
-    protected Image image;
+    protected BufferedImage image;
 
 
     public GameObject() {
         this.position = new TwoDimPosition();
     }
 
-    public void move() {
-        Integer vector[] = new Integer[]{1, 2};
-        position.addVector(Arrays.asList(vector));
+    public void move(List<Integer> vector) {
+        position.addVector(vector);
     }
 
     public APosition getPosition() {
         return position;
     }
 
-    public void setPosition(APosition position) {
-        this.position = position;
+    public BufferedImage getImage() {
+        return image;
     }
 
+    public void setImage(BufferedImage image) {
+        this.image = image;
+    }
 }

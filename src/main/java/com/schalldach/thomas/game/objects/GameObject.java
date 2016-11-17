@@ -14,7 +14,9 @@ public abstract class GameObject {
     protected APosition position;
     protected BufferedImage image;
 
-
+    public void accept(Visitor visitor){
+        visitor.visit(this);
+    }
     public GameObject() {
         this.position = new TwoDimPosition();
     }

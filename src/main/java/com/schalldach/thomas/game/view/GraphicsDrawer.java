@@ -1,73 +1,43 @@
 package com.schalldach.thomas.game.view;
 
-import cz.fit.dpo.mvcshooter.Cannon;
 
-import javax.imageio.ImageIO;
+import com.schalldach.thomas.game.controler.Logic;
+import com.schalldach.thomas.game.helper.TwoDimPosition;
+import com.schalldach.thomas.game.objects.GameObject;
+import com.schalldach.thomas.game.objects.Visitor;
+
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+import java.util.*;
+import java.util.List;
 
 /**
  * @author Ondrej Stuchlik
  */
-public class GraphicsDrawer {
+public class GraphicsDrawer implements Visitor{
     private static final int INFO_X = 5;
     private static final int INFO_Y = 15;
-
-    private BufferedImage cannonImage;
-    private BufferedImage enemyImage1;
-    private BufferedImage enemyImage2;
-    private BufferedImage missileImage;
-    private BufferedImage collisionImage;
+    private Graphics g;
 
 
-    public GraphicsDrawer() {
-        try {
-            cannonImage = ImageIO.read(getClass().getResourceAsStream("/images/cannon.png"));
-            enemyImage1 = ImageIO.read(getClass().getResourceAsStream("/images/enemy1.png"));
-            enemyImage2 = ImageIO.read(getClass().getResourceAsStream("/images/enemy2.png"));
-            missileImage = ImageIO.read(getClass().getResourceAsStream("/images/missile.png"));
-            collisionImage = ImageIO.read(getClass().getResourceAsStream("/images/collision.png"));
-        } catch (IOException ex) {
-            ex.printStackTrace(System.err);
-        }
+    public void drawGameObject(GameObject object) {
+        this.g.drawImage(object.getImage(),
+                (int)((TwoDimPosition)object.getPosition()).getxCoordinate() - object.getImage().getWidth() / 2,
+                (int)((TwoDimPosition)object.getPosition()).getyCoordinate() - object.getImage().getHeight() / 2, null);
     }
 
 
-    public void drawCannon(Graphics g, Cannon cannon) {
-        g.drawImage(cannonImage,
-                cannon.getX() - cannonImage.getWidth() / 2,
-                cannon.getY() - cannonImage.getHeight() / 2, null);
+    public void drawGame(Graphics g) {
+        List<GameObject> objects = new LinkedList<>();
+                objects.addAll(Logic.getInstance().getModel().getCollisions());
+                objects.addAll(Logic.getInstance().getModel().getEnemies());
+                objects.addAll(Logic.getInstance().getModel().getMissiles());
+                objects.add(Logic.getInstance().getModel().getCannon());
+
+        objects.forEach(object -> object.accept(this));
     }
 
-    public void drawMissile(Graphics g, Missile missile) {
-
+    @Override
+    public void visit(GameObject object) {
+        drawGameObject(object);
     }
-
-    public void drawEnemy(Graphics g, Enemy enemy) {
-
-    }
-
-    public void drawCollision(Graphics g, Collision collision) {
-
-    }
-
-    public void drawInfo(Graphics g, ModelInfo info) {
-
-    }
-
-
-    // fake classes just to satisfy compilator
-    class Missile {
-    }
-
-    class Collision {
-    }
-
-    class Enemy {
-    }
-
-    class ModelInfo {
-    }
-
 }

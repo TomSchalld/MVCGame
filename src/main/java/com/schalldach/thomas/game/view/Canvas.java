@@ -1,14 +1,13 @@
 package com.schalldach.thomas.game.view;
 
-import cz.fit.dpo.mvcshooter.Cannon;
-
+import com.schalldach.thomas.game.model.IObserver;
 import javax.swing.*;
 import java.awt.*;
 
 /**
  * @author Ondrej Stuchlik
  */
-public class Canvas extends JPanel {
+public class Canvas extends JPanel implements IObserver {
     GraphicsDrawer drawer = new GraphicsDrawer();
 
     public Canvas(int x, int y, int width, int height) {
@@ -26,7 +25,11 @@ public class Canvas extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        drawer.drawCannon(g, new Cannon());
+        drawer.drawGame(g);
     }
 
+    @Override
+    public void update() {
+        repaint();
+    }
 }

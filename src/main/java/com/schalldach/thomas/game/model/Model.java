@@ -25,6 +25,38 @@ public class Model implements IObservable {
     private Timer timer;
 
 
+    public List<IObserver> getObservers() {
+        return observers;
+    }
+
+    public Cannon getCannon() {
+        return cannon;
+    }
+
+    public List<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public List<Missile> getMissiles() {
+        return missiles;
+    }
+
+    public List<Collision> getCollisions() {
+        return collisions;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public Gravity getGravity() {
+        return gravity;
+    }
+
+    public Timer getTimer() {
+        return timer;
+    }
+
     @Override
     public void attach(IObserver observer) {
         observers.add(observer);

@@ -17,7 +17,7 @@ public class MainWindow extends JFrame {
             Canvas view = new Canvas(0, 0, 500, 500);
 
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.setTitle("MyShooter");
+            this.setTitle("MySchoolShooter");
             this.setResizable(false);
 
             Dimension obrazovka = Toolkit.getDefaultToolkit().getScreenSize();

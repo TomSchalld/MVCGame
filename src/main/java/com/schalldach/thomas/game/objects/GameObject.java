@@ -1,36 +1,35 @@
 package com.schalldach.thomas.game.objects;
 
+import com.schalldach.thomas.game.controler.GameObjectVisitor;
+import com.schalldach.thomas.game.controler.IGameObject;
 import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.helper.TwoDimPosition;
+import com.schalldach.thomas.game.model.IObservable;
 
-import java.awt.*;
-import java.util.Arrays;
+import java.util.List;
+import java.awt.Image;
 
-/**
- * Created by B.Sc. Thomas Schalldach on 16/10/2016. The code of this application is free to use for non-commercial projects,
- * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
- */
-public abstract class GameObject {
+public abstract class GameObject implements IGameObject{
     protected APosition position;
     protected Image image;
 
-
-
-    public void move(){
-        Integer vector[] = new Integer[]{1,2};
-        position.addVector(Arrays.asList(vector));
-    }
-
     public GameObject() {
+
         this.position = new TwoDimPosition();
     }
+
+    public void accept(GameObjectVisitor gov){
+        gov.visit(this);
+    };
+
+    public abstract void move(List<Integer> vector);
 
     public APosition getPosition() {
         return position;
     }
 
-    public void setPosition(APosition position) {
-        this.position = position;
+    public Image getImage(){
+        return image;
     }
 
 }

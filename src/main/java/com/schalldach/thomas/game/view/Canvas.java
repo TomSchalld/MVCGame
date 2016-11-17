@@ -1,5 +1,6 @@
 package com.schalldach.thomas.game.view;
 
+import com.schalldach.thomas.game.model.IObserver;
 import cz.fit.dpo.mvcshooter.Cannon;
 
 import javax.swing.*;
@@ -9,7 +10,7 @@ import java.awt.*;
  *
  * @author Ondrej Stuchlik
  */
-public class Canvas extends JPanel { 
+public class Canvas extends JPanel implements IObserver{
     GraphicsDrawer drawer = new GraphicsDrawer();
 
     public Canvas(int x, int y, int width, int height) {
@@ -19,15 +20,16 @@ public class Canvas extends JPanel {
         this.setPreferredSize(new Dimension(width,height));
         this.setVisible(true);        
     }
-    
-    public void thisIsHowYouForceGuiToRepaint() {        
-        repaint();
-    }
 
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g);    
-        drawer.drawCannon(g, new Cannon());
+        super.paintComponent(g);
+        //TODO paint the whole game
+        //drawer.drawObject(g, new Cannon());
     }
-    
+
+    @Override
+    public void update() {
+        repaint();
+    }
 }

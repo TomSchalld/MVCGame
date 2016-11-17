@@ -15,14 +15,13 @@ public abstract class GameObject {
     protected Image image;
 
 
-
-    public void move(){
-        Integer vector[] = new Integer[]{1,2};
-        position.addVector(Arrays.asList(vector));
-    }
-
     public GameObject() {
         this.position = new TwoDimPosition();
+    }
+
+    public void move() {
+        Integer vector[] = new Integer[]{1, 2};
+        position.addVector(Arrays.asList(vector));
     }
 
     public APosition getPosition() {

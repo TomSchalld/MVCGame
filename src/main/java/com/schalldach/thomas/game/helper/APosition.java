@@ -12,8 +12,4 @@ public abstract class APosition {
     public abstract APosition addVector(List<Integer> dimension);
 
 
-
-
-
-
 }

@@ -6,7 +6,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
- *
  * @author Ondrej Stuchlik
  */
 public class MainWindow extends JFrame {
@@ -22,8 +21,8 @@ public class MainWindow extends JFrame {
 
             Dimension obrazovka = Toolkit.getDefaultToolkit().getScreenSize();
             this.setLocation(
-                  (int) (obrazovka.getWidth() / 2 - 250),
-                  (int) (obrazovka.getHeight() / 2 - 250));
+                    (int) (obrazovka.getWidth() / 2 - 250),
+                    (int) (obrazovka.getHeight() / 2 - 250));
 
             this.addKeyListener(new KeyAdapter() {
                 @Override
@@ -39,10 +38,10 @@ public class MainWindow extends JFrame {
             ex.printStackTrace(System.err);
         }
     }
-    
+
     public void showHelp() {
-        JOptionPane.showMessageDialog(this, 
-              "Controls: \n"
-              + "here goes some description...");
+        JOptionPane.showMessageDialog(this,
+                "Controls: \n"
+                        + "here goes some description...");
     }
 }

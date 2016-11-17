@@ -16,10 +16,11 @@ public class GameHistory {
         gameStates = new Stack<GameMemento>();
     }
 
-    public void save(Game game){
+    public void save(Game game) {
         gameStates.push(game.save());
     }
-    public void revert(Game game){
+
+    public void revert(Game game) {
         game.reset(gameStates.pop());
         //revert state
 

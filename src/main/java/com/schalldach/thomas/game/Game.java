@@ -12,11 +12,11 @@ public class Game {
     private Logic controler;
 
 
-
-    public GameMemento save(){
+    public GameMemento save() {
         return new GameMemento(this);
     }
-    public void reset(GameMemento undoState){
+
+    public void reset(GameMemento undoState) {
 
     }
 }

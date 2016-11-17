@@ -10,10 +10,15 @@ import java.awt.event.KeyEvent;
  */
 public class MainWindow extends JFrame {
 
+    private Canvas view = null;
+
+    public Canvas getView() {
+        return view;
+    }
 
     public MainWindow() {
         try {
-            Canvas view = new Canvas(0, 0, 500, 500);
+            view = new Canvas(0, 0, 1080, 720);
 
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.setTitle("MyShooter");
@@ -23,15 +28,6 @@ public class MainWindow extends JFrame {
             this.setLocation(
                     (int) (window.getWidth() / 2 - 250),
                     (int) (window.getHeight() / 2 - 250));
-
-            this.addKeyListener(new KeyAdapter() {
-                @Override
-                public void keyPressed(KeyEvent evt) {
-                    // delegate to controller
-                    System.out.println("key pressed: " + evt.getKeyChar());
-                }
-            });
-
             this.add(view);
             this.pack();
         } catch (Exception ex) {

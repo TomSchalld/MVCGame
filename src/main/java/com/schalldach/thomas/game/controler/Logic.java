@@ -1,13 +1,21 @@
 package com.schalldach.thomas.game.controler;
 
+import com.schalldach.thomas.game.model.IObserver;
 import com.schalldach.thomas.game.model.Model;
+import com.schalldach.thomas.game.objects.GameObject;
+import com.schalldach.thomas.game.objects.Visitor;
+import com.schalldach.thomas.game.view.Canvas;
 import com.schalldach.thomas.game.view.MainWindow;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.List;
 
 /**
  * Created by B.Sc. Thomas Schalldach on 22/10/2016. The code of this application is free to use for non-commercial projects,
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
-public class Logic {
+public class Logic implements Visitor, IObserver{
 
     private MainWindow view;
     private Model model;
@@ -43,5 +51,38 @@ public class Logic {
     }
 
     private Logic() {
+        this.model = new Model();
+        instantiateGameObjects();
+        this.model.attach(this);
+        view = new MainWindow();
+        view.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent evt) {
+                // delegate to controller
+                System.out.println("key pressed: " + evt.getKeyCode());
+            }
+        });
+        view.setVisible(true);
+        update();
+
+
+    }
+    private void instantiateGameObjects(){
+        this.getModel().doBasicInstantiation();
+    }
+
+    @Override
+    public void update() {
+        List<GameObject> objects = model.getObjects();
+        objects.forEach(object -> object.accept(this));
+        view.getView().repaint();
+        //view.getView().getToBeDrawn().clear();
+
+    }
+
+    @Override
+    public void visit(GameObject object) {
+        view.getView().getToBeDrawn().add(object);
+
     }
 }

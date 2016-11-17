@@ -21,7 +21,7 @@ public abstract class GameObject {
         this.position = new TwoDimPosition();
     }
 
-    public void move(List<Integer> vector) {
+    public void move(List<Double> vector) {
         position.addVector(vector);
     }
 

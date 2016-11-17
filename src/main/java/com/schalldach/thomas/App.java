@@ -1,5 +1,6 @@
 package com.schalldach.thomas;
 
+import com.schalldach.thomas.game.controler.Logic;
 import com.schalldach.thomas.game.view.MainWindow;
 
 import javax.swing.*;
@@ -13,7 +14,7 @@ public class App {
 
             @Override
             public void run() {
-                new MainWindow().setVisible(true);
+                Logic.getInstance();
             }
         });
     }

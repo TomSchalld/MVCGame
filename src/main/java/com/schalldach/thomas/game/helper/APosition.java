@@ -9,7 +9,7 @@ import java.util.List;
 public abstract class APosition {
 
 
-    public abstract void addVector(List<Integer> dimension);
+    public abstract void addVector(List<Double> dimension);
 
 
 }

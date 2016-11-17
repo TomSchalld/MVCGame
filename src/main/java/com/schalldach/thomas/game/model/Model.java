@@ -1,14 +1,14 @@
 package com.schalldach.thomas.game.model;
 
+import com.schalldach.thomas.game.factory.AbstractGameObjectFactory;
+import com.schalldach.thomas.game.factory.ConcreteFactory;
+import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.helper.Gravity;
 import com.schalldach.thomas.game.helper.Score;
-import com.schalldach.thomas.game.objects.Cannon;
-import com.schalldach.thomas.game.objects.Collision;
-import com.schalldach.thomas.game.objects.Enemy;
-import com.schalldach.thomas.game.objects.Missile;
+import com.schalldach.thomas.game.helper.TwoDimPosition;
+import com.schalldach.thomas.game.objects.*;
 
-import java.util.List;
-import java.util.Timer;
+import java.util.*;
 
 /**
  * Created by B.Sc. Thomas Schalldach on 16/10/2016. The code of this application is free to use for non-commercial projects,
@@ -24,6 +24,15 @@ public class Model implements IObservable {
     private Gravity gravity;
     private Timer timer;
 
+    public Model() {
+
+        enemies = new ArrayList<>();
+        missiles = new ArrayList<>();
+        collisions = new ArrayList<>();
+        observers = new ArrayList<>();
+
+
+    }
 
     public List<IObserver> getObservers() {
         return observers;
@@ -71,6 +80,37 @@ public class Model implements IObservable {
     public void notification() {
         // Canvas must implement IObserver
         observers.forEach(IObserver::update);
+    }
+
+    public void doBasicInstantiation() {
+        ConcreteFactory factory = AbstractGameObjectFactory.createCannonFactory();
+        APosition pos = new TwoDimPosition();
+        pos.addVector(Arrays.asList(400.0,100.0));
+        factory.setInitialPosition(pos);
+        this.cannon = (Cannon) factory.create();
+        factory = AbstractGameObjectFactory.createEnemyFactory();
+        for (int i = 0;i<10;i++){
+            enemies.add((Enemy) factory.create());
+        }
+        factory = AbstractGameObjectFactory.createMissileFactory();
+        for (int i = 0;i<10;i++){
+            missiles.add((Missile) factory.create());
+        }
+        factory = AbstractGameObjectFactory.createCollisionFactory();
+        for (int i = 0;i<10;i++){
+            collisions.add((Collision) factory.create());
+        }
+    }
+
+    public List<GameObject> getObjects() {
+        List<GameObject> list = new LinkedList<>();
+                list.addAll(getMissiles());
+                list.addAll(getEnemies());
+                list.addAll(getCollisions());
+                list.add(getCannon());
+
+        return list;
+
     }
 
     //methods

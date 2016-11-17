@@ -1,5 +1,7 @@
 package com.schalldach.thomas.game.helper;
 
+import java.util.Arrays;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 
 /**
@@ -39,8 +41,12 @@ public class TwoDimPosition extends APosition {
         this.yCoordinate = yCoordinate;
     }
 
+    public List<Double> getVector(){
+        return Arrays.asList(getxCoordinate(),getyCoordinate());
+    }
+
     @Override
-    public void addVector(List<Integer> dimension) {
+    public void addVector(List<Double> dimension) {
         changePosition(dimension.get(0),dimension.get(1));
 
     }

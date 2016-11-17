@@ -1,5 +1,6 @@
 package com.schalldach.thomas.game.factory;
 
+import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.objects.GameObject;
 
 import java.awt.image.BufferedImage;
@@ -10,7 +11,17 @@ import java.awt.image.BufferedImage;
  */
 public abstract class ConcreteFactory {
 
+    private APosition initialPosition;
+
     protected BufferedImage image;
+
+    public APosition getInitialPosition() {
+        return initialPosition;
+    }
+
+    public void setInitialPosition(APosition initialPosition) {
+        this.initialPosition = initialPosition;
+    }
 
     public void setImage(BufferedImage image) {
         this.image = image;

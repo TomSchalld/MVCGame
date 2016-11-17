@@ -19,10 +19,10 @@ public abstract class GameObjectFactory {
     private BufferedImage missileImage;
     private BufferedImage collisionImage;
 
-
+    /*
     public GraphicsDrawer() {
         try {
-            cannonImage = ImageIO.read(getClass().getResourceAsStream("/images/cannon.png"));
+
             enemyImage1 = ImageIO.read(getClass().getResourceAsStream("/images/enemy1.png"));
             enemyImage2 = ImageIO.read(getClass().getResourceAsStream("/images/enemy2.png"));
             missileImage = ImageIO.read(getClass().getResourceAsStream("/images/missile.png"));
@@ -30,7 +30,7 @@ public abstract class GameObjectFactory {
         } catch (IOException ex) {
             ex.printStackTrace(System.err);
         }
-    }
+    }*/
 
     public static ConcreteFactory createEnemyFactory(){
         return new EnemyFactory();

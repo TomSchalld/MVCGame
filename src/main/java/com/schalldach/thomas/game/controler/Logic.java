@@ -1,5 +1,6 @@
 package com.schalldach.thomas.game.controler;
 
+import com.schalldach.thomas.game.factory.CannonFactory;
 import com.schalldach.thomas.game.model.IObserver;
 import com.schalldach.thomas.game.model.Model;
 import com.schalldach.thomas.game.objects.Cannon;
@@ -17,20 +18,20 @@ public class Logic {
 
     private Canvas view;
     private Model model;
+
     private IObserver missileObsever;
     private IObserver enemyObserver;
-
-
-
     private IObserver cannonObserver;
+    private CannonFactory cannonFactory;
+
     private static Logic logic = null;
-    private GameObjectVisitor gov;
+    private GameModelVisitor gov;
 
 
     public static Logic getLogic(){
         if(logic==null){
             logic = new Logic();
-            logic.setModel(new Model());
+            logic.setModel(new Model(new CannonFactory(), null, null));
             logic.setObservers();
             logic.getModel().attach(logic.getMissileObsever());
             logic.getModel().attach(logic.getCannonObserver());
@@ -43,19 +44,22 @@ public class Logic {
         missileObsever = new IObserver() {
             @Override
             public void update() {
-                //TODO visitor missiles
+                //TODO check for collision
+                gov.visit(getModel());
             }
         };
         enemyObserver = new IObserver() {
             @Override
             public void update() {
-                //TODO visito enemies
+                //TODO prepare enemy visit
+                gov.visit(getModel());
             }
         };
         cannonObserver = new IObserver() {
             @Override
             public void update() {
                 //TODO visit cannon
+                gov.visit(getModel());
             }
         };
     }

@@ -2,28 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d11f26a-afda-407c-bac9-60ad41330e70" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/GameObjectVisitor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameObjectVisitor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/CannonMovement.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/IMoveDynamic.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/GameObjectVisitor.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/GameModelVisitor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameObject.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameModel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameObjectVisitor.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameModelVisitor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/App.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/App.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/Logic.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/Logic.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/CannonFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/CannonFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/ConcreteFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/ConcreteFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/EnemyFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/EnemyFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/GameObjectFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/GameObjectFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/GravityFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/GravityFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/MissileFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/MissileFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/ScoreFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/ScoreFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/TimerFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/TimerFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/APosition.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/APosition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/TwoDimPosition.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/TwoDimPosition.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/Gravity.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/Gravity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/model/Model.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/model/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/Cannon.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/Cannon.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/GameObject.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/GameObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/Canvas.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/Canvas.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/GraphicsDrawer.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/GraphicsDrawer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/MainWindow.java" afterPath="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/MainWindow.java" />
     </list>
     <ignored path="MVCGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,61 +47,17 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GravityFactory.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/GravityFactory.java">
+          <file leaf-file-name="Score.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/Score.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                <state relative-caret-position="90">
+                  <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="EnemyFactory.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/EnemyFactory.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#286#287#0" expanded="true" />
-                    <element signature="e#313#314#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MissileFactory.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/MissileFactory.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#260#261#0" expanded="true" />
-                    <element signature="e#287#288#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ScoreFactory.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/ScoreFactory.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#257#258#0" expanded="true" />
-                    <element signature="e#284#285#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="TimerFactory.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="TimerFactory.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/TimerFactory.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="210">
@@ -128,11 +74,35 @@
           <file leaf-file-name="CannonFactory.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/CannonFactory.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+                <state relative-caret-position="345">
+                  <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ConcreteFactory.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/ConcreteFactory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#299#300#0" expanded="true" />
+                    <element signature="e#323#324#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Cannon.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/Cannon.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -149,14 +119,38 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="Logic.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/Logic.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="285">
+                  <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="TwoDimPosition.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/TwoDimPosition.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="67" />
+                <state relative-caret-position="510">
+                  <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
                   <folding>
                     <element signature="e#1406#1407#0" expanded="true" />
                     <element signature="e#1471#1472#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Gravity.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/Gravity.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="240">
+                  <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#515#516#0" expanded="true" />
+                    <element signature="e#561#562#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -169,15 +163,41 @@
           <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/GameObject.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+                <state relative-caret-position="150">
+                  <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#619#620#0" expanded="true" />
-                    <element signature="e#650#651#0" expanded="true" />
-                    <element signature="e#804#805#0" expanded="true" />
-                    <element signature="e#832#833#0" expanded="true" />
+                    <element signature="e#503#504#0" expanded="true" />
+                    <element signature="e#555#556#0" expanded="true" />
+                    <element signature="e#602#603#0" expanded="true" />
+                    <element signature="e#633#634#0" expanded="true" />
+                    <element signature="e#787#788#0" expanded="true" />
+                    <element signature="e#815#816#0" expanded="true" />
+                    <element signature="e#851#852#0" expanded="true" />
+                    <element signature="e#881#882#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CannonMovement.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/CannonMovement.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IMoveDynamic.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/IMoveDynamic.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -185,102 +205,42 @@
           <file leaf-file-name="GraphicsDrawer.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/GraphicsDrawer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+                <state relative-caret-position="180">
+                  <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GameObjectFactory.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/GameObjectFactory.java">
+          <file leaf-file-name="GameModelVisitor.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/GameModelVisitor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+                <state relative-caret-position="180">
+                  <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#298#299#0" expanded="true" />
+                    <element signature="e#332#333#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Canvas.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/Canvas.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-                  <folding>
-                    <element signature="e#816#817#0" expanded="true" />
-                    <element signature="e#841#842#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Logic.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/Logic.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-                  <folding>
-                    <element signature="e#1988#1989#0" expanded="true" />
-                    <element signature="e#2024#2025#0" expanded="true" />
-                    <element signature="e#2060#2061#0" expanded="true" />
-                    <element signature="e#2095#2096#0" expanded="true" />
-                    <element signature="e#2135#2136#0" expanded="true" />
-                    <element signature="e#2172#2173#0" expanded="true" />
-                    <element signature="e#2203#2204#0" expanded="true" />
-                    <element signature="e#2230#2231#0" expanded="true" />
-                    <element signature="e#2270#2271#0" expanded="true" />
-                    <element signature="e#2302#2303#0" expanded="true" />
-                    <element signature="e#2333#2334#0" expanded="true" />
-                    <element signature="e#2361#2362#0" expanded="true" />
-                    <element signature="e#2402#2403#0" expanded="true" />
-                    <element signature="e#2436#2437#0" expanded="true" />
-                    <element signature="e#2480#2481#0" expanded="true" />
-                    <element signature="e#2517#2518#0" expanded="true" />
-                    <element signature="e#2560#2561#0" expanded="true" />
-                    <element signature="e#2596#2597#0" expanded="true" />
-                    <element signature="e#2657#2658#0" expanded="true" />
-                    <element signature="e#2707#2708#0" expanded="true" />
-                    <element signature="e#2751#2752#0" expanded="true" />
-                    <element signature="e#2788#2789#0" expanded="true" />
-                    <element signature="e#2851#2852#0" expanded="true" />
-                    <element signature="e#2903#2904#0" expanded="true" />
-                    <element signature="e#2966#2967#0" expanded="true" />
-                    <element signature="e#3018#3019#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="GameObjectVisitor.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/GameObjectVisitor.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IGameObjectVisitor.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameObjectVisitor.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IGameObject.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameObject.java">
+          <file leaf-file-name="IGameModel.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameModel.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="105">
-                  <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+                  <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IGameModelVisitor.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameModelVisitor.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="45">
+                  <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
@@ -289,8 +249,8 @@
           <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/model/Model.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="338">
-                  <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+                <state relative-caret-position="593">
+                  <caret line="59" column="35" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -315,8 +275,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -337,7 +297,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/APosition.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/ConcreteFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/CannonFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/TimerFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/ScoreFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/MissileFactory.java" />
@@ -348,14 +307,21 @@
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/GameObjectVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/Canvas.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/Cannon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/GameObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameObjectVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/GraphicsDrawer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/CannonFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/GameObjectFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/Logic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/MoveDynamic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/Gravity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/IMoveDynamic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/CannonMovement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/GameObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameObjectVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/model/Model.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameModelVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/GameModelVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/Logic.java" />
       </list>
     </option>
   </component>
@@ -756,6 +722,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.schalldach.thomas.game.objects" />
       <recent name="com.schalldach.thomas.game.factory" />
     </key>
   </component>
@@ -1124,12 +1091,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1479383879181</updated>
-      <workItem from="1479383880343" duration="18184000" />
+      <workItem from="1479383880343" duration="23416000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18184000" />
+    <option name="totallyTimeSpent" value="23416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1053" extended-state="6" />
@@ -1267,36 +1234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/CannonFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/APosition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/ConcreteFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#299#300#0" expanded="true" />
-            <element signature="e#323#324#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1305,69 +1242,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/TwoDimPosition.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/CannonFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="67" />
+        <state relative-caret-position="345">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
           <folding>
-            <element signature="e#1406#1407#0" expanded="true" />
-            <element signature="e#1471#1472#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/Cannon.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/GameObjectFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-            <element signature="e#804#805#0" expanded="true" />
-            <element signature="e#832#833#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameObjectVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/GameObjectVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="57" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1385,12 +1273,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/GameObjectFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/ConcreteFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+        <state relative-caret-position="225">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#299#300#0" expanded="true" />
+            <element signature="e#323#324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/Cannon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/model/IObservable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/model/IObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="57" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/APosition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/Score.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/TwoDimPosition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#1406#1407#0" expanded="true" />
+            <element signature="e#1471#1472#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1407,64 +1358,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/IMoveDynamic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/Gravity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#561#562#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#633#634#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#815#816#0" expanded="true" />
+            <element signature="e#851#852#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/CannonMovement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/view/GraphicsDrawer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/model/IObserver.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state relative-caret-position="105">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/Logic.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/IGameModelVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+        <state relative-caret-position="45">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/GameModelVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
-            <element signature="e#1988#1989#0" expanded="true" />
-            <element signature="e#2024#2025#0" expanded="true" />
-            <element signature="e#2060#2061#0" expanded="true" />
-            <element signature="e#2095#2096#0" expanded="true" />
-            <element signature="e#2135#2136#0" expanded="true" />
-            <element signature="e#2172#2173#0" expanded="true" />
-            <element signature="e#2203#2204#0" expanded="true" />
-            <element signature="e#2230#2231#0" expanded="true" />
-            <element signature="e#2270#2271#0" expanded="true" />
-            <element signature="e#2302#2303#0" expanded="true" />
-            <element signature="e#2333#2334#0" expanded="true" />
-            <element signature="e#2361#2362#0" expanded="true" />
-            <element signature="e#2402#2403#0" expanded="true" />
-            <element signature="e#2436#2437#0" expanded="true" />
-            <element signature="e#2480#2481#0" expanded="true" />
-            <element signature="e#2517#2518#0" expanded="true" />
-            <element signature="e#2560#2561#0" expanded="true" />
-            <element signature="e#2596#2597#0" expanded="true" />
-            <element signature="e#2657#2658#0" expanded="true" />
-            <element signature="e#2707#2708#0" expanded="true" />
-            <element signature="e#2751#2752#0" expanded="true" />
-            <element signature="e#2788#2789#0" expanded="true" />
-            <element signature="e#2851#2852#0" expanded="true" />
-            <element signature="e#2903#2904#0" expanded="true" />
-            <element signature="e#2966#2967#0" expanded="true" />
-            <element signature="e#3018#3019#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#298#299#0" expanded="true" />
+            <element signature="e#332#333#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+        <state relative-caret-position="593">
+          <caret line="59" column="35" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/controler/Logic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

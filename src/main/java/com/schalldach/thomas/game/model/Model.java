@@ -18,6 +18,11 @@ import java.util.concurrent.Executors;
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
 public class Model implements IObservable {
+    final private ConcreteFactory missileFactory = AbstractGameObjectFactory.createMissileFactory();
+    final private ConcreteFactory cannonFactory = AbstractGameObjectFactory.createCannonFactory();
+    final private ConcreteFactory collisionFactory = AbstractGameObjectFactory.createCollisionFactory();
+    final private ConcreteFactory enemyFactory = AbstractGameObjectFactory.createEnemyFactory();
+
     private ExecutorService executor;
     private int missileIndicator = 0;
     private List<IObserver> observers;
@@ -48,7 +53,7 @@ public class Model implements IObservable {
         return cannon;
     }
 
-    public List<Enemy> getEnemies() {
+    public  List<Enemy>  getEnemies() {
         return enemies;
     }
 
@@ -89,23 +94,18 @@ public class Model implements IObservable {
     }
 
     public void doBasicInstantiation() {
-        ConcreteFactory factory = AbstractGameObjectFactory.createCannonFactory();
         APosition pos = new TwoDimPosition();
         pos.addVector(Arrays.asList(400.0, 100.0));
-        factory.setInitialPosition(pos);
-        this.cannon = (Cannon) factory.create();
-        factory = AbstractGameObjectFactory.createEnemyFactory();
+        cannonFactory.setInitialPosition(pos);
+        this.cannon = (Cannon) cannonFactory.create();
         for (int i = 0; i < 10; i++) {
-            enemies.add((Enemy) factory.create());
+            this.enemies.add((Enemy) enemyFactory.create());
         }
-        factory = AbstractGameObjectFactory.createMissileFactory();
-        for (int i = 0; i < 10; i++) {
+        /*for (int i = 0; i < 100; i++) {
             missiles.add((Missile) factory.create());
         }
-        factory = AbstractGameObjectFactory.createCollisionFactory();
-        for (int i = 0; i < 10; i++) {
-            collisions.add((Collision) factory.create());
-        }
+        this.factory =  AbstractGameObjectFactory.createCollisionFactory();*/
+
     }
 
     public List<GameObject> getObjects() {
@@ -134,14 +134,37 @@ public class Model implements IObservable {
     }
 
 
+    public void checkForCollision(){
+        List<Enemy> enemyDisposal = new ArrayList<>();
+
+        for (int i = 0; i < missiles.size(); i++) {
+            for (int j = 0; j <enemies.size() ; j++) {
+                if (missiles.get(i).getPosition().equals(enemies.get(j).getPosition())){
+                    System.err.println("HIT!!!!!");
+                    enemyDisposal.add(enemies.get(j));
+                    collisionFactory.setInitialPosition(enemies.get(j).getPosition());
+                    collisions.add((Collision) collisionFactory.create());
+                }
+            }
+        }
+        enemies.removeAll(enemyDisposal);
+
+    }
+
     public void fireCannon() {
-        if (missileIndicator < 10) {
+        if (missileIndicator < missiles.size()) {
             missiles.get(missileIndicator).move(cannon.getPosition().getVector());
             executor.execute(new MissileMovementThread(missiles.get(missileIndicator)));
             missileIndicator++;
         }
         //notification();
     }
+
+    public void createMissile() {
+        missiles.add((Missile) missileFactory.create());
+    }
+
+
     //methods
     /*
     * moveCanonUp

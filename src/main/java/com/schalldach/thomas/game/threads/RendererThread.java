@@ -19,6 +19,7 @@ public class RendererThread implements Runnable {
 
         while (true){
             m.notification();
+            m.checkForCollision();
             try {
                 Thread.sleep(30);
             } catch (InterruptedException e) {

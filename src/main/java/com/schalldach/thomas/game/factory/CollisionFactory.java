@@ -1,5 +1,6 @@
 package com.schalldach.thomas.game.factory;
 
+import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.objects.Collision;
 import com.schalldach.thomas.game.objects.GameObject;
 
@@ -11,6 +12,9 @@ import java.io.IOException;
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
 public class CollisionFactory extends ConcreteFactory {
+
+
+
     public CollisionFactory() {
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/images/collision.png"));
@@ -22,6 +26,7 @@ public class CollisionFactory extends ConcreteFactory {
     @Override
     public GameObject create() {
         GameObject o = new Collision();
+        o.getPosition().addVector(this.getInitialPosition());
         o.setImage(getImage());
         return o;
     }

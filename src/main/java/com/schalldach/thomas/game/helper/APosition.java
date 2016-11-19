@@ -20,6 +20,12 @@ public abstract class APosition {
 
     }
 
+    @Override
+    public boolean equals(Object obj) {
+
+        return super.equals(obj);
+    }
+
     public List<Double> getVector() {
         return this.coordinates;
     }

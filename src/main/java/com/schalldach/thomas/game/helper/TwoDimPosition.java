@@ -11,7 +11,7 @@ import java.util.List;
 public class TwoDimPosition extends APosition {
 
 
-    //make sure position change doesnt violate window size
+    //make sure position change doesnt violate window size .... done!
 
     public TwoDimPosition() {
         super();
@@ -30,6 +30,23 @@ public class TwoDimPosition extends APosition {
     }
 
 
+    @Override
+    public boolean equals(Object obj) {
 
+        TwoDimPosition pos;
 
+        if (obj instanceof TwoDimPosition){
+            pos = (TwoDimPosition)obj;
+        }else {
+            return false;
+        }
+
+        if (this.getxCoordinate() - pos.getxCoordinate() < 20 && this.getxCoordinate() - pos.getxCoordinate()>0) {
+            if (this.getyCoordinate() - pos.getyCoordinate() < 20 && this.getyCoordinate() - pos.getyCoordinate() > 0) {
+                return true;
+            }
+        }
+
+       return false;
+    }
 }

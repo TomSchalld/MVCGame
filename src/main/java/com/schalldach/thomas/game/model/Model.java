@@ -1,37 +1,37 @@
 package com.schalldach.thomas.game.model;
 
-import com.schalldach.thomas.game.controler.GameModelVisitor;
-import com.schalldach.thomas.game.controler.IGameModel;
 import com.schalldach.thomas.game.factory.CannonFactory;
-import com.schalldach.thomas.game.factory.EnemyFactory;
-import com.schalldach.thomas.game.factory.MissileFactory;
-import com.schalldach.thomas.game.objects.Cannon;
-import com.schalldach.thomas.game.objects.Collision;
-import com.schalldach.thomas.game.objects.Enemy;
-import com.schalldach.thomas.game.objects.Missile;
+import com.schalldach.thomas.game.objects.*;
 import com.schalldach.thomas.game.helper.Gravity;
 import com.schalldach.thomas.game.helper.Score;
 
-import java.util.List;
-import java.util.Timer;
+import java.util.*;
 
-public class Model implements IObservable, IGameModel{
+public class Model implements IObservable{
+    private List<GameObject> drawableObjects;
     private List<IObserver> observers;
     private Cannon cannon;
     private List<Enemy> enemies;
     private List<Missile> missiles;
+    private CannonFactory cf;
     private Score score;
     private Gravity gravity;
     private Timer timer;
 
-    public Model(CannonFactory cf, MissileFactory mf, EnemyFactory ef){
-        //TODO setup factories
+    public Model(){
+        observers = new ArrayList<IObserver>();
+        cf = new CannonFactory();
+        cf.setImage(Config.CANNON_IMAGE);
+        cf.setDrawable(true);
         cannon = (Cannon) cf.create();
+        notification();
+        //TODO setup factories
     }
 
     @Override
     public void attach(IObserver observer) {
         observers.add(observer);
+        System.out.println("Added Observer: "+observer.toString());
     }
     @Override
     public void detach(IObserver observer) {
@@ -44,32 +44,16 @@ public class Model implements IObservable, IGameModel{
         }
     }
 
-    public void progressGame(){
+    public List<GameObject> getDrawableObjects(){
+        drawableObjects = new ArrayList<GameObject>();
+        drawableObjects.add(cannon);
         for(Missile m : missiles){
-            //TODO Move missiles
+            if(m.isDrawable()) drawableObjects.add(m);
         }
-        for(Enemy e: enemies){
-            //TODO Move enemies
+        for(Enemy e : enemies){
+            if(e.isDrawable()) drawableObjects.add(e);
         }
-        //TODO On user input, move cannon
-        notification();
+        return drawableObjects;
     }
 
-    @Override
-    public void accept(GameModelVisitor visitor) {
-        //TODO Draw the gameObjects
-    }
-    //methods
-    /*
-    * moveCanonUp
-    * changeCanonAngle
-    * shoot
-    * changeGravity
-    *
-    * main game loop
-    *
-    * moves missiles, checks collisions, discards old objects
-    *
-    * moves objects
-    * */
 }

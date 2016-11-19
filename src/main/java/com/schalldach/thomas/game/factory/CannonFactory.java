@@ -1,5 +1,6 @@
 package com.schalldach.thomas.game.factory;
 
+import com.schalldach.thomas.game.model.Config;
 import com.schalldach.thomas.game.objects.Cannon;
 import com.schalldach.thomas.game.objects.GameObject;
 
@@ -16,15 +17,8 @@ public class CannonFactory extends ConcreteFactory{
     @Override
     public GameObject create() {
         Cannon c = new Cannon();
-        try {
-            setImage(ImageIO.read(getClass().getResourceAsStream("/images/cannon.png")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //TODO implement get/setters
+        c.setImage(i);
+        c.setDrawable(drawable);
         return c;
     }
-
-
-
 }

@@ -7,39 +7,40 @@ import java.util.List;
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
 public class TwoDimPosition extends APosition{
-    private double xCoordinate;
-    private double yCoordinate;
+
+    private float xCoordinate;
+    private float yCoordinate;
 
     public TwoDimPosition() {
-        this.xCoordinate = 0.0;
-        this.yCoordinate= 0.0;
+        this.xCoordinate = 0;
+        this.yCoordinate= 0;
     }
 
-    private void changePosition(double deltaX, double deltaY){
+    private void changePosition(float deltaX, float deltaY){
         //TODO make sure position change doesnt violate window size
         this.setxCoordinate(this.getxCoordinate()+deltaX);
         this.setyCoordinate(this.getyCoordinate()+deltaY);
     }
 
-    private void updatePosition(double posX, double posY){
+    private void updatePosition(float posX, float posY){
         //TODO make sure position change doesnt violate window size
         this.setxCoordinate(posX);
         this.setyCoordinate(posY);
     }
 
-    public double getxCoordinate() {
+    public float getxCoordinate() {
         return xCoordinate;
     }
 
-    public void setxCoordinate(double xCoordinate) {
+    public void setxCoordinate(float xCoordinate) {
         this.xCoordinate = xCoordinate;
     }
 
-    public double getyCoordinate() {
+    public float getyCoordinate() {
         return yCoordinate;
     }
 
-    public void setyCoordinate(double yCoordinate) {
+    public void setyCoordinate(float yCoordinate) {
         this.yCoordinate = yCoordinate;
     }
 

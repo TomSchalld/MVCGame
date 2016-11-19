@@ -1,8 +1,6 @@
 package com.schalldach.thomas.game.view;
 
-import com.schalldach.thomas.game.controler.IGameObjectVisitor;
 import com.schalldach.thomas.game.objects.GameObject;
-import cz.fit.dpo.mvcshooter.Cannon;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -13,12 +11,13 @@ import java.io.IOException;
  *
  * @author Ondrej Stuchlik
  */
-public class GraphicsDrawer implements IGameObjectVisitor{
-
+public class GraphicsDrawer{
 
     public void drawObject(Graphics g, GameObject obj) {
-        g.drawImage(obj.getImage(),
-              obj.getPosition().getxCoordinate() - obj.getImage().getWidth()/2,
-              obj.getPosition().getyCoordinate() - obj.getImage().getHeight()/2, null);
+        g.drawImage(
+                obj.getImage(),
+                (int)(obj.getPosition().getxCoordinate() - obj.getImage().getWidth()/2),
+                (int)(obj.getPosition().getyCoordinate() - obj.getImage().getHeight()/2),
+                null);
     }
 }

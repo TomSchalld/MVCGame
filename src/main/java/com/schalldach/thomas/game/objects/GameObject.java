@@ -1,24 +1,20 @@
 package com.schalldach.thomas.game.objects;
 
-import com.schalldach.thomas.game.controler.GameModelVisitor;
-import com.schalldach.thomas.game.controler.IGameObject;
+import com.schalldach.thomas.game.controler.GameVisitor;
 import com.schalldach.thomas.game.helper.APosition;
-import com.schalldach.thomas.game.helper.TwoDimPosition;
 
+import java.awt.image.BufferedImage;
 import java.util.List;
-import java.awt.Image;
 
-public abstract class GameObject implements IGameObject{
+public abstract class GameObject{
     protected APosition position;
-    protected Image image;
+    protected BufferedImage image;
     protected IMoveDynamic moveDynamic;
-    public GameObject() {
-        this.position = new TwoDimPosition();
-    }
+    protected boolean drawable;
 
-    public void accept(GameModelVisitor gov){
-        gov.visit(this);
-    };
+    public void accept(GameVisitor gv){
+        gv.visitDrawing(this);
+    }
 
     public abstract void move(List<Integer> vector);
 
@@ -26,12 +22,19 @@ public abstract class GameObject implements IGameObject{
         return position;
     }
 
-    public Image getImage(){
+    public BufferedImage getImage(){
         return image;
     }
 
-    public void setImage(Image i){
+    public void setImage(BufferedImage i){
         this.image = i;
     }
 
+    public boolean isDrawable() {
+        return drawable;
+    }
+
+    public void setDrawable(boolean drawable) {
+        this.drawable = drawable;
+    }
 }

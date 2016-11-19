@@ -5,69 +5,71 @@ import com.schalldach.thomas.game.model.IObserver;
 import com.schalldach.thomas.game.model.Model;
 import com.schalldach.thomas.game.objects.Cannon;
 import com.schalldach.thomas.game.objects.Enemy;
+import com.schalldach.thomas.game.objects.GameObject;
 import com.schalldach.thomas.game.objects.Missile;
 import com.schalldach.thomas.game.view.Canvas;
 import com.schalldach.thomas.game.view.MainWindow;
 import com.schalldach.thomas.game.view.UI;
+import com.sun.org.apache.bcel.internal.classfile.Visitor;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.List;
 
 /**
  * Created by B.Sc. Thomas Schalldach on 22/10/2016. The code of this application is free to use for non-commercial projects,
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
-public class Logic {
+public class Logic implements GameVisitor, IObserver{
 
-    private Canvas view;
+    private MainWindow view;
     private Model model;
-
-    private IObserver missileObsever;
-    private IObserver enemyObserver;
-    private IObserver cannonObserver;
     private CannonFactory cannonFactory;
-
     private static Logic logic = null;
-    private GameModelVisitor gov;
-
 
     public static Logic getLogic(){
         if(logic==null){
             logic = new Logic();
-            logic.setModel(new Model(new CannonFactory(), null, null));
-            logic.setObservers();
-            logic.getModel().attach(logic.getMissileObsever());
-            logic.getModel().attach(logic.getCannonObserver());
-            logic.getModel().attach(logic.getEnemyObserver());
         }
         return logic;
     }
 
-    private void setObservers(){
-        missileObsever = new IObserver() {
+    private Logic(){
+        view = new MainWindow();
+        model = new Model();
+        model.attach(this);
+        view.addKeyListener(new KeyAdapter() {
             @Override
-            public void update() {
-                //TODO check for collision
-                gov.visit(getModel());
+            public void keyPressed(KeyEvent evt) {
+                // delegate to controller
+                System.out.println("key pressed: " + evt.getKeyCode());
             }
-        };
-        enemyObserver = new IObserver() {
-            @Override
-            public void update() {
-                //TODO prepare enemy visit
-                gov.visit(getModel());
-            }
-        };
-        cannonObserver = new IObserver() {
-            @Override
-            public void update() {
-                //TODO visit cannon
-                gov.visit(getModel());
-            }
-        };
+        });
+        view.setVisible(true);
+        //Thread movement = new Thread(new MovementThread)
     }
 
-
-    public void drawObject(){
-        //view.getGraphics();
+    @Override
+    public void visitCollisions(GameObject o) {
+        //TODO Check for collisions
     }
+
+    @Override
+    public void visitDrawing(GameObject o){
+        //TODO Update data about the object to the Canvas
+        view.getCanvas().getDrawer().drawObject(view.getCanvas().getGraphics(),o);
+    }
+
+    @Override
+    public void update() {
+        //TODO check for collisions
+        System.out.println("Received update call from Model");
+        for(GameObject o : model.getDrawableObjects()){
+            o.accept(this);
+        }
+        view.getCanvas().repainter();
+    }
+
     public void visit(Cannon cannon){
         cannon.getPosition();
     }
@@ -78,46 +80,4 @@ public class Logic {
         missile.getPosition();
     }
 
-    public Canvas getView() {
-        return view;
-    }
-
-    public void setView(Canvas view) {
-        this.view = view;
-    }
-
-    public Model getModel() {
-        return model;
-    }
-
-    public void setModel(Model model) {
-        this.model = model;
-    }
-
-    public IObserver getMissileObsever() {
-        return missileObsever;
-    }
-
-    public IObserver getEnemyObserver() {
-        return enemyObserver;
-    }
-
-    public void setEnemyObserver(IObserver enemyObserver) {
-        this.enemyObserver = enemyObserver;
-    }
-
-    public IObserver getCannonObserver() {
-        return cannonObserver;
-    }
-
-    public void setCannonObserver(IObserver cannonObserver) {
-        this.cannonObserver = cannonObserver;
-    }
-
-    public void setMissileObsever(IObserver missileObsever) {
-        this.missileObsever = missileObsever;
-    }
-
-    private Logic(){
-    }
 }

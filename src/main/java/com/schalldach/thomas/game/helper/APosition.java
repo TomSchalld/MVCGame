@@ -10,4 +10,7 @@ public abstract class APosition {
 
     public abstract void addVector(List<Integer> dimension);
 
+    public abstract float getyCoordinate();
+
+    public abstract float getxCoordinate();
 }

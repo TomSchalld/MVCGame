@@ -18,7 +18,13 @@ public abstract class GameObject {
         this.position = new TwoDimPosition();
     }
 
+    public boolean isPositionValid(){
 
+        if(position.getVector().get(0)<1080&&position.getVector().get(1)<720){
+            return true;
+        }
+        return false;
+    }
 
     public void accept(Visitor visitor) {
         visitor.visit(this);

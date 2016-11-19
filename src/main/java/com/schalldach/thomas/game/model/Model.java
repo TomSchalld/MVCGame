@@ -7,7 +7,7 @@ import com.schalldach.thomas.game.helper.Gravity;
 import com.schalldach.thomas.game.helper.Score;
 import com.schalldach.thomas.game.helper.TwoDimPosition;
 import com.schalldach.thomas.game.objects.*;
-import com.schalldach.thomas.game.threads.MissileMovement;
+import com.schalldach.thomas.game.threads.MissileMovementThread;
 
 import java.util.*;
 import java.util.concurrent.ExecutorService;
@@ -133,19 +133,14 @@ public class Model implements IObservable {
         missile.getPosition().addVector(Arrays.asList(0.0, 120.0));
     }
 
-    public void randomizeEnemies() {
-        enemies.forEach(enemy -> enemy.getPosition().addVector(Arrays.asList(Math.random() * 10, Math.random() * 10)));
-        notification();
-    }
 
     public void fireCannon() {
         if (missileIndicator < 10) {
             missiles.get(missileIndicator).move(cannon.getPosition().getVector());
-
-            executor.execute(new MissileMovement(missiles.get(missileIndicator)));
+            executor.execute(new MissileMovementThread(missiles.get(missileIndicator)));
             missileIndicator++;
         }
-
+        //notification();
     }
     //methods
     /*

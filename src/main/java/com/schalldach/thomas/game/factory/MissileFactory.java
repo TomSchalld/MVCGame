@@ -15,6 +15,8 @@ import java.io.IOException;
 public class MissileFactory extends ConcreteFactory {
 
 
+
+
     Strategy missileStrategy = new LinearCurve();
 
     public MissileFactory() {

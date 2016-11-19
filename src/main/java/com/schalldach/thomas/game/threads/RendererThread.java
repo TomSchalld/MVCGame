@@ -3,31 +3,28 @@ package com.schalldach.thomas.game.threads;
 import com.schalldach.thomas.game.model.Model;
 
 /**
- * Created by B.Sc. Thomas Schalldach on 17/11/2016. The code of this application is free to use for non-commercial projects,
+ * Created by B.Sc. Thomas Schalldach on 19/11/2016. The code of this application is free to use for non-commercial projects,
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
-public class BackgroundThread implements Runnable{
+public class RendererThread implements Runnable {
 
-    private static Model model;
+    private Model m;
 
-
-    public BackgroundThread(Model model) {
-        this.model = model;
+    public RendererThread(Model m) {
+        this.m = m;
     }
 
     @Override
     public void run() {
 
         while (true){
-            model.randomizeEnemies();
+            m.notification();
             try {
-                Thread.sleep(300);
+                Thread.sleep(30);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-                break;
             }
         }
-
 
     }
 }

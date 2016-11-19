@@ -1,17 +1,19 @@
 package com.schalldach.thomas.game.controler;
 
 import com.schalldach.thomas.game.helper.APosition;
-import com.schalldach.thomas.game.threads.BackgroundThread;
+import com.schalldach.thomas.game.threads.EnemyMovementThread;
 import com.schalldach.thomas.game.model.IObserver;
 import com.schalldach.thomas.game.model.Model;
 import com.schalldach.thomas.game.objects.GameObject;
 import com.schalldach.thomas.game.objects.Visitor;
+import com.schalldach.thomas.game.threads.RendererThread;
 import com.schalldach.thomas.game.view.MainWindow;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * Created by B.Sc. Thomas Schalldach on 22/10/2016. The code of this application is free to use for non-commercial projects,
@@ -23,7 +25,7 @@ public class Logic implements Visitor, IObserver {
     private Model model;
     private static Logic instance;
     private static Object lock = new Object();
-    private BackgroundThread thread ;
+    private EnemyMovementThread thread ;
 
     public MainWindow getView() {
         return view;
@@ -69,8 +71,10 @@ public class Logic implements Visitor, IObserver {
 
         });
         view.setVisible(true);
-        Thread backGround = new Thread(new BackgroundThread(model));
-        backGround.start();
+        Thread renderer = new Thread(new RendererThread(this.model));
+        Thread enemyThread = new Thread(new EnemyMovementThread(this.model.getEnemies()));
+        renderer.start();
+        enemyThread.start();
 
     }
 

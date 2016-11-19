@@ -23,7 +23,6 @@ public class Model implements IObservable {
     final private ConcreteFactory collisionFactory = AbstractGameObjectFactory.createCollisionFactory();
     final private ConcreteFactory enemyFactory = AbstractGameObjectFactory.createEnemyFactory();
 
-    private ExecutorService executor;
     private int missileIndicator = 0;
     private List<IObserver> observers;
     private Cannon cannon;
@@ -40,7 +39,6 @@ public class Model implements IObservable {
         missiles = new ArrayList<>();
         collisions = new ArrayList<>();
         observers = new ArrayList<>();
-        executor = Executors.newFixedThreadPool(10);
 
 
     }
@@ -154,7 +152,7 @@ public class Model implements IObservable {
     public void fireCannon() {
         if (missileIndicator < missiles.size()) {
             missiles.get(missileIndicator).move(cannon.getPosition().getVector());
-            executor.execute(new MissileMovementThread(missiles.get(missileIndicator)));
+            cannon.shoot(missiles.get(missileIndicator));
             missileIndicator++;
         }
         //notification();
@@ -162,6 +160,16 @@ public class Model implements IObservable {
 
     public void createMissile() {
         missiles.add((Missile) missileFactory.create());
+    }
+
+    public void shoot() {
+        if (cannon.getState()== Cannon.CannonState.shootable){
+            this.createMissile();
+            this.fireCannon();
+        }else {
+            System.err.println("Cant Shoot cannon is in state: " + cannon.getState());
+        }
+
     }
 
 

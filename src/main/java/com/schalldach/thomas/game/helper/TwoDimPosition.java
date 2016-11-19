@@ -41,8 +41,8 @@ public class TwoDimPosition extends APosition {
             return false;
         }
 
-        if (this.getxCoordinate() - pos.getxCoordinate() < 20 && this.getxCoordinate() - pos.getxCoordinate()>0) {
-            if (this.getyCoordinate() - pos.getyCoordinate() < 20 && this.getyCoordinate() - pos.getyCoordinate() > 0) {
+        if (this.getxCoordinate() - pos.getxCoordinate() < 30 && this.getxCoordinate() - pos.getxCoordinate()>0) {
+            if (this.getyCoordinate() - pos.getyCoordinate() < 30 && this.getyCoordinate() - pos.getyCoordinate() > 0) {
                 return true;
             }
         }

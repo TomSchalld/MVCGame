@@ -99,8 +99,8 @@ public class Logic implements Visitor, IObserver {
         APosition pos = model.getCannon().getPosition();
         switch (evt.getKeyCode()) {
             case 32:
-                model.createMissile();
-                model.fireCannon();
+                model.shoot();
+
             case 37:
                 System.out.println("left");
                 break;

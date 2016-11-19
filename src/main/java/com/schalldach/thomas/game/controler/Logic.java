@@ -1,7 +1,7 @@
 package com.schalldach.thomas.game.controler;
 
 import com.schalldach.thomas.game.helper.APosition;
-import com.schalldach.thomas.game.helper.BackgroundThread;
+import com.schalldach.thomas.game.threads.BackgroundThread;
 import com.schalldach.thomas.game.model.IObserver;
 import com.schalldach.thomas.game.model.Model;
 import com.schalldach.thomas.game.objects.GameObject;
@@ -95,7 +95,7 @@ public class Logic implements Visitor, IObserver {
         APosition pos = model.getCannon().getPosition();
         switch (evt.getKeyCode()) {
             case 32:
-                BackgroundThread.fireCannon();
+                model.fireCannon();
             case 37:
                 System.out.println("left");
                 break;

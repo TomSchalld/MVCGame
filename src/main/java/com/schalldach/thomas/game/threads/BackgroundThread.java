@@ -1,4 +1,4 @@
-package com.schalldach.thomas.game.helper;
+package com.schalldach.thomas.game.threads;
 
 import com.schalldach.thomas.game.model.Model;
 
@@ -14,16 +14,14 @@ public class BackgroundThread implements Runnable{
     public BackgroundThread(Model model) {
         this.model = model;
     }
-    public static void fireCannon() {
-        model.moveMissile(model.getMissiles().get(0));
-    }
+
     @Override
     public void run() {
 
         while (true){
             model.randomizeEnemies();
             try {
-                Thread.sleep(3000);
+                Thread.sleep(300);
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 break;

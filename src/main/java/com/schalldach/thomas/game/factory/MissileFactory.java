@@ -2,6 +2,8 @@ package com.schalldach.thomas.game.factory;
 
 import com.schalldach.thomas.game.objects.GameObject;
 import com.schalldach.thomas.game.objects.Missile;
+import com.schalldach.thomas.game.strategy.LinearCurve;
+import com.schalldach.thomas.game.strategy.Strategy;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
@@ -11,6 +13,9 @@ import java.io.IOException;
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
 public class MissileFactory extends ConcreteFactory {
+
+
+    Strategy missileStrategy = new LinearCurve();
 
     public MissileFactory() {
         try {
@@ -22,8 +27,9 @@ public class MissileFactory extends ConcreteFactory {
 
     @Override
     public GameObject create() {
-        GameObject o = new Missile();
-        o.setImage(getImage());
-        return o;
+        Missile m = new Missile();
+        m.setStrategy(missileStrategy);
+        m.setImage(getImage());
+        return m;
     }
 }

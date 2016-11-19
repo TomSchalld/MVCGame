@@ -8,8 +8,22 @@ import java.util.List;
  */
 public abstract class APosition {
 
+    protected List<Double> coordinates;
 
-    public abstract void addVector(List<Double> dimension);
+    public void addVector(List<Double> dimension) {
+        coordinates.clear();
+        coordinates.addAll(dimension);
+    }
+
+    public void addVector(APosition position){
+        this.addVector(position.coordinates);
+
+    }
+
+    public List<Double> getVector() {
+        return this.coordinates;
+    }
+
 
 
 }

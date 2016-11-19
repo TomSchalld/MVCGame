@@ -6,23 +6,20 @@ import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.helper.Gravity;
 import com.schalldach.thomas.game.helper.Score;
 import com.schalldach.thomas.game.helper.TwoDimPosition;
-import com.schalldach.thomas.game.objects.Cannon;
-import com.schalldach.thomas.game.objects.Collision;
-import com.schalldach.thomas.game.objects.Enemy;
-import com.schalldach.thomas.game.objects.GameObject;
-import com.schalldach.thomas.game.objects.Missile;
+import com.schalldach.thomas.game.objects.*;
+import com.schalldach.thomas.game.threads.MissileMovement;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Timer;
+import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by B.Sc. Thomas Schalldach on 16/10/2016. The code of this application is free to use for non-commercial projects,
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
 public class Model implements IObservable {
+    private ExecutorService executor;
+    private int missileIndicator = 0;
     private List<IObserver> observers;
     private Cannon cannon;
     private List<Enemy> enemies;
@@ -38,6 +35,7 @@ public class Model implements IObservable {
         missiles = new ArrayList<>();
         collisions = new ArrayList<>();
         observers = new ArrayList<>();
+        executor = Executors.newFixedThreadPool(10);
 
 
     }
@@ -93,51 +91,61 @@ public class Model implements IObservable {
     public void doBasicInstantiation() {
         ConcreteFactory factory = AbstractGameObjectFactory.createCannonFactory();
         APosition pos = new TwoDimPosition();
-        pos.addVector(Arrays.asList(400.0,100.0));
+        pos.addVector(Arrays.asList(400.0, 100.0));
         factory.setInitialPosition(pos);
         this.cannon = (Cannon) factory.create();
         factory = AbstractGameObjectFactory.createEnemyFactory();
-        for (int i = 0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             enemies.add((Enemy) factory.create());
         }
         factory = AbstractGameObjectFactory.createMissileFactory();
-        for (int i = 0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             missiles.add((Missile) factory.create());
         }
         factory = AbstractGameObjectFactory.createCollisionFactory();
-        for (int i = 0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             collisions.add((Collision) factory.create());
         }
     }
 
     public List<GameObject> getObjects() {
         List<GameObject> list = new LinkedList<>();
-                list.addAll(getMissiles());
-                list.addAll(getEnemies());
-                list.addAll(getCollisions());
-                list.add(getCannon());
+        list.addAll(getMissiles());
+        list.addAll(getEnemies());
+        list.addAll(getCollisions());
+        list.add(getCannon());
         return list;
 
     }
-
     public void moveCannonUp() {
         TwoDimPosition pos = (TwoDimPosition) cannon.getPosition();
-        pos.addVector(Arrays.asList(0.0,-30.0));
+        pos.addVector(Arrays.asList(0.0, pos.getyCoordinate()-30.0));
         notification();
     }
 
     public void moveCannonDown() {
         TwoDimPosition pos = (TwoDimPosition) cannon.getPosition();
-        pos.addVector(Arrays.asList(0.0,30.0));
+        pos.addVector(Arrays.asList(0.0, pos.getyCoordinate()+30.0));
         notification();
-    }
-    public void moveMissile(Missile missile){
-        missile.getPosition().addVector(Arrays.asList(0.0,120.0));
     }
 
-    public void randomizeEnemies(){
-        enemies.forEach(enemy -> enemy.getPosition().addVector(Arrays.asList(Math.random()*10,Math.random()*10)));
+    public void moveMissile(Missile missile) {
+        missile.getPosition().addVector(Arrays.asList(0.0, 120.0));
+    }
+
+    public void randomizeEnemies() {
+        enemies.forEach(enemy -> enemy.getPosition().addVector(Arrays.asList(Math.random() * 10, Math.random() * 10)));
         notification();
+    }
+
+    public void fireCannon() {
+        if (missileIndicator < 10) {
+            missiles.get(missileIndicator).move(cannon.getPosition().getVector());
+
+            executor.execute(new MissileMovement(missiles.get(missileIndicator)));
+            missileIndicator++;
+        }
+
     }
     //methods
     /*

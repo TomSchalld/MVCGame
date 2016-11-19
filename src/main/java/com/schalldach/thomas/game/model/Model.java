@@ -6,9 +6,17 @@ import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.helper.Gravity;
 import com.schalldach.thomas.game.helper.Score;
 import com.schalldach.thomas.game.helper.TwoDimPosition;
-import com.schalldach.thomas.game.objects.*;
+import com.schalldach.thomas.game.objects.Cannon;
+import com.schalldach.thomas.game.objects.Collision;
+import com.schalldach.thomas.game.objects.Enemy;
+import com.schalldach.thomas.game.objects.GameObject;
+import com.schalldach.thomas.game.objects.Missile;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Timer;
 
 /**
  * Created by B.Sc. Thomas Schalldach on 16/10/2016. The code of this application is free to use for non-commercial projects,
@@ -108,7 +116,6 @@ public class Model implements IObservable {
                 list.addAll(getEnemies());
                 list.addAll(getCollisions());
                 list.add(getCannon());
-
         return list;
 
     }
@@ -124,7 +131,14 @@ public class Model implements IObservable {
         pos.addVector(Arrays.asList(0.0,30.0));
         notification();
     }
+    public void moveMissile(Missile missile){
+        missile.getPosition().addVector(Arrays.asList(0.0,120.0));
+    }
 
+    public void randomizeEnemies(){
+        enemies.forEach(enemy -> enemy.getPosition().addVector(Arrays.asList(Math.random()*10,Math.random()*10)));
+        notification();
+    }
     //methods
     /*
     * moveCanonUp

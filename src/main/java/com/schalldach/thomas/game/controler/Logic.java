@@ -1,7 +1,7 @@
 package com.schalldach.thomas.game.controler;
 
 import com.schalldach.thomas.game.helper.APosition;
-import com.schalldach.thomas.game.helper.TwoDimPosition;
+import com.schalldach.thomas.game.helper.BackgroundThread;
 import com.schalldach.thomas.game.model.IObserver;
 import com.schalldach.thomas.game.model.Model;
 import com.schalldach.thomas.game.objects.GameObject;
@@ -10,7 +10,6 @@ import com.schalldach.thomas.game.view.MainWindow;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class Logic implements Visitor, IObserver {
     private Model model;
     private static Logic instance;
     private static Object lock = new Object();
-
+    private BackgroundThread thread ;
 
     public MainWindow getView() {
         return view;
@@ -62,34 +61,16 @@ public class Logic implements Visitor, IObserver {
             @Override
             public void keyPressed(KeyEvent evt) {
                 // delegate to controller
-                moveCannon(evt);
+                cannonAction(evt);
                 //update();
                 System.out.println("key pressed: " + evt.getKeyCode());
             }
 
-            private void moveCannon(KeyEvent evt) {
-                APosition pos = model.getCannon().getPosition();
-                switch (evt.getKeyCode()) {
-                    case 37:
-                        System.out.println("left");
-                        break;
-                    case 38:
-                        System.out.println("up");
-                        model.moveCannonUp();
-                        break;
-                    case 39:
-                        System.out.println("right");
-                        break;
-                    case 40:
-                        System.out.println("down");
-                        model.moveCannonDown();
-                        break;
 
-                }
-            }
         });
         view.setVisible(true);
-
+        Thread backGround = new Thread(new BackgroundThread(model));
+        backGround.start();
 
     }
 
@@ -109,5 +90,27 @@ public class Logic implements Visitor, IObserver {
     @Override
     public void visit(GameObject object) {
         view.getView().getToBeDrawn().add(object);
+    }
+    private void cannonAction(KeyEvent evt) {
+        APosition pos = model.getCannon().getPosition();
+        switch (evt.getKeyCode()) {
+            case 32:
+                BackgroundThread.fireCannon();
+            case 37:
+                System.out.println("left");
+                break;
+            case 38:
+                System.out.println("up");
+                model.moveCannonUp();
+                break;
+            case 39:
+                System.out.println("right");
+                break;
+            case 40:
+                System.out.println("down");
+                model.moveCannonDown();
+                break;
+
+        }
     }
 }

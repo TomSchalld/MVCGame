@@ -1,6 +1,6 @@
 package com.schalldach.thomas.game;
 
-import com.schalldach.thomas.game.controler.Logic;
+import com.schalldach.thomas.game.controller.Logic;
 
 
 /**

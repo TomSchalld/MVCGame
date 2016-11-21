@@ -6,6 +6,4 @@ package com.schalldach.thomas.game.view;
  */
 public class UI {
 
-
-
 }

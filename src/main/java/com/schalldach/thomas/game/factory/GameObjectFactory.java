@@ -1,6 +1,6 @@
 package com.schalldach.thomas.game.factory;
 
-import com.schalldach.thomas.game.objects.Canon;
+import com.schalldach.thomas.game.objects.Cannon;
 import com.schalldach.thomas.game.objects.GameObject;
 
 /**
@@ -9,22 +9,19 @@ import com.schalldach.thomas.game.objects.GameObject;
  */
 public abstract class GameObjectFactory {
 
-    public enum Method{
-        Canon, Enemy, Missile,Collision,Score,Gravity, Timer
+    public static ConcreteFactory createCannonFactory(){
+        return new CannonFactory();
     }
 
-
-
-    public static GameObject create(Method param){
-
-        switch (param){
-            case Canon:
-                return new Canon();
-            case
-        }
-
-        return null,
+    public  static ConcreteFactory createCollisionFactory(){
+        return new CollisionFactory();
     }
 
+    public  static ConcreteFactory createEnemyFactory(){
+        return new EnemyFactory();
+    }
 
+    public  static ConcreteFactory createMissileFactory(){
+        return new MissileFactory();
+    }
 }

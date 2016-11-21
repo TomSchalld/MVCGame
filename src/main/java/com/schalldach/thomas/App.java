@@ -1,6 +1,8 @@
 package com.schalldach.thomas;
 
-import com.schalldach.thomas.game.Game;
+import com.schalldach.thomas.game.controller.Logic;
+
+import javax.swing.*;
 
 /**
  * Hello world!
@@ -10,8 +12,12 @@ public class App
 {
     public static void main( String[] args )
     {
-        Game game = new Game();
+        SwingUtilities.invokeLater(new Runnable(){
+            @Override
+            public void run() {
+               Logic logic = Logic.getInstance();
 
-        System.out.println( "Hello World!" );
+            }
+        });
     }
 }

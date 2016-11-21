@@ -114,19 +114,22 @@ public class Logic implements Visitor, IObserver {
         switch (evt.getKeyCode()) {
             case 32:
                 model.shoot();
+                break;
             case 37:
                 System.out.println("left");
+                model.moveCannonLeft();
                 break;
             case 38:
                 System.out.println("up");
-                model.moveCannonUp();
+                //model.moveCannonUp();
                 break;
             case 39:
                 System.out.println("right");
+                model.moveCannonRight();
                 break;
             case 40:
                 System.out.println("down");
-                model.moveCannonDown();
+                //model.moveCannonDown();
                 break;
 
         }

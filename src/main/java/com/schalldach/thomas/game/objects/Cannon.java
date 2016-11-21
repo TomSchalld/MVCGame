@@ -3,6 +3,8 @@ package com.schalldach.thomas.game.objects;
 import com.schalldach.thomas.game.threads.CannonStateHandler;
 import com.schalldach.thomas.game.threads.MissileMovementThread;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -11,17 +13,43 @@ import java.util.concurrent.Executors;
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
 public class Cannon extends GameObject {
+    private BufferedImage shooting;
+    private BufferedImage notShooting;
     private  ExecutorService  executor = Executors.newFixedThreadPool(10);
 
 
     public enum CannonState {
-        shootable, coolDown, outOfAmmunition
+        shootable, shooting, coolDown, outOfAmmunition
     }
 
     private int shots = 0;
     private int maxShots = 10;
     private CannonState state = CannonState.shootable;
 
+
+    public BufferedImage getShooting() {
+        return shooting;
+    }
+
+    public void setShooting(BufferedImage shooting) {
+        this.shooting = shooting;
+    }
+
+    public BufferedImage getNotShooting() {
+        return notShooting;
+    }
+
+    public void setNotShooting(BufferedImage notShooting) {
+        this.notShooting = notShooting;
+    }
+
+    public void changeImageShootingNotShooting(){
+        if(this.image.equals(shooting)){
+            this.image = notShooting;
+        }else {
+            this.image = shooting;
+        }
+    }
     public int getShots() {
         return shots;
     }
@@ -29,8 +57,6 @@ public class Cannon extends GameObject {
     public int getMaxShots() {
         return maxShots;
     }
-
-
 
     public CannonState getState() {
         return state;
@@ -46,12 +72,15 @@ public class Cannon extends GameObject {
 
     public void shoot(Missile missile){
 
+        this.state = CannonState.shooting;
+        this.changeImageShootingNotShooting();
+        //Maybe put this into the missile so thread can be stopped
         executor.execute(new MissileMovementThread(missile));
-
         shots++;
         this.state = CannonState.coolDown;
         if(shots==maxShots){
             this.state = CannonState.outOfAmmunition;
+            this.changeImageShootingNotShooting();
         }
         Thread cannonStateHandler = new Thread(new CannonStateHandler(this));
         cannonStateHandler.start();

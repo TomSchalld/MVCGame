@@ -10,7 +10,11 @@ import java.util.List;
  */
 public abstract class Strategy {
 
-    protected final int SPEED = 30;
+    protected double SPEED = 30;
+
+    public void setSPEED(double SPEED) {
+        this.SPEED = SPEED;
+    }
 
     public abstract APosition generateMovementVector(APosition pos);
 

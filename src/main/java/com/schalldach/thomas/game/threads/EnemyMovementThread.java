@@ -18,15 +18,11 @@ public class EnemyMovementThread implements Runnable {
     }
 
     private void moveThemAll() {
-        Double xy[] = new Double[2];
 
         for (int i = 0; i < enemies.size(); i++) {
-                xy[0] = (Math.random() * 15 + enemies.get(i).getPosition().getVector().get(0));
-                xy[1] = (Math.random() * 30 + enemies.get(i).getPosition().getVector().get(1));
-
-            enemies.get(i).move(Arrays.asList(xy));
+            enemies.get(i).move();
             if (!enemies.get(i).isPositionValid()) {
-                enemies.get(i).move(Arrays.asList(0.0, 0.0));
+                enemies.get(i).move(Arrays.asList(1080.0, enemies.get(i).getPosition().getVector().get(1)));
             }
         }
 
@@ -38,7 +34,7 @@ public class EnemyMovementThread implements Runnable {
         while (true) {
             this.moveThemAll();
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 break;

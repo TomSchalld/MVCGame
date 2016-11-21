@@ -2,7 +2,8 @@ package com.schalldach.thomas.game.factory;
 
 import com.schalldach.thomas.game.objects.GameObject;
 import com.schalldach.thomas.game.objects.Missile;
-import com.schalldach.thomas.game.strategy.LinearCurve;
+import com.schalldach.thomas.game.strategy.LinearCurveX;
+import com.schalldach.thomas.game.strategy.LinearCurveY;
 import com.schalldach.thomas.game.strategy.Strategy;
 
 import javax.imageio.ImageIO;
@@ -17,15 +18,20 @@ public class MissileFactory extends ConcreteFactory {
 
 
 
-    Strategy missileStrategy = new LinearCurve();
+    Strategy missileStrategy;
 
     public MissileFactory() {
         try {
-            image = ImageIO.read(getClass().getResourceAsStream("/images/missile.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/images/cannonball_30.png"));
+             missileStrategy= new LinearCurveY();
+            setMissileSpeed(-30);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    public void setMissileSpeed(int speed){
+        missileStrategy.setSPEED(speed);
+      }
 
     @Override
     public GameObject create() {

@@ -6,17 +6,17 @@ import com.schalldach.thomas.game.helper.TwoDimPosition;
 import java.util.Arrays;
 
 /**
- * Created by B.Sc. Thomas Schalldach on 19/11/2016. The code of this application is free to use for non-commercial projects,
- * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
+ * Created by B.Sc. Thomas Schalldach, on 21/11/2016.
+ * The code contained by this file or application may be used for non-commercial purpose,
+ * under the condition of crediting the author.
+ * For commercial use, please contact software@thomas-schalldach.de
  */
-public class LinearCurve extends Strategy {
-
-
+public class LinearCurveY extends Strategy {
     @Override
     public APosition generateMovementVector(APosition pos) {
         Double[] position = new Double[2];
         pos.getVector().toArray(position);
-        position[0] += this.SPEED;
+        position[1] += this.SPEED;
         APosition p = new TwoDimPosition();
         p.addVector(Arrays.asList(position));
         return p;

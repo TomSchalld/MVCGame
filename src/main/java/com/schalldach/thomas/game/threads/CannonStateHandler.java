@@ -24,6 +24,7 @@ public class CannonStateHandler implements Runnable {
                 e.printStackTrace();
             }finally {
                 cannon.setState(Cannon.CannonState.shootable);
+                cannon.changeImageShootingNotShooting();
             }
         }else if (cannon.getState()== Cannon.CannonState.outOfAmmunition){
             //either hit reload or wait

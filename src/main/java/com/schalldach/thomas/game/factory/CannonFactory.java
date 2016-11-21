@@ -6,8 +6,8 @@ import com.schalldach.thomas.game.objects.Cannon;
 import com.schalldach.thomas.game.objects.GameObject;
 
 import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -16,10 +16,18 @@ import java.util.Arrays;
  */
 public class CannonFactory extends ConcreteFactory {
 
+    private BufferedImage shooting;
+    private BufferedImage notShooting;
+
 
     public CannonFactory() {
         try {
-            image = ImageIO.read(getClass().getResourceAsStream("/images/cannon.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/images/cannonComplete_30.png"));
+            notShooting = ImageIO.read(getClass().getResourceAsStream("/images/cannonComplete_30.png"));
+            shooting = ImageIO.read(getClass().getResourceAsStream("/images/cannonComplete_shooting_30.png"));
+            APosition pos = new TwoDimPosition();
+            pos.addVector(Arrays.asList(540.0, 550.0));
+            setInitialPosition(pos);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -27,9 +35,11 @@ public class CannonFactory extends ConcreteFactory {
 
     @Override
     public GameObject create() {
-        GameObject o = new Cannon();
-        o.getPosition().addVector(((TwoDimPosition)getInitialPosition()).getVector());
+        Cannon o = new Cannon();
+        o.getPosition().addVector(getInitialPosition().getVector());
         o.setImage(getImage());
+        o.setNotShooting(notShooting);
+        o.setShooting(shooting);
         return o;
     }
 }

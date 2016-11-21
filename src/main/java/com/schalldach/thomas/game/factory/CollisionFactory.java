@@ -1,6 +1,5 @@
 package com.schalldach.thomas.game.factory;
 
-import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.objects.Collision;
 import com.schalldach.thomas.game.objects.GameObject;
 
@@ -17,7 +16,7 @@ public class CollisionFactory extends ConcreteFactory {
 
     public CollisionFactory() {
         try {
-            image = ImageIO.read(getClass().getResourceAsStream("/images/collision.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/images/pirate_ship_free_broke_15.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

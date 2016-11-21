@@ -21,7 +21,7 @@ public class MainWindow extends JFrame {
             view = new Canvas(0, 0, 1080, 720);
 
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.setTitle("MyShooter");
+            this.setTitle("Cannon of Port Royale");
             this.setResizable(false);
 
             Dimension window = Toolkit.getDefaultToolkit().getScreenSize();

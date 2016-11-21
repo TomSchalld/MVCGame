@@ -93,11 +93,10 @@ public class Model implements IObservable {
     }
 
     public void doBasicInstantiation() {
-        APosition pos = new TwoDimPosition();
-        pos.addVector(Arrays.asList(400.0, 100.0));
-        cannonFactory.setInitialPosition(pos);
+
+
         this.cannon = (Cannon) cannonFactory.create();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10 ; i++) {
             this.enemies.add((Enemy) enemyFactory.create());
         }
         /*for (int i = 0; i < 100; i++) {
@@ -116,6 +115,19 @@ public class Model implements IObservable {
         return list;
 
     }
+
+    public void moveCannonLeft(){
+        cannon.move(Arrays.asList(cannon.getPosition().getVector().get(0)-30.0, cannon.getPosition().getVector().get(1)));
+        if(!cannon.isPositionValid()){
+            moveCannonRight();
+        }
+    }
+    public void moveCannonRight(){
+        cannon.move(Arrays.asList(cannon.getPosition().getVector().get(0)+30.0, cannon.getPosition().getVector().get(1)));
+        if(!cannon.isPositionValid()){
+            moveCannonLeft();
+        }
+    }
     public void moveCannonUp() {
         TwoDimPosition pos = (TwoDimPosition) cannon.getPosition();
         pos.addVector(Arrays.asList(0.0, pos.getyCoordinate()-30.0));
@@ -128,19 +140,19 @@ public class Model implements IObservable {
         notification();
     }
 
-    public void moveMissile(Missile missile) {
-        missile.getPosition().addVector(Arrays.asList(0.0, 120.0));
-    }
 
 
     public void checkForCollision(){
         List<Enemy> enemyDisposal = new ArrayList<>();
+        List<Missile>missileDisposal = new ArrayList<>();
 
         for (int i = 0; i < missiles.size(); i++) {
             for (int j = 0; j <enemies.size() ; j++) {
                 if (missiles.get(i).getPosition().equals(enemies.get(j).getPosition())){
                     System.err.println("HIT!!!!!");
                     enemyDisposal.add(enemies.get(j));
+                    missileDisposal.add(missiles.get(i));
+                    missileIndicator--;
                     collisionFactory.setInitialPosition(enemies.get(j).getPosition());
                     collisions.add((Collision) collisionFactory.create());
                     score.kill();
@@ -148,7 +160,7 @@ public class Model implements IObservable {
             }
         }
         enemies.removeAll(enemyDisposal);
-
+        missiles.removeAll(missileDisposal);
     }
 
     public void fireCannon() {

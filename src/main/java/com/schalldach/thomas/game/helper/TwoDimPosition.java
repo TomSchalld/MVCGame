@@ -38,11 +38,12 @@ public class TwoDimPosition extends APosition {
         if (obj instanceof TwoDimPosition){
             pos = (TwoDimPosition)obj;
         }else {
+            System.err.println("DAFUQ!!!");
             return false;
         }
 
-        if (this.getxCoordinate() - pos.getxCoordinate() < 30 && this.getxCoordinate() - pos.getxCoordinate()>0) {
-            if (this.getyCoordinate() - pos.getyCoordinate() < 30 && this.getyCoordinate() - pos.getyCoordinate() > 0) {
+        if (this.getxCoordinate() - pos.getxCoordinate() < 50 && this.getxCoordinate() - pos.getxCoordinate()>0) {
+            if (this.getyCoordinate() - pos.getyCoordinate() < 50 && this.getyCoordinate() - pos.getyCoordinate() > 0) {
                 return true;
             }
         }

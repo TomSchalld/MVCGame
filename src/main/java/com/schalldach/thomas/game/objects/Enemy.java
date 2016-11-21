@@ -5,4 +5,11 @@ package com.schalldach.thomas.game.objects;
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
 public class Enemy extends GameObject {
+
+
+
+
+
+
+
 }

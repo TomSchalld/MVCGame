@@ -87,8 +87,22 @@ public class Logic implements Visitor, IObserver {
         view.getView().setToBeDrawn(new LinkedList<>());
         List<GameObject> objects = model.getObjects();
         objects.forEach(object -> object.accept(this));
+        this.setCannonState();
+        this.setScore();
         view.getView().repaint();
 
+    }
+
+    private void setScore() {
+        view.getView().setScore(this.calculateScore());
+    }
+
+    private int calculateScore() {
+       return model.getScore().getIntScore();
+    }
+
+    private void setCannonState() {
+        view.getView().setCannonState(model.getCannon().getState().toString());
     }
 
     @Override
@@ -100,7 +114,6 @@ public class Logic implements Visitor, IObserver {
         switch (evt.getKeyCode()) {
             case 32:
                 model.shoot();
-
             case 37:
                 System.out.println("left");
                 break;

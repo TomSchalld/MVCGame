@@ -19,7 +19,7 @@ public class CannonStateHandler implements Runnable {
     public void run() {
         if(cannon.getState()==Cannon.CannonState.coolDown){
             try {
-                Thread.sleep(300);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }finally {
@@ -28,7 +28,7 @@ public class CannonStateHandler implements Runnable {
         }else if (cannon.getState()== Cannon.CannonState.outOfAmmunition){
             //either hit reload or wait
             try {
-                Thread.sleep(10000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }finally {

@@ -39,6 +39,7 @@ public class Model implements IObservable {
         missiles = new ArrayList<>();
         collisions = new ArrayList<>();
         observers = new ArrayList<>();
+        score = new Score();
 
 
     }
@@ -142,6 +143,7 @@ public class Model implements IObservable {
                     enemyDisposal.add(enemies.get(j));
                     collisionFactory.setInitialPosition(enemies.get(j).getPosition());
                     collisions.add((Collision) collisionFactory.create());
+                    score.kill();
                 }
             }
         }

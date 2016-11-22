@@ -1,22 +1,32 @@
 package com.schalldach.thomas.game.objects;
 
 import com.schalldach.thomas.game.controler.GameVisitor;
+import com.schalldach.thomas.game.factory.MovementStrategy.MovementStrategy;
 import com.schalldach.thomas.game.helper.APosition;
 
 import java.awt.image.BufferedImage;
-import java.util.List;
 
 public abstract class GameObject{
     protected APosition position;
     protected BufferedImage image;
-    protected IMoveDynamic moveDynamic;
     protected boolean drawable;
+    protected MovementStrategy m;
 
     public void accept(GameVisitor gv){
-        gv.visitDrawing(this);
+        if(drawable){
+            gv.draw(this);
+        } else {
+            gv.erase(this);
+        }
     }
 
-    public abstract void move(List<Integer> vector);
+    public void setPosition(APosition p){
+        position = p;
+    }
+
+    public void move(){
+        m.move(this);
+    };
 
     public APosition getPosition() {
         return position;
@@ -36,5 +46,13 @@ public abstract class GameObject{
 
     public void setDrawable(boolean drawable) {
         this.drawable = drawable;
+    }
+
+    public void setMovement(MovementStrategy m) {
+        this.m=m;
+    }
+
+    public MovementStrategy getMovement(){
+        return m;
     }
 }

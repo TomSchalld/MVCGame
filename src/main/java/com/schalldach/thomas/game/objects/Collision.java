@@ -7,8 +7,5 @@ import java.util.List;
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
 public class Collision extends GameObject {
-    @Override
-    public void move(List<Integer> vector) {
 
-    }
 }

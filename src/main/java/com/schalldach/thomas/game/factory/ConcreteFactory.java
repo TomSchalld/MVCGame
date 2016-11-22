@@ -1,6 +1,7 @@
 package com.schalldach.thomas.game.factory;
 
 import com.schalldach.thomas.game.factory.MovementStrategy.MovementStrategy;
+import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.model.Config;
 import com.schalldach.thomas.game.objects.GameObject;
 
@@ -19,6 +20,8 @@ public abstract class ConcreteFactory {
 
     protected MovementStrategy movement;
 
+    protected APosition initPosition;
+
     public abstract GameObject create();
 
     public void setImage(String i){
@@ -27,6 +30,10 @@ public abstract class ConcreteFactory {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setInitPosition(APosition p){
+        initPosition = p;
     }
 
     public void setDrawable(boolean drawable) {

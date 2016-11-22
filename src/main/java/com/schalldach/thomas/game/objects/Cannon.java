@@ -9,9 +9,4 @@ import java.util.List;
 public class Cannon extends GameObject {
 
 
-    @Override
-    public void move(List<Integer> vector) {
-
-    }
-
 }

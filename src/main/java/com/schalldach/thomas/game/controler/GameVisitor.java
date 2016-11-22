@@ -7,5 +7,6 @@ import com.schalldach.thomas.game.objects.GameObject;
  */
 public interface GameVisitor {
     public void visitCollisions(GameObject o);
-    public void visitDrawing(GameObject o);
+    public void draw(GameObject o);
+    public void erase(GameObject o);
 }

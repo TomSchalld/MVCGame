@@ -38,15 +38,20 @@ public class Logic implements GameVisitor, IObserver{
         view = new MainWindow();
         model = new Model();
         model.attach(this);
+        view.getCanvas().setDrawableObj(model.getCannon());
         view.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent evt) {
                 // delegate to controller
-                System.out.println("key pressed: " + evt.getKeyCode());
+                if(evt.getKeyCode()==32) {
+                    GameObject missile = model.fireMissile();
+                }
+                else {
+                    model.moveCannon(evt.getKeyCode());
+                }
             }
         });
         view.setVisible(true);
-        //Thread movement = new Thread(new MovementThread)
     }
 
     @Override
@@ -55,29 +60,17 @@ public class Logic implements GameVisitor, IObserver{
     }
 
     @Override
-    public void visitDrawing(GameObject o){
-        //TODO Update data about the object to the Canvas
-        view.getCanvas().getDrawer().drawObject(view.getCanvas().getGraphics(),o);
+    public void update() {
+        view.getCanvas().repaint();
     }
 
     @Override
-    public void update() {
-        //TODO check for collisions
-        System.out.println("Received update call from Model");
-        for(GameObject o : model.getDrawableObjects()){
-            o.accept(this);
-        }
-        view.getCanvas().repainter();
+    public void draw(GameObject o){
+        view.getCanvas().setDrawableObj(o);
     }
 
-    public void visit(Cannon cannon){
-        cannon.getPosition();
+    @Override
+    public void erase(GameObject o){
+        view.getCanvas().unSetDrawabelObj(o);
     }
-    public void visit(Enemy enemy){
-        enemy.getPosition();
-    }
-    public void visit(Missile missile){
-        missile.getPosition();
-    }
-
 }

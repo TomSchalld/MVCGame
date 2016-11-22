@@ -6,6 +6,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.*;
 
 /**
  *
@@ -13,11 +14,13 @@ import java.io.IOException;
  */
 public class GraphicsDrawer{
 
-    public void drawObject(Graphics g, GameObject obj) {
-        g.drawImage(
-                obj.getImage(),
-                (int)(obj.getPosition().getxCoordinate() - obj.getImage().getWidth()/2),
-                (int)(obj.getPosition().getyCoordinate() - obj.getImage().getHeight()/2),
-                null);
+    public void drawObject(Graphics g, java.util.ArrayList<GameObject> objects) {
+        for(GameObject obj : objects){
+            g.drawImage(
+                    obj.getImage(),
+                    (obj.getPosition().getxCoordinate() - obj.getImage().getWidth()/2),
+                    (obj.getPosition().getyCoordinate() - obj.getImage().getHeight()/2),
+                    null);
+        }
     }
 }

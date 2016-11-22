@@ -20,14 +20,14 @@ public class MovementThread extends Thread implements Runnable {
 
     @Override
     public void run() {
-        try {
-            while(true){
-                o.move();
-                model.notification();
-                Thread.sleep(2);
+        while(o.getPosition().getxCoordinate()<500){
+            o.move();
+            model.notification();
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 

@@ -23,8 +23,7 @@ public class CannonFactory extends ConcreteFactory {
 
     private BufferedImage shooting;
     private BufferedImage notShooting;
-    private Media shot;
-    private MediaPlayer player;
+
 
 
     public CannonFactory() {
@@ -33,8 +32,7 @@ public class CannonFactory extends ConcreteFactory {
             notShooting = ImageIO.read(getClass().getResourceAsStream("/images/cannonComplete_30.png"));
             shooting = ImageIO.read(getClass().getResourceAsStream("/images/cannonComplete_shooting_30.png"));
 
-            shot = new Media(getClass().getResource("/sounds/Explosion.mp3").toExternalForm());
-            player = new MediaPlayer(shot);
+
             APosition pos = new TwoDimPosition();
             pos.addVector(Arrays.asList(540.0, 550.0));
             setInitialPosition(pos);
@@ -47,7 +45,6 @@ public class CannonFactory extends ConcreteFactory {
     public GameObject create() {
         Cannon o = new Cannon();
         o.getPosition().addVector(getInitialPosition().getVector());
-        o.setPlayer(player);
         o.setImage(getImage());
         o.setNotShooting(notShooting);
         o.setShooting(shooting);

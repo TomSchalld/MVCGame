@@ -4,10 +4,15 @@ import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.helper.TwoDimPosition;
 import com.schalldach.thomas.game.objects.Cannon;
 import com.schalldach.thomas.game.objects.GameObject;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystem;
+import java.nio.file.Files;
 import java.util.Arrays;
 
 /**
@@ -18,6 +23,8 @@ public class CannonFactory extends ConcreteFactory {
 
     private BufferedImage shooting;
     private BufferedImage notShooting;
+    private Media shot;
+    private MediaPlayer player;
 
 
     public CannonFactory() {
@@ -25,6 +32,9 @@ public class CannonFactory extends ConcreteFactory {
             image = ImageIO.read(getClass().getResourceAsStream("/images/cannonComplete_30.png"));
             notShooting = ImageIO.read(getClass().getResourceAsStream("/images/cannonComplete_30.png"));
             shooting = ImageIO.read(getClass().getResourceAsStream("/images/cannonComplete_shooting_30.png"));
+
+            shot = new Media(getClass().getResource("/sounds/Explosion.mp3").toExternalForm());
+            player = new MediaPlayer(shot);
             APosition pos = new TwoDimPosition();
             pos.addVector(Arrays.asList(540.0, 550.0));
             setInitialPosition(pos);
@@ -37,6 +47,7 @@ public class CannonFactory extends ConcreteFactory {
     public GameObject create() {
         Cannon o = new Cannon();
         o.getPosition().addVector(getInitialPosition().getVector());
+        o.setPlayer(player);
         o.setImage(getImage());
         o.setNotShooting(notShooting);
         o.setShooting(shooting);

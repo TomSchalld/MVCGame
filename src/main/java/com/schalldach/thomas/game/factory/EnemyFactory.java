@@ -20,7 +20,7 @@ public class EnemyFactory extends ConcreteFactory {
 
     private final int initialX[] = {400,450,500,550,600,650,750, 800,850,900, 950, 1000, 1050};
     private final int initialY[] = {200,250,300,350};
-    private double moveMentSpeed = -0.5;
+    private double moveMentSpeed = -1;
 
     public EnemyFactory() {
         try {

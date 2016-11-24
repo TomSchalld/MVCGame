@@ -2,6 +2,7 @@ package com.schalldach.thomas.game.objects;
 
 import com.schalldach.thomas.game.threads.CannonStateHandler;
 import com.schalldach.thomas.game.threads.MissileMovementThread;
+import javafx.scene.media.MediaPlayer;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -16,6 +17,7 @@ public class Cannon extends GameObject {
     private BufferedImage shooting;
     private BufferedImage notShooting;
     private  ExecutorService  executor = Executors.newFixedThreadPool(10);
+    private MediaPlayer player;
 
 
     public enum CannonState {
@@ -26,6 +28,13 @@ public class Cannon extends GameObject {
     private int maxShots = 10;
     private CannonState state = CannonState.shootable;
 
+    public MediaPlayer getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(MediaPlayer player) {
+        this.player = player;
+    }
 
     public BufferedImage getShooting() {
         return shooting;
@@ -73,6 +82,7 @@ public class Cannon extends GameObject {
     public void shoot(Missile missile){
 
         this.state = CannonState.shooting;
+        this.player.play();
         this.changeImageShootingNotShooting();
         //Maybe put this into the missile so thread can be stopped
         executor.execute(new MissileMovementThread(missile));

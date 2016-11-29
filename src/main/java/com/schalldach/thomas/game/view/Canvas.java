@@ -46,11 +46,9 @@ public class Canvas extends JPanel {
 
     public void setDrawableObj(GameObject o) {
         drawableObj.add(o);
-        repaint();
     }
 
     public void unSetDrawabelObj(GameObject o) {
         drawableObj.remove(o);
-        repaint();
     }
 }

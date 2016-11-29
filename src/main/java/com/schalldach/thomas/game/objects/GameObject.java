@@ -1,6 +1,6 @@
 package com.schalldach.thomas.game.objects;
 
-import com.schalldach.thomas.game.controler.GameVisitor;
+import com.schalldach.thomas.game.controler.IGameVisitor;
 import com.schalldach.thomas.game.factory.MovementStrategy.MovementStrategy;
 import com.schalldach.thomas.game.helper.APosition;
 
@@ -12,7 +12,7 @@ public abstract class GameObject{
     protected boolean drawable;
     protected MovementStrategy m;
 
-    public void accept(GameVisitor gv){
+    public void accept(IGameVisitor gv){
         if(drawable){
             gv.draw(this);
         } else {

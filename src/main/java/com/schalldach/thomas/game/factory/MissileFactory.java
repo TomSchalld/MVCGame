@@ -28,10 +28,9 @@ public class MissileFactory extends ConcreteFactory {
         m.setMovement(new MissileMovement());
         m.setImage(this.i);
         m.setDrawable(this.drawable);
-        MovementThread mt = new MovementThread(m);
-        mt.setModel(model);
-        m.setMoving(mt);
-        mt.start();
+        //MovementThread mt = new MovementThread(m);
+        //mt.setModel(model);
+        //mt.start();
         return m;
     }
 

@@ -1,8 +1,11 @@
 package com.schalldach.thomas.game.model;
 
+import com.schalldach.thomas.game.controler.GameVisitor;
 import com.schalldach.thomas.game.controler.Logic;
 import com.schalldach.thomas.game.factory.CannonFactory;
+import com.schalldach.thomas.game.factory.EnemyFactory;
 import com.schalldach.thomas.game.factory.MissileFactory;
+import com.schalldach.thomas.game.factory.MovementStrategy.EnemyMovement;
 import com.schalldach.thomas.game.factory.MovementStrategy.MissileMovement;
 import com.schalldach.thomas.game.helper.TwoDimPosition;
 import com.schalldach.thomas.game.objects.*;
@@ -19,6 +22,7 @@ public class Model implements IObservable{
     private List<Missile> missiles;
     private CannonFactory cf;
     private MissileFactory mf;
+    private EnemyFactory ef;
     private Score score;
     private Gravity gravity;
     private Timer timer;
@@ -37,10 +41,17 @@ public class Model implements IObservable{
         mf.setMovement(new MissileMovement());
         mf.setDrawable(true);
         mf.setModel(this);
+        ef = new EnemyFactory();
+        ef.setImage(Config.ENEMY_IMAGE1);
+        ef.setDrawable(true);
+        ef.setMovement(new EnemyMovement());
+        ef.setModel(this);
         cannon = (Cannon) cf.create();
         drawableObjects = new ArrayList<GameObject>();
         drawableObjects.add(cannon);
+        initTimer();
         //TODO setup factories
+
     }
 
     @Override
@@ -66,11 +77,34 @@ public class Model implements IObservable{
         notification();
     }
 
-    public Missile fireMissile(){
+    public Missile fireMissile(GameVisitor visitor){
+        //TODO Two shooting modes
         Missile m = (Missile)mf.create((TwoDimPosition) cannon.getPosition());
         missiles.add(m);
-        m.accept(Logic.getLogic());
+        m.accept(visitor);
         return m;
+    }
+
+    public void fireEnemy(GameVisitor visitor){
+        Enemy e = (Enemy) ef.create();
+        enemies.add(e);
+        e.accept(visitor);
+    }
+
+    private void initTimer(){
+        this.timer = new Timer();
+        this.timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                for (Enemy e : enemies){
+                    e.move();
+                }
+                for (Missile m : missiles) {
+                    m.move();
+                }
+                notification();
+            }
+        }, 0, 5);
     }
 
     public List<Missile> getMissiles() {

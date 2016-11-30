@@ -14,14 +14,13 @@ import java.util.*;
  */
 public class GraphicsDrawer{
 
-    public void drawObject(Graphics g, java.util.ArrayList<GameObject> objects) {
+    public void drawObjects(Graphics g, java.util.ArrayList<GameObject> objects) {
         for(GameObject obj : objects){
-            if(obj.isDrawable())
-                g.drawImage(
-                    obj.getImage(),
-                    (obj.getPosition().getxCoordinate() - obj.getImage().getWidth()/2),
-                    (obj.getPosition().getyCoordinate() - obj.getImage().getHeight()/2),
-                    null);
+            g.drawImage(
+                obj.getImage(),
+                (obj.getPosition().getxCoordinate() - obj.getImage().getWidth()/2),
+                (obj.getPosition().getyCoordinate() - obj.getImage().getHeight()/2),
+                null);
         }
     }
 }

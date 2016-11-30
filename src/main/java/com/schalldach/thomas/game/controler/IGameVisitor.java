@@ -7,5 +7,4 @@ import com.schalldach.thomas.game.objects.GameObject;
  */
 public interface IGameVisitor {
     public void draw(GameObject o);
-    public void erase(GameObject o);
 }

@@ -15,22 +15,24 @@ import com.schalldach.thomas.game.helper.Score;
 import java.util.*;
 
 public class Model implements IObservable{
+
     private List<GameObject> drawableObjects;
     private List<IObserver> observers;
     private Cannon cannon;
-    private List<Enemy> enemies;
-    private List<Missile> missiles;
+    private List<GameObject> enemies;
+    private List<GameObject> missiles;
     private CannonFactory cf;
     private MissileFactory mf;
     private EnemyFactory ef;
     private Score score;
     private Gravity gravity;
     private Timer timer;
+    private final int numEnemies=5;
 
     public Model(){
         observers = new ArrayList<IObserver>();
-        missiles = new ArrayList<Missile>();
-        enemies = new ArrayList<Enemy>();
+        missiles = new ArrayList<GameObject>();
+        enemies = new ArrayList<GameObject>();
         cf = new CannonFactory();
         cf.setDrawable(true);
         cf.setImage(Config.CANNON_IMAGE);
@@ -77,18 +79,15 @@ public class Model implements IObservable{
         notification();
     }
 
-    public Missile fireMissile(GameVisitor visitor){
+    public void fireMissile(){
         //TODO Two shooting modes
         Missile m = (Missile)mf.create((TwoDimPosition) cannon.getPosition());
         missiles.add(m);
-        m.accept(visitor);
-        return m;
     }
 
-    public void fireEnemy(GameVisitor visitor){
+    public void fireEnemy(){
         Enemy e = (Enemy) ef.create();
         enemies.add(e);
-        e.accept(visitor);
     }
 
     private void initTimer(){
@@ -96,22 +95,57 @@ public class Model implements IObservable{
         this.timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                for (Enemy e : enemies){
-                    e.move();
+
+                for(GameObject e : enemies){
+                    if(e.isDrawable()) {
+                        for (GameObject m : missiles) {
+                            if (m.isDrawable()){
+                                if (contact(m, e)) {
+                                    e.setDrawable(false);
+                                    m.setDrawable(false);
+                                    System.out.println("collision");
+                                }
+                            } else {
+                                missiles.remove(m);
+                            }
+                        }
+                    } else {
+                        enemies.remove(e);
+                    }
                 }
-                for (Missile m : missiles) {
-                    m.move();
+
+                while(enemies.size()<numEnemies){
+                    fireEnemy();
                 }
+
+                for (GameObject e : enemies){
+                    if(e.isDrawable()) {
+                        e.move();
+                    }
+                }
+                for (GameObject m : missiles) {
+                    if(m.isDrawable())
+                        m.move();
+                }
+
                 notification();
             }
         }, 0, 5);
     }
 
-    public List<Missile> getMissiles() {
+    private boolean contact(GameObject a, GameObject b){
+        if(Math.abs(a.getPosition().getxCoordinate()-b.getPosition().getxCoordinate()) - Math.abs(a.getImage().getWidth() + b.getImage().getWidth()) <= 0 &&
+                Math.abs(a.getPosition().getyCoordinate()-b.getPosition().getyCoordinate()) - Math.abs(a.getImage().getHeight() + b.getImage().getHeight()) <= 0){
+            return true;
+        }
+        return false;
+    }
+
+    public List<GameObject> getMissiles() {
         return missiles;
     }
 
-    public List<Enemy> getEnemies() { return enemies;}
+    public List<GameObject> getEnemies() { return enemies;}
 
     public Cannon getCannon() {return cannon;}
 }

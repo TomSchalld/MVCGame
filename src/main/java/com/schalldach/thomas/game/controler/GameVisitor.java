@@ -17,9 +17,4 @@ public class GameVisitor implements IGameVisitor {
     public void draw(GameObject o){
         view.getCanvas().setDrawableObj(o);
     }
-
-    @Override
-    public void erase(GameObject o){
-        view.getCanvas().unSetDrawabelObj(o);
-    }
 }

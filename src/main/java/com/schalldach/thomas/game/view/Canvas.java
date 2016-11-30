@@ -1,6 +1,5 @@
 package com.schalldach.thomas.game.view;
 
-import com.schalldach.thomas.game.model.IObserver;
 import com.schalldach.thomas.game.objects.GameObject;
 
 import javax.swing.*;
@@ -29,19 +28,15 @@ public class Canvas extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        drawer.drawObject(g,(ArrayList<GameObject>)drawableObj);
+        drawer.drawObjects(g,(ArrayList<GameObject>)drawableObj);
     }
 
     public GraphicsDrawer getDrawer() {
         return drawer;
     }
 
-    public void doPaintComponent (Graphics g) {
-        paintComponent(g);
-    }
-
-    public List<GameObject> getDrawableObj() {
-        return drawableObj;
+    public void resetDrawableObj() {
+        drawableObj.clear();
     }
 
     public void setDrawableObj(GameObject o) {

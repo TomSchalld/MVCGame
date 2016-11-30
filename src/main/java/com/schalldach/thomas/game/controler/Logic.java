@@ -19,6 +19,7 @@ public class Logic implements IObserver{
     private Model model;
     private CannonFactory cannonFactory;
     private static Logic logic = null;
+    private final int numEnemies=5;
 
     private GameVisitor gameVisitor;
 
@@ -40,7 +41,7 @@ public class Logic implements IObserver{
             public void keyPressed(KeyEvent evt) {
                 // delegate to controller
                 if(evt.getKeyCode()==32) {
-                    GameObject missile = model.fireMissile(gameVisitor);
+                    model.fireMissile();
                 }
                 else {
                     model.moveCannon(evt.getKeyCode());
@@ -48,11 +49,19 @@ public class Logic implements IObserver{
             }
         });
         view.setVisible(true);
-        model.fireEnemy(gameVisitor);
     }
 
     @Override
     public void update() {
+        view.getCanvas().resetDrawableObj();
+        for(GameObject m : model.getMissiles()){
+            m.accept(gameVisitor);
+        }
+        for(GameObject e : model.getEnemies()){
+
+            e.accept(gameVisitor);
+        }
+        model.getCannon().accept(gameVisitor);
         view.getCanvas().repaint();
     }
 

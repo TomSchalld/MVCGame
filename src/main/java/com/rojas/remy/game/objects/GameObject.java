@@ -3,6 +3,7 @@ package com.rojas.remy.game.objects;
 import com.rojas.remy.game.controller.IGameVisitor;
 import com.rojas.remy.game.factory.MovementStrategy.MovementStrategy;
 import com.rojas.remy.game.helper.APosition;
+import com.rojas.remy.game.helper.TwoDimPosition;
 
 import java.awt.image.BufferedImage;
 
@@ -11,6 +12,7 @@ public abstract class GameObject{
     protected BufferedImage image;
     protected boolean drawable;
     protected MovementStrategy m;
+    protected int decay;
 
     public void accept(IGameVisitor gv){
         if(drawable){
@@ -53,4 +55,11 @@ public abstract class GameObject{
     public MovementStrategy getMovement(){
         return m;
     }
+
+    public int getDecay(){
+        return decay;
+    }
+
+    public void decay(){
+    };
 }

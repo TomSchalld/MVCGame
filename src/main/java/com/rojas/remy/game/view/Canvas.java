@@ -1,5 +1,6 @@
 package com.rojas.remy.game.view;
 
+import com.rojas.remy.game.controller.GameVisitor;
 import com.rojas.remy.game.objects.GameObject;
 
 import javax.swing.*;
@@ -14,6 +15,7 @@ import java.util.Iterator;
 public class Canvas extends JPanel {
     GraphicsDrawer drawer = new GraphicsDrawer();
     private ArrayList<GameObject> drawableObj;
+    private GameVisitor gv;
 
 
     public Canvas(int x, int y, int width, int height) {
@@ -23,6 +25,7 @@ public class Canvas extends JPanel {
         this.setPreferredSize(new Dimension(width,height));
         this.setVisible(true);
         drawableObj = new ArrayList<GameObject>();
+        gv = new GameVisitor(this);
     }
 
     @Override
@@ -31,9 +34,9 @@ public class Canvas extends JPanel {
         Iterator<GameObject> oi = drawableObj.iterator();
         while(oi.hasNext()){
             GameObject obj = oi.next();
+            //obj.accept(gv);
             drawer.drawObject(g,obj);
         }
-        //drawer.drawObjects(g,drawableObj);
     }
 
     public GraphicsDrawer getDrawer() {
@@ -48,9 +51,7 @@ public class Canvas extends JPanel {
         drawableObj.add(o);
     }
 
-    public void unSetDrawabelObj(GameObject o) {
-        drawableObj.remove(o);
-    }
+    public void setDrawableObj(ArrayList<GameObject> objs) { drawableObj.addAll(objs);}
 
     public void drawObject(GameObject o) {
         drawer.drawObject(getGraphics(),o);

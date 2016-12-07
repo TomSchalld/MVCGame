@@ -6,4 +6,16 @@ package com.rojas.remy.game.objects;
  */
 public class Collision extends GameObject {
 
+    public void setDecayTimer(int decay) {
+        this.decay = decay;
+    }
+
+    @Override
+    public void decay(){
+        decay = decay - 1;
+    }
+
+    public int getDecay(){
+        return decay;
+    }
 }

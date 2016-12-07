@@ -1,6 +1,7 @@
 package com.rojas.remy.game.factory;
 
-import com.rojas.remy.game.factory.MovementStrategy.MissileMovement;
+import com.rojas.remy.game.factory.MovementStrategy.GravityMovementStrategy;
+import com.rojas.remy.game.factory.MovementStrategy.SpaceMissileMovement;
 import com.rojas.remy.game.helper.TwoDimPosition;
 import com.rojas.remy.game.model.Model;
 import com.rojas.remy.game.objects.GameObject;
@@ -11,7 +12,7 @@ import com.rojas.remy.game.objects.Missile;
  */
 public class MissileFactory extends ConcreteFactory {
 
-    Model model;
+    private Model model;
 
     @Override
     public GameObject create() {
@@ -22,12 +23,9 @@ public class MissileFactory extends ConcreteFactory {
     public GameObject create(TwoDimPosition p){
         Missile m = new Missile();
         m.setPosition(p);
-        m.setMovement(new MissileMovement());
+        m.setMovement(new GravityMovementStrategy());
         m.setImage(this.i);
         m.setDrawable(this.drawable);
-        //MovementThread mt = new MovementThread(m);
-        //mt.setModel(model);
-        //mt.start();
         return m;
     }
 

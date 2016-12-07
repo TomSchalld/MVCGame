@@ -1,5 +1,6 @@
 package com.rojas.remy.game.controller;
 
+import com.rojas.remy.game.memento.Keeper;
 import com.rojas.remy.game.objects.GameObject;
 import com.rojas.remy.game.view.MainWindow;
 import com.rojas.remy.game.factory.CannonFactory;
@@ -8,6 +9,7 @@ import com.rojas.remy.game.model.Model;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 /**
  * Created by B.Sc. Thomas Schalldach on 22/10/2016. The code of this application is free to use for non-commercial projects,
@@ -17,11 +19,9 @@ public class Logic implements IObserver{
 
     private MainWindow view;
     private Model model;
-    private CannonFactory cannonFactory;
     private static Logic logic = null;
-    private final int numEnemies=5;
-
-    private GameVisitor gameVisitor;
+    private Keeper mementoKeeper;
+    //call mementoKeeper.save();
 
     public static Logic getLogic(){
         if(logic==null){
@@ -33,7 +33,6 @@ public class Logic implements IObserver{
     private Logic(){
         view = new MainWindow();
         model = new Model();
-        gameVisitor = new GameVisitor(view);
         model.attach(this);
         view.getCanvas().setDrawableObj(model.getCannon());
         view.addKeyListener(new KeyAdapter() {
@@ -41,7 +40,7 @@ public class Logic implements IObserver{
             public void keyPressed(KeyEvent evt) {
                 // delegate to controller
                 if(evt.getKeyCode()==32) {
-                    model.fireMissile();
+                    model.getCannon().getShootState().shootState(model);
                 }
                 else {
                     model.moveCannon(evt.getKeyCode());
@@ -54,14 +53,10 @@ public class Logic implements IObserver{
     @Override
     public void update() {
         view.getCanvas().resetDrawableObj();
-        for(GameObject m : model.getMissiles()){
-            m.accept(gameVisitor);
-        }
-        for(GameObject e : model.getEnemies()){
-
-            e.accept(gameVisitor);
-        }
-        model.getCannon().accept(gameVisitor);
+        view.getCanvas().setDrawableObj(model.getCannon());
+        view.getCanvas().setDrawableObj((ArrayList<GameObject>) model.getEnemies());
+        view.getCanvas().setDrawableObj((ArrayList<GameObject>) model.getMissiles());
+        view.getCanvas().setDrawableObj((ArrayList<GameObject>) model.getCollisions());
         view.getCanvas().repaint();
     }
 

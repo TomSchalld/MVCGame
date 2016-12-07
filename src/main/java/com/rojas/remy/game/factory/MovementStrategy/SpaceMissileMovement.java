@@ -6,7 +6,7 @@ import com.rojas.remy.game.helper.TwoDimPosition;
 /**
  * Created by remy on 19/11/16.
  */
-public class MissileMovement implements MovementStrategy {
+public class SpaceMissileMovement implements MovementStrategy {
 
     @Override
     public void move(GameObject m) {

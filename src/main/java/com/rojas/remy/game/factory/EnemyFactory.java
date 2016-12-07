@@ -19,7 +19,7 @@ public class EnemyFactory extends ConcreteFactory {
         Enemy e = new Enemy();
         e.setDrawable(drawable);
         e.setMovement(movement);
-        e.setPosition(new TwoDimPosition(new Random().nextInt(500),new Random().nextInt(500)));
+        e.setPosition(new TwoDimPosition(new Random().nextInt(400)+100,new Random().nextInt(500)));
         e.setImage(i);
         //MovementThread mov = new MovementThread(e);
         //mov.setModel(model);

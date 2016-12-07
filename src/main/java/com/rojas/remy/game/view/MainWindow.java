@@ -3,10 +3,6 @@ package com.rojas.remy.game.view;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- *
- * @author Ondrej Stuchlik
- */
 public class MainWindow extends JFrame {
 
 

@@ -2,50 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d11f26a-afda-407c-bac9-60ad41330e70" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/GravityMovementStrategy.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/memento/Keeper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/AbstractState.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/DoubleShootState.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/SingleShootState.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/GameObjectFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/GravityFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/helper/CannonMovement.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/helper/Gravity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/IMoveDynamic.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/GameObjectFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/GravityFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/MovementStrategy/MissileMovement.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/helper/CannonMovement.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/helper/Gravity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/IMoveDynamic.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MissileMovement.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMissileMovement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/controller/GameVisitor.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/controller/GameVisitor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/controller/Logic$1.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/controller/Logic$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/controller/Logic.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/controller/Logic.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/CannonFactory.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/CannonFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/MissileFactory.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/MissileFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/model/Model$1.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/model/Model$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/model/Model.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/model/Model.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/Cannon.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/Cannon.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/GameObject.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/GameObject.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/Missile.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/Missile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/view/Canvas.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/view/Canvas.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/view/MainWindow.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/view/MainWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/GameVisitor.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/GameVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/Logic.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/Logic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CannonFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CannonFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CollisionFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CollisionFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/EnemyFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/EnemyFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MissileFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MissileFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MovementStrategy.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MovementStrategy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Model.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Cannon.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Cannon.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Collision.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Collision.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/GameObject.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/GameObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Missile.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Missile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/view/Canvas.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/view/Canvas.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/view/MainWindow.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/view/MainWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Config.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Config.java" />
     </list>
     <ignored path="MVCGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,7 +24,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Logic.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Logic.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/Logic.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="394">
@@ -77,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Canvas.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Canvas.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/view/Canvas.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -85,6 +42,26 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Config.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Config.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="12" column="54" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConcreteFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/ConcreteFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,7 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/MovementStrategy/UpdateMovementStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/CannonFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/Collision.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/Cannon.java" />
@@ -190,6 +166,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/EnemyFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Model.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/view/Canvas.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Config.java" />
       </list>
     </option>
   </component>
@@ -1001,12 +978,12 @@
       <workItem from="1480865106049" duration="72000" />
       <workItem from="1481024499334" duration="796000" />
       <workItem from="1481028576084" duration="4639000" />
-      <workItem from="1481115739409" duration="10195000" />
+      <workItem from="1481115739409" duration="11534000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110857000" />
+    <option name="totallyTimeSpent" value="112196000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1053" extended-state="6" />
@@ -1064,13 +1041,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="72" lean-forward="false" selection-start-line="20" selection-start-column="72" selection-end-line="20" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/helper/TwoDimPosition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -1340,14 +1310,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/ConcreteFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/GameObjectFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1462,14 +1424,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/Logic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="59" column="26" lean-forward="false" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/view/Canvas.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1477,6 +1431,30 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/ConcreteFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="12" column="54" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/Logic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="59" column="26" lean-forward="false" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

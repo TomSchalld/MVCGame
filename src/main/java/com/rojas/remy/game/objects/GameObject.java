@@ -11,7 +11,7 @@ public abstract class GameObject{
     protected APosition position;
     protected BufferedImage image;
     protected boolean drawable;
-    protected MovementStrategy m;
+    protected MovementStrategy movementStrategy;
     protected int decay;
 
     public void accept(IGameVisitor gv){
@@ -25,7 +25,7 @@ public abstract class GameObject{
     }
 
     public void move(){
-        m.move(this);
+        movementStrategy.move(this);
     };
 
     public APosition getPosition() {
@@ -49,11 +49,11 @@ public abstract class GameObject{
     }
 
     public void setMovement(MovementStrategy m) {
-        this.m=m;
+        this.movementStrategy=m;
     }
 
     public MovementStrategy getMovement(){
-        return m;
+        return movementStrategy;
     }
 
     public int getDecay(){

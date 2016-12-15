@@ -1,6 +1,5 @@
 package com.rojas.remy.game.factory;
 
-import com.rojas.remy.game.objects.AbstractState;
 import com.rojas.remy.game.objects.Cannon;
 import com.rojas.remy.game.objects.GameObject;
 
@@ -16,7 +15,7 @@ public class CannonFactory extends ConcreteFactory{
         c.setDrawable(drawable);
         c.setPosition(initPosition);
         c.setMovement(movement);
-        c.getShootState().switchState();
+
         return c;
     }
 }

@@ -12,7 +12,7 @@ public class GravityMovementStrategy implements MovementStrategy {
 
     public GravityMovementStrategy(){
         gravity = 1;
-        speed = new TwoDimPosition(5,-10);
+        speed = new TwoDimPosition(10,-10);
     }
 
     @Override
@@ -27,4 +27,5 @@ public class GravityMovementStrategy implements MovementStrategy {
             o.setPosition(new TwoDimPosition(o.getPosition().getxCoordinate()+speed.getxCoordinate(),o.getPosition().getyCoordinate()+ speed.getyCoordinate()));
         }
     }
+
 }

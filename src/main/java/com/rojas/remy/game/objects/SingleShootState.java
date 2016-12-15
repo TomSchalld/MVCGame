@@ -5,14 +5,9 @@ import com.rojas.remy.game.model.Model;
 /**
  * Created by remy on 06/12/16.
  */
-public class SingleShootState extends AbstractState {
+public class SingleShootState extends AbstractShootState {
     public SingleShootState(Cannon c) {
         super(c);
-    }
-
-    @Override
-    public void switchState() {
-        c.nextState();
     }
 
     @Override

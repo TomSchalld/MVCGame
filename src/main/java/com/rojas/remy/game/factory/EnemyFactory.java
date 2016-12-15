@@ -12,22 +12,13 @@ import java.util.Random;
  */
 public class EnemyFactory extends ConcreteFactory {
 
-    Model model;
-
     @Override
     public GameObject create() {
         Enemy e = new Enemy();
         e.setDrawable(drawable);
         e.setMovement(movement);
-        e.setPosition(new TwoDimPosition(new Random().nextInt(400)+100,new Random().nextInt(500)));
+        e.setPosition(new TwoDimPosition(500,new Random().nextInt(500)));
         e.setImage(i);
-        //MovementThread mov = new MovementThread(e);
-        //mov.setModel(model);
-        //mov.start();
         return e;
-    }
-
-    public void setModel(Model model){
-        this.model = model;
     }
 }

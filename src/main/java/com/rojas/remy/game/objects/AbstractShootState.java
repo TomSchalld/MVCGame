@@ -5,14 +5,16 @@ import com.rojas.remy.game.model.Model;
 /**
  * Created by remy on 06/12/16.
  */
-public abstract class AbstractState {
+public abstract class AbstractShootState {
     Cannon c;
 
-    public AbstractState(Cannon c){
+    public AbstractShootState(Cannon c){
         this.c = c;
     }
 
-    public abstract void switchState();
+    public void switchState(){
+        c.nextState();
+    };
 
     public abstract void shootState(Model m);
 

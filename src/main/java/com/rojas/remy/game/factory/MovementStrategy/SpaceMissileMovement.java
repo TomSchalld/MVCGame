@@ -16,7 +16,7 @@ public class SpaceMissileMovement implements MovementStrategy {
                 m.getPosition().getxCoordinate()<0)
             m.setDrawable(false);
         else
-            m.setPosition(new TwoDimPosition(m.getPosition().getxCoordinate()+1,m.getPosition().getyCoordinate()));
+            m.setPosition(new TwoDimPosition(m.getPosition().getxCoordinate()+8,m.getPosition().getyCoordinate()));
     }
 
 }

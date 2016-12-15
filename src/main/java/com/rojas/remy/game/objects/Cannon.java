@@ -12,12 +12,12 @@ import java.util.Map;
 public class Cannon extends GameObject {
 
 //TODO Create transitional Table
-    private Map<AbstractState, AbstractState> transTable;
+    private Map<AbstractShootState, AbstractShootState> transTable;
 
-    private AbstractState shootState;
+    private AbstractShootState shootState;
 
     public Cannon() {
-        this.transTable = new HashMap<AbstractState, AbstractState>();
+        this.transTable = new HashMap<AbstractShootState, AbstractShootState>();
         SingleShootState ss = new SingleShootState(this);
         DoubleShootState ds = new DoubleShootState(this);
         transTable.put(ds, ss);
@@ -34,7 +34,7 @@ public class Cannon extends GameObject {
         System.out.println("Shootig state changed to: "+shootState.getClass().toString());
     }
 
-    public AbstractState getShootState() {
+    public AbstractShootState getShootState() {
         return shootState;
     }
 }

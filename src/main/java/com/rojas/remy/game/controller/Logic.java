@@ -39,8 +39,53 @@ public class Logic implements IObserver{
             @Override
             public void keyPressed(KeyEvent evt) {
                 // delegate to controller
+                switch (evt.getKeyCode()) {
+                    case KeyEvent.VK_DOWN:
+                        //model.moveCannonDown();
+                        break;
+                    case KeyEvent.VK_UP:
+                        //model.moveCannonUp();
+                        break;
+                    case KeyEvent.VK_LEFT:
+                       // model.forceOfCannonDown();
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        //model.forceOfCannonUp();
+                        break;
+                    case KeyEvent.VK_PAGE_UP:
+                        //model.aimCannonUp();
+                        break;
+                    case KeyEvent.VK_PAGE_DOWN:
+                        //model.aimCannonDown();
+                        break;
+                    case KeyEvent.VK_SPACE:
+                        model.getCannon().getShootState().shootState(model);
+                        break;
+                    case KeyEvent.VK_S:
+                        model.getCannon().getShootState().switchState();
+                        break;
+                    case KeyEvent.VK_D:
+                        model.switchMissileMovement();
+                        break;
+                    case KeyEvent.VK_P:
+                        model.pause();
+                        break;
+                    case KeyEvent.VK_L:
+                        model.loadMemento();
+                        break;
+                    case KeyEvent.VK_HOME:
+                        //model.increaseGravity();
+                        break;
+                    case KeyEvent.VK_END:
+                        //model.decreaseGravity();
+                        break;
+                    case KeyEvent.VK_F1:
+                        //view.showHelp();
+                        break;
+                }
+
                 if(evt.getKeyCode()==32) {
-                    model.getCannon().getShootState().shootState(model);
+                    //model.getCannon().getShootState().shootState(model);
                 }
                 else {
                     model.moveCannon(evt.getKeyCode());
@@ -62,3 +107,6 @@ public class Logic implements IObserver{
 
 
 }
+
+
+

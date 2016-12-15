@@ -11,17 +11,18 @@ import java.util.Random;
 public class EnemyMovement implements MovementStrategy {
     @Override
     public void move(GameObject o) {
-        switch(new Random().nextInt(4)){
+        switch(new Random().nextInt(8)){
             case 0: if(o.getPosition().getxCoordinate()<500) o.setPosition(new TwoDimPosition(o.getPosition().getxCoordinate()+1,o.getPosition().getyCoordinate()));
                 break;
-            case 1: if(o.getPosition().getxCoordinate()>0) o.setPosition(new TwoDimPosition(o.getPosition().getxCoordinate()-1,o.getPosition().getyCoordinate()));
+            case 1: if(o.getPosition().getxCoordinate()>100) o.setPosition(new TwoDimPosition(o.getPosition().getxCoordinate()-1,o.getPosition().getyCoordinate()));
                 break;
             case 2: if(o.getPosition().getyCoordinate()<500) o.setPosition(new TwoDimPosition(o.getPosition().getxCoordinate(),o.getPosition().getyCoordinate()+1));
                 break;
             case 3: if(o.getPosition().getyCoordinate()>0) o.setPosition(new TwoDimPosition(o.getPosition().getxCoordinate(),o.getPosition().getyCoordinate()-1));
                 break;
-            default:
+            default: if(o.getPosition().getxCoordinate()>100) o.setPosition(new TwoDimPosition(o.getPosition().getxCoordinate()-1,o.getPosition().getyCoordinate()));
                 break;
         };
     }
+
 }

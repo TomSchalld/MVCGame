@@ -18,7 +18,6 @@ public class Model implements IObservable{
     private List<GameObject> drawableObjects;
     private List<IObserver> observers;
     private Cannon cannon;
-    private List<GameObject> things;
     private List<GameObject> enemies;
     private List<GameObject> missiles;
     private List<GameObject> collisions;
@@ -29,13 +28,13 @@ public class Model implements IObservable{
     private Score score;
     private Timer timer;
     private final int numEnemies=5;
+    private Memento memento;
 
     public Model(){
         observers = new ArrayList<IObserver>();
         missiles = new ArrayList<GameObject>();
         enemies = new ArrayList<GameObject>();
         collisions = new ArrayList<GameObject>();
-        things = new ArrayList<GameObject>();
         cf = new CannonFactory();
         cf.setDrawable(true);
         cf.setImage(Config.CANNON_IMAGE);
@@ -45,12 +44,10 @@ public class Model implements IObservable{
         mf.setImage(Config.MISSILE_IMAGE);
         mf.setMovement(new SpaceMissileMovement());
         mf.setDrawable(true);
-        mf.setModel(this);
         ef = new EnemyFactory();
         ef.setImage(Config.ENEMY_IMAGE1);
         ef.setDrawable(true);
         ef.setMovement(new EnemyMovement());
-        ef.setModel(this);
         colf = new CollisionFactory();
         colf.setDrawable(true);
         colf.setImage(Config.COLLISION_IMAGE);
@@ -119,14 +116,14 @@ public class Model implements IObservable{
 
                 notification();
             }
-        }, 0, 30);
+        }, 0, 20);
     }
 
     private boolean contact(GameObject a, GameObject b){
 
         //Collision with eachother
-        if(Math.abs(a.getPosition().getxCoordinate()-b.getPosition().getxCoordinate()) - Math.abs(a.getImage().getWidth() + b.getImage().getWidth()) <= 0 &&
-                Math.abs(a.getPosition().getyCoordinate()-b.getPosition().getyCoordinate()) - Math.abs(a.getImage().getHeight() + b.getImage().getHeight()) <= 0){
+        if(Math.abs(a.getPosition().getxCoordinate()-b.getPosition().getxCoordinate()) - Math.abs(a.getImage().getWidth() + b.getImage().getWidth())/2 <= 0 &&
+                Math.abs(a.getPosition().getyCoordinate()-b.getPosition().getyCoordinate()) - Math.abs(a.getImage().getHeight() + b.getImage().getHeight())/2 <= 0){
             a.setDrawable(false);
             b.setDrawable(false);
             collisions.add(colf.create(new TwoDimPosition(b.getPosition().getxCoordinate(), b.getPosition().getyCoordinate())));
@@ -149,21 +146,55 @@ public class Model implements IObservable{
         return collisions;
     }
 
-    //////////// MEMENTO
-/*
-    public Object createMemento() {
-        Memento memento = new Memento();
-        memento.gravity = this.gravity;
+    public void switchMissileMovement(){
+        mf.switchMovement();
     }
 
-    public void loadMemento(Object o) {
 
-        Memento memento = (Memento) o;
+    public void pause() {
+        memento = new Memento(enemies, missiles, collisions, cannon);
+        timer.cancel();
+        timer = null;
 
+    }
+
+    public void loadMemento() {
+        enemies = memento.getEnemies();
+        missiles = memento.getMissiles();
+        collisions = memento.getCollisions();
+        cannon = (Cannon) memento.getCannon();
+        memento = null;
+        initTimer();
     }
 
     private class Memento{
-        public int gravity;
+        private List<GameObject> enemies;
+        private List<GameObject> missiles;
+        private List<GameObject> collisions;
+        private GameObject cannon;
+
+        public Memento(List<GameObject> enemies, List<GameObject> missiles, List<GameObject> collisions, GameObject cannon){
+            this.enemies = enemies;
+            this.missiles = missiles;
+            this.collisions = collisions;
+            this.cannon = cannon;
+        }
+
+        public List<GameObject> getEnemies() {
+            return enemies;
+        }
+
+        public List<GameObject> getMissiles() {
+            return missiles;
+        }
+
+        public List<GameObject> getCollisions() {
+            return collisions;
+        }
+
+        public GameObject getCannon() {
+            return cannon;
+        }
     }
-    */
+
 }

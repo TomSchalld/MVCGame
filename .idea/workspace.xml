@@ -2,7 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d11f26a-afda-407c-bac9-60ad41330e70" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Config.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Config.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/GravityMovementFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MovementStrategyFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMovementFactory.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/AbstractState.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/AbstractState.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/AbstractShootState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/controller/Logic$1.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/controller/Logic$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/controller/Logic.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/controller/Logic.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/CannonFactory.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/CannonFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/EnemyFactory.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/EnemyFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/MissileFactory.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/MissileFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/MovementStrategy/EnemyMovement.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/MovementStrategy/EnemyMovement.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/MovementStrategy/GravityMovementStrategy.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/MovementStrategy/GravityMovementStrategy.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/MovementStrategy/SpaceMissileMovement.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/factory/MovementStrategy/SpaceMissileMovement.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/model/Model$1.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/model/Model$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/model/Model.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/model/Model.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/Cannon.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/Cannon.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/DoubleShootState.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/DoubleShootState.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/GameObject.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/GameObject.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/Missile.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/Missile.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/SingleShootState.class" afterPath="$PROJECT_DIR$/target/classes/com/rojas/remy/game/objects/SingleShootState.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/Logic.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/Logic.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CannonFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CannonFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/EnemyFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/EnemyFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MissileFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MissileFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/EnemyMovement.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/EnemyMovement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/GravityMovementStrategy.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/GravityMovementStrategy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMissileMovement.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMissileMovement.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Model.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Cannon.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Cannon.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/DoubleShootState.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/DoubleShootState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/GameObject.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/GameObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Missile.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Missile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/SingleShootState.java" afterPath="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/SingleShootState.java" />
     </list>
     <ignored path="MVCGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,21 +57,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Logic.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/Logic.java">
+      <file leaf-file-name="GravityMovementStrategy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/GravityMovementStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="59" column="26" lean-forward="false" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Canvas.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/view/Canvas.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+            <state relative-caret-position="435">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,22 +69,67 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Config.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Config.java">
+      <file leaf-file-name="EnemyMovement.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/EnemyMovement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="12" column="54" lean-forward="false" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+            <state relative-caret-position="345">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConcreteFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/ConcreteFactory.java">
+      <file leaf-file-name="MovementStrategy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MovementStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+            <state relative-caret-position="150">
+              <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpaceMissileMovement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMissileMovement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MovementStrategyFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MovementStrategyFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="47" lean-forward="true" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpaceMovementFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMovementFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+              <folding>
+                <element signature="e#264#265#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GravityMovementFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/GravityMovementFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+              <folding>
+                <element signature="e#216#217#0" expanded="true" />
+                <element signature="e#268#269#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,19 +137,36 @@
       <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1564">
-              <caret line="121" column="16" lean-forward="false" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
-              <folding />
+            <state relative-caret-position="308">
+              <caret line="118" column="16" lean-forward="false" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="16" />
+              <folding>
+                <element signature="e#3064#3841#0" expanded="true" />
+                <element signature="e#3840#3841#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EnemyFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/EnemyFactory.java">
+      <file leaf-file-name="Logic.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/Logic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="21" column="70" lean-forward="false" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
-              <folding />
+            <state relative-caret-position="533">
+              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MissileFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MissileFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,9 +185,11 @@
     <findStrings>
       <find>schalldach.thomas</find>
       <find>schalldach</find>
+      <find>KeyEvent</find>
     </findStrings>
     <replaceStrings>
       <replace>rojas.remy</replace>
+      <replace>evt</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -116,11 +203,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/CannonFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/Collision.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/Cannon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/objects/Enemy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/APosition.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/helper/TwoDimPosition.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/MovementStrategy/CannonMovement.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/MovementStrategy/UpdateMovement.java" />
@@ -145,28 +227,33 @@
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/strategies/AbstractStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MissileMovement.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/NormalMissileMovement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Missile.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/memento/Keeper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/GameVisitor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/DoubleShootState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/SingleShootState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/AbstractState.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CannonFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Cannon.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/GameObjectFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/ConcreteFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MovementStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMissileMovement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MissileFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/GravityMovementStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/GameObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Collision.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CollisionFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/Logic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/EnemyFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Model.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/view/Canvas.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CannonFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/AbstractState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/AbstractShootState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/SingleShootState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Cannon.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/EnemyFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/GameObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Missile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/DoubleShootState.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/Logic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Model.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MovementStrategyFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/GravityMovementFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MovementStrategy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MissileFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMovementFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/GravityMovementStrategy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMissileMovement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/EnemyMovement.java" />
       </list>
     </option>
   </component>
@@ -631,7 +718,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Problems">
           <PATH>
@@ -658,6 +744,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -923,7 +1010,7 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
+      <command value="run" />
       <scripts />
       <node-interpreter value="project" />
       <envs />
@@ -978,12 +1065,17 @@
       <workItem from="1480865106049" duration="72000" />
       <workItem from="1481024499334" duration="796000" />
       <workItem from="1481028576084" duration="4639000" />
-      <workItem from="1481115739409" duration="11534000" />
+      <workItem from="1481115739409" duration="12246000" />
+      <workItem from="1481388408806" duration="5385000" />
+      <workItem from="1481396728220" duration="3698000" />
+      <workItem from="1481531878036" duration="1074000" />
+      <workItem from="1481814399092" duration="111000" />
+      <workItem from="1481814606186" duration="1051000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112196000" />
+    <option name="totallyTimeSpent" value="124227000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1053" extended-state="6" />
@@ -998,9 +1090,8 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34190783" sideWeight="0.49041533" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16773163" sideWeight="0.49361023" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17571884" sideWeight="0.49361023" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5063898" order="3" side_tool="true" content_ui="tabs" />
@@ -1010,6 +1101,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1028,11 +1120,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="19" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="missiles" language="JAVA" />
+        <watch expression="movement" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -1041,22 +1133,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/helper/TwoDimPosition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/MovementStrategy/CannonMovement.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/schalldach/thomas/game/factory/MovementStrategy/UpdateMovement.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/MovementThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar!/javax/swing/JComponent.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1160,11 +1236,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#186#187#0" expanded="false" />
-            <element signature="e#245#246#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1180,7 +1251,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1196,7 +1266,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1204,44 +1273,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#209#210#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/DoubleShootState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding>
-            <element signature="e#212#213#0" expanded="true" />
-            <element signature="e#236#237#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/SingleShootState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding>
-            <element signature="e#211#212#0" expanded="true" />
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CannonFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1249,129 +1280,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Cannon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="56" lean-forward="false" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#893#894#0" expanded="true" />
-            <element signature="e#924#925#0" expanded="true" />
-            <element signature="e#1145#1146#0" expanded="true" />
-            <element signature="e#1178#1179#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/AbstractState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-          <folding>
-            <element signature="e#206#207#0" expanded="true" />
-            <element signature="e#232#233#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/helper/Gravity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/EnemyMovement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/helper/CannonMovement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/IMoveDynamic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/GameObjectFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Missile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMissileMovement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/GravityMovementStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MissileFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="25" column="51" lean-forward="false" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/helper/Gravity.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/helper/CannonMovement.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/IMoveDynamic.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/GameObjectFactory.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
-          <folding>
-            <element signature="e#756#757#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#1253#1254#0" expanded="true" />
-            <element signature="e#1281#1282#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1379,66 +1298,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-          <folding>
-            <element signature="e#381#382#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
-            <element signature="e#516#517#0" expanded="true" />
-            <element signature="e#544#545#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CollisionFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MovementStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="121" column="16" lean-forward="false" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/EnemyFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="70" lean-forward="false" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/view/Canvas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="33" column="22" lean-forward="true" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/ConcreteFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-          <folding />
+        <state relative-caret-position="405">
+          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1450,10 +1316,216 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/AbstractShootState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="e#274#275#0" expanded="false" />
+            <element signature="e#303#304#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/SingleShootState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="e#293#294#0" expanded="false" />
+            <element signature="e#319#320#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CannonFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/CollisionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/EnemyFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="12" column="51" lean-forward="false" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/ConcreteFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Missile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="55" column="31" lean-forward="false" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#651#652#0" expanded="false" />
+            <element signature="e#679#680#0" expanded="false" />
+            <element signature="e#704#705#0" expanded="false" />
+            <element signature="e#747#748#0" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#817#818#0" expanded="false" />
+            <element signature="e#855#856#0" expanded="false" />
+            <element signature="e#883#884#0" expanded="false" />
+            <element signature="e#927#928#0" expanded="false" />
+            <element signature="e#957#958#0" expanded="false" />
+            <element signature="e#992#993#0" expanded="false" />
+            <element signature="e#1023#1024#0" expanded="false" />
+            <element signature="e#1072#1073#0" expanded="false" />
+            <element signature="e#1112#1113#0" expanded="false" />
+            <element signature="e#1163#1164#0" expanded="false" />
+            <element signature="e#1202#1203#0" expanded="false" />
+            <element signature="e#1246#1247#0" expanded="false" />
+            <element signature="e#1285#1286#0" expanded="false" />
+            <element signature="e#1313#1314#0" expanded="false" />
+            <element signature="e#1341#1342#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/Cannon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="57" lean-forward="false" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#918#919#0" expanded="false" />
+            <element signature="e#949#950#0" expanded="false" />
+            <element signature="e#1175#1176#0" expanded="false" />
+            <element signature="e#1208#1209#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar!/sun/misc/Unsafe.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="354" column="23" lean-forward="false" selection-start-line="354" selection-start-column="23" selection-end-line="354" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/objects/DoubleShootState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="e#217#218#0" expanded="false" />
+            <element signature="e#241#242#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/GravityMovementFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+          <folding>
+            <element signature="e#216#217#0" expanded="true" />
+            <element signature="e#268#269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MovementStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MissileFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/MovementStrategyFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="47" lean-forward="true" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMovementFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+          <folding>
+            <element signature="e#264#265#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/controller/Logic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="59" column="26" lean-forward="false" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+        <state relative-caret-position="533">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/model/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="118" column="16" lean-forward="false" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="16" />
+          <folding>
+            <element signature="e#3064#3841#0" expanded="true" />
+            <element signature="e#3840#3841#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/GravityMovementStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMissileMovement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/rojas/remy/game/factory/MovementStrategy/EnemyMovement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>

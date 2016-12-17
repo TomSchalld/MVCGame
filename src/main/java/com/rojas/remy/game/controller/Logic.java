@@ -74,6 +74,9 @@ public class Logic implements IObserver{
                             model.pause();
                         }
                         break;
+                    case KeyEvent.VK_B:
+                        model.buildBrick();
+                        break;
                     case KeyEvent.VK_L:
                         break;
                     case KeyEvent.VK_HOME:
@@ -101,6 +104,11 @@ public class Logic implements IObserver{
     @Override
     public void update() {
         view.getCanvas().resetDrawableObj();
+        /*model.getCannon().accept(view.getCanvas().getGv());
+        model.getEnemies().forEach(e -> e.accept(view.getCanvas().getGv()));
+        model.getMissiles().forEach(m -> m.accept(view.getCanvas().getGv()));
+        model.getCollisions().forEach(c -> c.accept((view.getCanvas().getGv())));
+        model.getWall().forEach(b -> b.accept(view.getCanvas().getGv()));*/
         view.getCanvas().setDrawableObj(model.getCannon());
         view.getCanvas().setDrawableObj((ArrayList<GameObject>) model.getEnemies());
         view.getCanvas().setDrawableObj((ArrayList<GameObject>) model.getMissiles());

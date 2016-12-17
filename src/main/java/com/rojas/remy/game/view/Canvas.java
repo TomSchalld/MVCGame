@@ -56,4 +56,8 @@ public class Canvas extends JPanel {
     public void drawObject(GameObject o) {
         drawer.drawObject(getGraphics(),o);
     }
+
+    public GameVisitor getGv() {
+        return gv;
+    }
 }

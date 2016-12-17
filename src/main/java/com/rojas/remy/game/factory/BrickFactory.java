@@ -9,16 +9,26 @@ import com.rojas.remy.game.objects.GameObject;
  */
 public class BrickFactory extends ConcreteFactory{
 
+    private int health;
+
+    public BrickFactory(){
+        health = 4;
+    }
+
     @Override
     public GameObject create() {
         return null;
     }
 
     public GameObject create(TwoDimPosition pos){
-        Brick b = new Brick();
+        Brick b = new Brick(health);
         b.setPosition(pos);
         b.setDrawable(true);
         b.setImage(i);
         return b;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 }

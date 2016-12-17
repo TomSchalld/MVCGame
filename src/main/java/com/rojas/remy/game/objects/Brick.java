@@ -6,8 +6,8 @@ package com.rojas.remy.game.objects;
 public class Brick extends GameObject {
     private int health;
 
-    public Brick(){
-        health = 10;
+    public Brick(int health){
+        this.health = health;
     }
 
     public void takeDamage(){

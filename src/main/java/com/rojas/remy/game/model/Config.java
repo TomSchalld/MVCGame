@@ -9,6 +9,7 @@ import com.rojas.remy.game.helper.TwoDimPosition;
  */
 public class Config {
 
+    public static final String CANNON_MEXICAN = "/images/sombrerotrump.png";
     //images
     public static String ENEMY_IMAGE1 = "/images/rsz_1rsz_hillary1.png";
     public static String ENEMY_IMAGE2 = "/images/enemy2.png";

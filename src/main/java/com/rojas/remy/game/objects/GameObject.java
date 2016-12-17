@@ -5,7 +5,9 @@ import com.rojas.remy.game.factory.MovementStrategy.MovementStrategy;
 import com.rojas.remy.game.helper.APosition;
 import com.rojas.remy.game.helper.TwoDimPosition;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public abstract class GameObject{
     protected APosition position;
@@ -38,6 +40,14 @@ public abstract class GameObject{
 
     public void setImage(BufferedImage i){
         this.image = i;
+    }
+
+    public void setImage(String i){
+        try {
+            this.image = ImageIO.read(getClass().getResourceAsStream(i));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean isDrawable() {

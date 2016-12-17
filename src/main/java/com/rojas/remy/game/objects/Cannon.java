@@ -15,6 +15,7 @@ public class Cannon extends GameObject {
     private Map<AbstractShootState, AbstractShootState> transTable;
 
     private AbstractShootState shootState;
+    private int score;
 
     public Cannon() {
         this.transTable = new HashMap<AbstractShootState, AbstractShootState>();
@@ -36,5 +37,13 @@ public class Cannon extends GameObject {
 
     public AbstractShootState getShootState() {
         return shootState;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

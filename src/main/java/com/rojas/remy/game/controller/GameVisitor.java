@@ -16,7 +16,6 @@ public class GameVisitor implements IGameVisitor {
 
     @Override
     public void draw(GameObject o){
-        //view.setDrawableObj(o);
         view.getDrawer().drawObject(view.getGraphics(),o);
     }
 }

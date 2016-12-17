@@ -61,7 +61,7 @@ public class Model implements IObservable{
         cannon = (Cannon) cf.create();
         drawableObjects = new ArrayList<GameObject>();
         drawableObjects.add(cannon);
-        buildAWall(wall, 100);
+        buildAWall(wall, 150);
         initTimer();
 
     }
@@ -106,6 +106,15 @@ public class Model implements IObservable{
         enemies.add(e);
     }
 
+
+    public void buildBrick() {
+        if(cannon.getScore() > 5){
+            wall.add(bf.create(new TwoDimPosition(150,cannon.getPosition().getyCoordinate())));
+            cannon.setScore(cannon.getScore()-5);
+        }
+        if(cannon.getScore()<5) cannon.setImage(Config.CANNON_IMAGE);
+    }
+
     private void initTimer(){
         this.timer = new Timer();
         this.timer.schedule(new TimerTask() {
@@ -122,12 +131,12 @@ public class Model implements IObservable{
                 Iterator<GameObject> wallIterator = wall.iterator();
                 while(wallIterator.hasNext()){
                     Brick b = (Brick) wallIterator.next();
-                    missiles.removeIf(m -> wallHit(m,b));
+                    missiles.removeIf(m -> wallHit(m,b) || !m.isDrawable());
                     enemies.removeIf(e-> wallHit(e,b));
                 }
 
                 wall.removeIf(brick -> !brick.isDrawable());
-                missiles.removeIf(missile -> !missile.isDrawable());
+                //missiles.removeIf(missile -> !missile.isDrawable());
 
                 enemies.forEach(enemy -> enemy.move());
 
@@ -148,6 +157,8 @@ public class Model implements IObservable{
             collisions.add(colf.create(new TwoDimPosition(e.getPosition().getxCoordinate(), e.getPosition().getyCoordinate())));
             m.setDrawable(false);
             e.setDrawable(false);
+            cannon.setScore(cannon.getScore()+1);
+            if(cannon.getScore()>=5) cannon.setImage((String) Config.CANNON_MEXICAN);
             return true;
         }
         return false;
@@ -210,6 +221,7 @@ public class Model implements IObservable{
         memento = null;
         initTimer();
     }
+
 
     private class Memento{
         private List<GameObject> enemies;

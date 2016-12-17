@@ -10,8 +10,8 @@ public class Brick extends GameObject {
         this.health = health;
     }
 
-    public void takeDamage(){
-        if(health>0) health--;
+    public void takeDamage(int amount){
+        if(health>0) health-=amount;
         else drawable = false;
     }
 

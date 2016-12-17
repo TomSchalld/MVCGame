@@ -108,7 +108,7 @@ public class Model implements IObservable{
 
 
     public void buildBrick() {
-        if(cannon.getScore() > 5){
+        if(cannon.getScore() >= 5){
             wall.add(bf.create(new TwoDimPosition(150,cannon.getPosition().getyCoordinate())));
             cannon.setScore(cannon.getScore()-5);
         }
@@ -131,8 +131,8 @@ public class Model implements IObservable{
                 Iterator<GameObject> wallIterator = wall.iterator();
                 while(wallIterator.hasNext()){
                     Brick b = (Brick) wallIterator.next();
-                    missiles.removeIf(m -> wallHit(m,b) || !m.isDrawable());
-                    enemies.removeIf(e-> wallHit(e,b));
+                    missiles.removeIf(m -> wallHit(m,b,1) || !m.isDrawable());
+                    enemies.removeIf(e-> wallHit(e,b,2));
                 }
 
                 wall.removeIf(brick -> !brick.isDrawable());
@@ -164,9 +164,9 @@ public class Model implements IObservable{
         return false;
     }
 
-    private boolean wallHit(GameObject o, Brick brick){
+    private boolean wallHit(GameObject o, Brick brick, int dmg){
         if(contact(o,brick)){
-            brick.takeDamage();
+            brick.takeDamage(dmg);
             o.setDrawable(false);
             return true;
         }

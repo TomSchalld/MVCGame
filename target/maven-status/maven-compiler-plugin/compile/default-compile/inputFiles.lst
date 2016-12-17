@@ -27,9 +27,11 @@
 /home/remy/Documents/ADP/MVCGame/src/main/java/com/rojas/remy/game/objects/Collision.java
 /home/remy/Documents/ADP/MVCGame/src/main/java/com/rojas/remy/game/controller/Logic.java
 /home/remy/Documents/ADP/MVCGame/src/main/java/com/rojas/remy/game/helper/TwoDimPosition.java
+/home/remy/Documents/ADP/MVCGame/src/main/java/com/rojas/remy/game/objects/Brick.java
 /home/remy/Documents/ADP/MVCGame/src/main/java/com/rojas/remy/game/helper/APosition.java
 /home/remy/Documents/ADP/MVCGame/src/main/java/com/rojas/remy/game/factory/ScoreFactory.java
 /home/remy/Documents/ADP/MVCGame/src/main/java/com/rojas/remy/game/objects/SingleShootState.java
+/home/remy/Documents/ADP/MVCGame/src/main/java/com/rojas/remy/game/factory/BrickFactory.java
 /home/remy/Documents/ADP/MVCGame/src/main/java/com/rojas/remy/game/factory/MovementStrategy/EnemyMovement.java
 /home/remy/Documents/ADP/MVCGame/src/main/java/com/rojas/remy/game/factory/MovementStrategy/SpaceMovementFactory.java
 /home/remy/Documents/ADP/MVCGame/src/main/java/com/rojas/remy/game/model/Model.java

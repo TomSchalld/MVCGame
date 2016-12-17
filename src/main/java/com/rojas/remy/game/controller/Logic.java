@@ -68,10 +68,13 @@ public class Logic implements IObserver{
                         model.switchMissileMovement();
                         break;
                     case KeyEvent.VK_P:
-                        model.pause();
+                        if(model.getTimer()==null){
+                            model.loadMemento();
+                        } else {
+                            model.pause();
+                        }
                         break;
                     case KeyEvent.VK_L:
-                        model.loadMemento();
                         break;
                     case KeyEvent.VK_HOME:
                         //model.increaseGravity();
@@ -102,6 +105,7 @@ public class Logic implements IObserver{
         view.getCanvas().setDrawableObj((ArrayList<GameObject>) model.getEnemies());
         view.getCanvas().setDrawableObj((ArrayList<GameObject>) model.getMissiles());
         view.getCanvas().setDrawableObj((ArrayList<GameObject>) model.getCollisions());
+        view.getCanvas().setDrawableObj((ArrayList<GameObject>) model.getWall());
         view.getCanvas().repaint();
     }
 

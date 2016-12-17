@@ -30,6 +30,10 @@ public abstract class ConcreteFactory {
         }
     }
 
+    public BufferedImage getImage(){
+         return this.i;
+    }
+
     public void setInitPosition(APosition p){
         initPosition = p;
     }

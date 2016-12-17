@@ -15,6 +15,7 @@ public class Config {
     public static String CANNON_IMAGE = "/images/rsz_1rsz_trump.png";
     public static String MISSILE_IMAGE = "/images/rsz_1rsz_twitter.png";
     public static String COLLISION_IMAGE = "/images/rsz_1rsz_hillary2.png";
+    public static String BRICK_IMAGE = "/images/rsz_1brick.png";
 
     public static APosition CANNON_INIT_POS = new TwoDimPosition(40,40);
 

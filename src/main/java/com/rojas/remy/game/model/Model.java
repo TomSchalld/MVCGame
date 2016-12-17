@@ -1,6 +1,7 @@
 package com.rojas.remy.game.model;
 
 import com.rojas.remy.game.factory.CannonFactory;
+import com.rojas.remy.game.factory.BrickFactory;
 import com.rojas.remy.game.factory.CollisionFactory;
 import com.rojas.remy.game.factory.EnemyFactory;
 import com.rojas.remy.game.factory.MissileFactory;
@@ -21,10 +22,12 @@ public class Model implements IObservable{
     private List<GameObject> enemies;
     private List<GameObject> missiles;
     private List<GameObject> collisions;
+    private List<GameObject> wall;
     private CollisionFactory colf;
     private CannonFactory cf;
     private MissileFactory mf;
     private EnemyFactory ef;
+    private BrickFactory bf;
     private Score score;
     private Timer timer;
     private final int numEnemies=5;
@@ -35,6 +38,10 @@ public class Model implements IObservable{
         missiles = new ArrayList<GameObject>();
         enemies = new ArrayList<GameObject>();
         collisions = new ArrayList<GameObject>();
+        wall = new ArrayList<GameObject>();
+        bf = new BrickFactory();
+        bf.setImage(Config.BRICK_IMAGE);
+        bf.setDrawable(true);
         cf = new CannonFactory();
         cf.setDrawable(true);
         cf.setImage(Config.CANNON_IMAGE);
@@ -54,8 +61,17 @@ public class Model implements IObservable{
         cannon = (Cannon) cf.create();
         drawableObjects = new ArrayList<GameObject>();
         drawableObjects.add(cannon);
+        buildAWall(wall, 100);
         initTimer();
 
+    }
+
+    private void buildAWall(List<GameObject> wall, int xpos) {
+        int ypos = 100;
+        while (ypos<500 - bf.getImage().getHeight()/2){
+            wall.add(bf.create(new TwoDimPosition(xpos, ypos)));
+            ypos+=bf.getImage().getHeight();
+        }
     }
 
     @Override
@@ -100,9 +116,17 @@ public class Model implements IObservable{
                 while(missileIterator.hasNext()){
                     GameObject m = missileIterator.next();
                     m.move();
-                    enemies.removeIf(enemy -> contact(m,enemy));
+                    enemies.removeIf(enemy -> enemyHit(m,enemy));
                 }
 
+                Iterator<GameObject> wallIterator = wall.iterator();
+                while(wallIterator.hasNext()){
+                    Brick b = (Brick) wallIterator.next();
+                    missiles.removeIf(m -> wallHit(m,b));
+                    enemies.removeIf(e-> wallHit(e,b));
+                }
+
+                wall.removeIf(brick -> !brick.isDrawable());
                 missiles.removeIf(missile -> !missile.isDrawable());
 
                 enemies.forEach(enemy -> enemy.move());
@@ -119,17 +143,31 @@ public class Model implements IObservable{
         }, 0, 20);
     }
 
-    private boolean contact(GameObject a, GameObject b){
+    private boolean enemyHit(GameObject m, GameObject e){
+        if(contact(m,e)){
+            collisions.add(colf.create(new TwoDimPosition(e.getPosition().getxCoordinate(), e.getPosition().getyCoordinate())));
+            m.setDrawable(false);
+            e.setDrawable(false);
+            return true;
+        }
+        return false;
+    }
 
+    private boolean wallHit(GameObject o, Brick brick){
+        if(contact(o,brick)){
+            brick.takeDamage();
+            o.setDrawable(false);
+            return true;
+        }
+        return false;
+    }
+
+    private boolean contact(GameObject a, GameObject b){
         //Collision with eachother
         if(Math.abs(a.getPosition().getxCoordinate()-b.getPosition().getxCoordinate()) - Math.abs(a.getImage().getWidth() + b.getImage().getWidth())/2 <= 0 &&
                 Math.abs(a.getPosition().getyCoordinate()-b.getPosition().getyCoordinate()) - Math.abs(a.getImage().getHeight() + b.getImage().getHeight())/2 <= 0){
-            a.setDrawable(false);
-            b.setDrawable(false);
-            collisions.add(colf.create(new TwoDimPosition(b.getPosition().getxCoordinate(), b.getPosition().getyCoordinate())));
             return true;
         }
-
         return false;
     }
 
@@ -144,6 +182,12 @@ public class Model implements IObservable{
 
     public List<GameObject> getCollisions() {
         return collisions;
+    }
+
+    public List<GameObject> getWall() { return wall;}
+
+    public Timer getTimer() {
+        return timer;
     }
 
     public void switchMissileMovement(){

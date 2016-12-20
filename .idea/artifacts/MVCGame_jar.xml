@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="MVCGame:jar">
+  <artifact type="jar" name="MVCGame:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/MVCGame_jar</output-path>
     <root id="archive" name="MVCGame.jar">
       <element id="module-output" name="MVCGame" />

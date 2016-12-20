@@ -20,11 +20,19 @@ public class Enemy extends GameObject {
         this.movementStrategy = movementStrategy;
     }
 
-    public void move(){
+    public void move() {
         //move accordingly to strategy
         this.getPosition().addVector(movementStrategy.generateMovementVector(this.getPosition()));
-       // System.out.println(this.getPosition().getVector());
+        // System.out.println(this.getPosition().getVector());
 
     }
 
+    @Override
+    public Enemy clone() throws CloneNotSupportedException {
+        Enemy clone = new Enemy();
+        clone.setMovementStrategy(this.movementStrategy);
+        clone.setImage(this.image);
+        clone.position.addVector(this.position.getVector());
+        return clone;
+    }
 }

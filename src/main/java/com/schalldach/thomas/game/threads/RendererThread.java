@@ -1,5 +1,6 @@
 package com.schalldach.thomas.game.threads;
 
+import com.schalldach.thomas.game.GameHistory;
 import com.schalldach.thomas.game.model.Model;
 
 /**
@@ -9,9 +10,16 @@ import com.schalldach.thomas.game.model.Model;
 public class RendererThread implements Runnable, Pausable {
 
     private Model m;
+    private GameHistory history;
+    private boolean stopThread;
 
-    public RendererThread(Model m) {
+    public void setStopThread(boolean stopThread) {
+        this.stopThread = stopThread;
+    }
+
+    public RendererThread(Model m, GameHistory history) {
         this.m = m;
+        this.history = history;
     }
 
     @Override
@@ -19,7 +27,18 @@ public class RendererThread implements Runnable, Pausable {
 
         while (true){
             m.notification();
-            m.checkForCollision();
+            try {
+                m.checkForCollision();
+            }catch (Exception e){
+
+            }
+            if (m.isNewLevel()) {
+                history.save(m);
+                m.setNewLevel(false);
+            }
+            if (stopThread()) {
+                break;
+            }
             try {
                 Thread.sleep(30);
             } catch (InterruptedException e) {
@@ -27,5 +46,9 @@ public class RendererThread implements Runnable, Pausable {
             }
         }
 
+    }
+
+    private boolean stopThread() {
+        return this.stopThread;
     }
 }

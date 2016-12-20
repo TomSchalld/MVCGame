@@ -1,5 +1,6 @@
 package com.schalldach.thomas.game.controler;
 
+import com.schalldach.thomas.game.GameHistory;
 import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.model.IObserver;
 import com.schalldach.thomas.game.model.Model;
@@ -8,13 +9,13 @@ import com.schalldach.thomas.game.objects.GameObject;
 import com.schalldach.thomas.game.objects.Visitor;
 import com.schalldach.thomas.game.threads.EnemyMovementThread;
 import com.schalldach.thomas.game.threads.RendererThread;
-import com.schalldach.thomas.game.view.*;
-import com.schalldach.thomas.game.view.Box;
+import com.schalldach.thomas.game.view.MainWindow;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,32 +25,23 @@ import java.util.List;
  */
 public class Logic implements Visitor, IObserver {
 
-    private final Thread renderer;
-    private final Thread enemyThread;
-    private final RendererThread renderThread;
-    private final EnemyMovementThread enemyMovementThread;
+    private Thread renderer;
+    private Thread enemyThread;
+    private RendererThread renderThread;
+    private EnemyMovementThread enemyMovementThread;
     private final KeyListener keyListener;
-    private MainWindow view;
-    private Model model;
+    private final MainWindow view;
+    private final Model model;
     private static Logic instance;
-    private static Object lock = new Object();
-    private EnemyMovementThread thread;
-    private boolean gameIsPaused = false;
+    private final static Object lock = new Object();
+    private final GameHistory gameHistory;
 
     public MainWindow getView() {
         return view;
     }
 
-    public void setView(MainWindow view) {
-        this.view = view;
-    }
-
     public Model getModel() {
         return model;
-    }
-
-    public void setModel(Model model) {
-        this.model = model;
     }
 
     public static Logic getInstance() {
@@ -66,30 +58,37 @@ public class Logic implements Visitor, IObserver {
     private Logic() {
 
         this.model = new Model();
+        this.gameHistory = new GameHistory();
         instantiateGameObjects();
-        this.model.attach(this);
         this.keyListener = new KeyAdapter() {
-
             @Override
             public void keyPressed(KeyEvent evt) {
                 cannonAction(evt);
             }
         };
         view = new MainWindow();
-        view.addKeyListener(keyListener);
+
+
         view.setVisible(true);
-        renderThread = new RendererThread(this.model);
+        startGame();
+
+    }
+
+    private void startGame() {
+        this.model.attach(this);
+        renderThread = new RendererThread(this.model, this.gameHistory);
         enemyMovementThread = new EnemyMovementThread(this.model.getEnemies());
         renderer = new Thread(renderThread);
         enemyThread = new Thread(enemyMovementThread);
         renderer.start();
         enemyThread.start();
-
+        view.addKeyListener(keyListener);
     }
 
 
     private void instantiateGameObjects() {
         this.getModel().doBasicInstantiation();
+        gameHistory.save(model);
     }
 
     @Override
@@ -101,13 +100,32 @@ public class Logic implements Visitor, IObserver {
         this.setScore();
         view.getView().repaint();
         if (model.isGameEnd()) {
-            JFrame endBox = new Box(model.getScore());
             model.detach(this);
+            endGame();
         }
     }
 
+    private void endGame() {
+        stopThreads();
+        final String end = "The game ended you have a score of : "
+                + model.getScore().getIntScore() + " \nand you reached level: "
+                + model.getScore().getLevel() + " \n Do you want to retry the last level?";
+        int answer = JOptionPane.showConfirmDialog(null, end, "Game Over!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (answer == JOptionPane.YES_OPTION) {
+            gameHistory.revert(model);
+            startGame();
+        } else {
+            view.dispatchEvent(new WindowEvent(view, WindowEvent.WINDOW_CLOSING));
+        }
+    }
+
+    private void stopThreads() {
+        renderThread.setStopThread(true);
+        enemyMovementThread.setThreadStop(true);
+    }
+
     private void setScore() {
-        view.getView().setScore(this.calculateScore(),this.calcLife());
+        view.getView().setScore(this.calculateScore(), this.calcLife());
     }
 
     private int calcLife() {
@@ -121,6 +139,11 @@ public class Logic implements Visitor, IObserver {
     private void setCannonState() {
         Cannon.CannonState state = model.getCannon().getState();
         view.getView().setCannonState(Cannon.CannonState.valueOf(state));
+        if (state == Cannon.CannonState.outOfAmmunition) {
+            view.getView().setCannonAmmunitionIndicator("reloading the cannon....");
+        } else {
+            view.getView().setCannonAmmunitionIndicator("Shoot those damn Pirates");
+        }
     }
 
     @Override

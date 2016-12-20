@@ -30,6 +30,10 @@ public class MainWindow extends JFrame {
                     (int) (window.getHeight() / 2 - 250));
             this.add(view);
             this.pack();
+            JOptionPane.showMessageDialog(null, "Move the cannon with the arrow keys left and right\n" +
+                    "Shoot the dirty pirates with space\n" +
+                    "as soon as all ships are destroyed, the next level begins\n" +
+                    "when you lost all your lives, the game is over.");
         } catch (Exception ex) {
             ex.printStackTrace(System.err);
         }
@@ -40,4 +44,6 @@ public class MainWindow extends JFrame {
                 "Controls: \n"
                         + "here goes some description...");
     }
+
+
 }

@@ -16,6 +16,13 @@ public class Score {
         this.level = 0;
     }
 
+    public Score(Score score) {
+        this();
+        this.intScore = score.intScore;
+        this.lifes = score.lifes;
+        this.level = score.level;
+    }
+
     public int getLifes() {
         return lifes;
     }

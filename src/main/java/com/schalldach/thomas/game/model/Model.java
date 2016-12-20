@@ -1,8 +1,8 @@
 package com.schalldach.thomas.game.model;
 
+import com.schalldach.thomas.game.GameMemento;
 import com.schalldach.thomas.game.factory.AbstractGameObjectFactory;
 import com.schalldach.thomas.game.factory.ConcreteFactory;
-import com.schalldach.thomas.game.helper.Gravity;
 import com.schalldach.thomas.game.helper.Score;
 import com.schalldach.thomas.game.helper.TwoDimPosition;
 import com.schalldach.thomas.game.objects.*;
@@ -26,9 +26,8 @@ public class Model implements IObservable {
     private List<Missile> missiles;
     private List<Collision> collisions;
     private Score score;
-    private Gravity gravity;
-    private Timer timer;
     private boolean gameEnd = false;
+    private boolean newLevel;
 
     public Model() {
 
@@ -63,14 +62,6 @@ public class Model implements IObservable {
 
     public Score getScore() {
         return score;
-    }
-
-    public Gravity getGravity() {
-        return gravity;
-    }
-
-    public Timer getTimer() {
-        return timer;
     }
 
     @Override
@@ -144,31 +135,37 @@ public class Model implements IObservable {
     }
 
 
-    public void checkForCollision() {
+    public void checkForCollision() throws ArrayIndexOutOfBoundsException{
         List<Enemy> enemyDisposal = new ArrayList<>();
         List<Missile> missileDisposal = new ArrayList<>();
+        List<Enemy> enemies = new ArrayList<>(this.enemies);
+        List<Missile> missiles = new ArrayList<>(this.missiles);
+
         for (int i = 0; i < missiles.size(); i++) {
             for (int j = 0; j < enemies.size(); j++) {
-                if (missiles.get(i).getPosition().equals(enemies.get(j).getPosition())) {
-                    enemyDisposal.add(enemies.get(j));
-                    missileDisposal.add(missiles.get(i));
-                    if (missileIndicator > 0) {
-                        missileIndicator--;
+                    if (missiles.get(i).getPosition().equals(enemies.get(j).getPosition())) {
+                        enemyDisposal.add(enemies.get(j));
+                        missileDisposal.add(missiles.get(i));
+                        if (missileIndicator > 0) {
+                            missileIndicator--;
+                        }
+                        collisionFactory.setInitialPosition(enemies.get(j).getPosition());
+                        collisions.add((Collision) collisionFactory.create());
+                        score.kill();
                     }
-                    collisionFactory.setInitialPosition(enemies.get(j).getPosition());
-                    collisions.add((Collision) collisionFactory.create());
-                    score.kill();
-                }
+
+
             }
         }
-        enemies.removeAll(enemyDisposal);
-        missiles.removeAll(missileDisposal);
+        this.enemies.removeAll(enemyDisposal);
+        this.missiles.removeAll(missileDisposal);
         if (enemies.isEmpty() && !gameEnd) {
             score.levelUp();
             collisions.clear();
             missiles.clear();
             missileIndicator = 0;
             generateEnemies(score.getLevel());
+            this.setNewLevel(true);
         }
     }
 
@@ -215,5 +212,32 @@ public class Model implements IObservable {
 
     public boolean isGameEnd() {
         return gameEnd;
+    }
+
+    public GameMemento save() {
+        return new GameMemento(this);
+    }
+
+    public void reset(GameMemento pop) {
+
+        this.missileIndicator = pop.getMissileIndicator();
+        this.collisions=pop.getCollisions();
+        this.missiles=pop.getMissiles();
+        this.enemies=pop.getEnemies();
+        this.score=pop.getScore();
+        this.gameEnd=pop.isGameEnd();
+
+    }
+
+    public boolean isNewLevel() {
+        return newLevel;
+    }
+
+    public void setNewLevel(boolean newLevel) {
+        this.newLevel = newLevel;
+    }
+
+    public int getMissileIndicator() {
+        return missileIndicator;
     }
 }

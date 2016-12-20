@@ -1,5 +1,7 @@
 package com.schalldach.thomas.game;
 
+import com.schalldach.thomas.game.model.Model;
+
 import java.util.Stack;
 
 /**
@@ -16,12 +18,12 @@ public class GameHistory {
         gameStates = new Stack<GameMemento>();
     }
 
-    public void save(Game game) {
-        gameStates.push(game.save());
+    public void save(Model gameModel) {
+        gameStates.push(gameModel.save());
     }
 
-    public void revert(Game game) {
-        game.reset(gameStates.pop());
+    public void revert(Model gameModel) {
+        gameModel.reset(gameStates.peek());
         //revert state
 
     }

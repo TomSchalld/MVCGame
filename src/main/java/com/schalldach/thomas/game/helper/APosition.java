@@ -1,5 +1,6 @@
 package com.schalldach.thomas.game.helper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,7 +28,7 @@ public abstract class APosition {
     }
 
     public List<Double> getVector() {
-        return this.coordinates;
+        return new ArrayList<>(this.coordinates);
     }
 
 

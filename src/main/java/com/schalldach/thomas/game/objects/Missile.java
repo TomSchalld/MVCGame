@@ -23,5 +23,12 @@ public class Missile extends GameObject {
         this.getPosition().addVector(strategy.generateMovementVector(this.getPosition()));
 
     }
+    @Override
+    public Missile clone() throws CloneNotSupportedException {
+        Missile clone = new Missile();
+        clone.setImage(this.image);
+        clone.position.addVector(this.position.getVector());
+        return clone;
+    }
 
 }

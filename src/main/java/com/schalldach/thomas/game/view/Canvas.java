@@ -20,18 +20,7 @@ public class Canvas extends JPanel {
     private JLabel scoreNumber;
     private JLabel lifes;
     private JLabel lifesNumber;
-
-
-
-
-
-
-
-
-
-
-
-
+    private JLabel loading;
 
 
     public Canvas(int x, int y, int width, int height) {
@@ -84,8 +73,18 @@ public class Canvas extends JPanel {
         lifesNumber.setSize(100, 50);
         lifesNumber.setVisible(true);
         this.gameStats.add(lifesNumber);
+        loading = new JLabel();
+        loading.setText("Shoot those damn Pirates");
+        loading.setLocation(550, 0);
+        loading.setSize(250, 50);
+        loading.setVisible(true);
+        this.gameStats.add(loading);
         this.add(gameStats);
 
+    }
+
+    public void setCannonAmmunitionIndicator(String text) {
+        loading.setText(text);
     }
 
     public void setCannonState(String state) {
@@ -117,9 +116,8 @@ public class Canvas extends JPanel {
     }
 
 
-
-    public void setScore(int score,int lifes) {
+    public void setScore(int score, int lifes) {
         this.scoreNumber.setText("" + score);
-        this.lifesNumber.setText(""+lifes);
+        this.lifesNumber.setText("" + lifes);
     }
 }

@@ -1,6 +1,5 @@
 package com.schalldach.thomas.game.threads;
 
-import com.schalldach.thomas.game.Game;
 import com.schalldach.thomas.game.objects.GameObject;
 import com.schalldach.thomas.game.objects.Missile;
 

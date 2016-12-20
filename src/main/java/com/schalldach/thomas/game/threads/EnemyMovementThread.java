@@ -14,6 +14,11 @@ import java.util.List;
 public class EnemyMovementThread implements Runnable, Pausable {
 
     private List<Enemy> enemies;
+    private boolean threadStop;
+
+    public void setThreadStop(boolean threadStop) {
+        this.threadStop = threadStop;
+    }
 
     public EnemyMovementThread(List<Enemy> enemies) {
         this.enemies = enemies;
@@ -36,6 +41,10 @@ public class EnemyMovementThread implements Runnable, Pausable {
 
         while (true) {
             this.moveThemAll();
+
+            if (threadStop) {
+                break;
+            }
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {

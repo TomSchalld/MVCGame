@@ -1,9 +1,7 @@
 package com.schalldach.thomas.game.view;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Ondrej Stuchlik
@@ -37,12 +35,6 @@ public class MainWindow extends JFrame {
         } catch (Exception ex) {
             ex.printStackTrace(System.err);
         }
-    }
-
-    public void showHelp() {
-        JOptionPane.showMessageDialog(this,
-                "Controls: \n"
-                        + "here goes some description...");
     }
 
 

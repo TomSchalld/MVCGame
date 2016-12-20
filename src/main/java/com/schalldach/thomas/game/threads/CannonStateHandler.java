@@ -9,7 +9,7 @@ import com.schalldach.thomas.game.objects.Cannon;
 public class CannonStateHandler implements Runnable {
 
 
-    private Cannon cannon;
+    private final Cannon cannon;
 
     public CannonStateHandler(Cannon cannon) {
         this.cannon = cannon;

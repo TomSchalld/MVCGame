@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 public class Cannon extends GameObject {
     private BufferedImage shooting;
     private BufferedImage notShooting;
-    private ExecutorService executor = Executors.newFixedThreadPool(10);
+    private final ExecutorService executor = Executors.newFixedThreadPool(10);
 
 
     public enum CannonState {
@@ -37,20 +37,11 @@ public class Cannon extends GameObject {
     }
 
     private int shots = 0;
-    private int maxShots = 10;
     private CannonState state = CannonState.shootable;
 
 
-    public BufferedImage getShooting() {
-        return shooting;
-    }
-
     public void setShooting(BufferedImage shooting) {
         this.shooting = shooting;
-    }
-
-    public BufferedImage getNotShooting() {
-        return notShooting;
     }
 
     public void setNotShooting(BufferedImage notShooting) {
@@ -65,27 +56,15 @@ public class Cannon extends GameObject {
         }
     }
 
-    public ExecutorService getExecutor() {
-        return executor;
-    }
-
-    public int getShots() {
-        return shots;
-    }
-
-    public int getMaxShots() {
-        return maxShots;
-    }
-
     public CannonState getState() {
         return state;
     }
 
-    public void setState(CannonState state) {
+    public void setState(@SuppressWarnings("SameParameterValue") CannonState state) {
         this.state = state;
     }
 
-    public void setShots(int shots) {
+    public void setShots(@SuppressWarnings("SameParameterValue") int shots) {
         this.shots = shots;
     }
 
@@ -97,6 +76,7 @@ public class Cannon extends GameObject {
         executor.execute(new MissileMovementThread(missile));
         shots++;
         this.state = CannonState.coolDown;
+        int maxShots = 10;
         if (shots == maxShots) {
             this.state = CannonState.outOfAmmunition;
             this.changeImageShootingNotShooting();

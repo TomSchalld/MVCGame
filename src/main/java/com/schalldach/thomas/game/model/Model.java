@@ -4,7 +4,6 @@ import com.schalldach.thomas.game.GameMemento;
 import com.schalldach.thomas.game.factory.AbstractGameObjectFactory;
 import com.schalldach.thomas.game.factory.ConcreteFactory;
 import com.schalldach.thomas.game.helper.Score;
-import com.schalldach.thomas.game.helper.TwoDimPosition;
 import com.schalldach.thomas.game.objects.*;
 
 import java.util.*;
@@ -20,7 +19,7 @@ public class Model implements IObservable {
     final private ConcreteFactory enemyFactory = AbstractGameObjectFactory.createEnemyFactory();
 
     private int missileIndicator = 0;
-    private List<IObserver> observers;
+    private final List<IObserver> observers;
     private Cannon cannon;
     private List<Enemy> enemies;
     private List<Missile> missiles;
@@ -38,10 +37,6 @@ public class Model implements IObservable {
         score = new Score();
 
 
-    }
-
-    public List<IObserver> getObservers() {
-        return observers;
     }
 
     public Cannon getCannon() {
@@ -64,17 +59,14 @@ public class Model implements IObservable {
         return score;
     }
 
-    @Override
     public void attach(IObserver observer) {
         observers.add(observer);
     }
 
-    @Override
     public void detach(IObserver observer) {
         observers.remove(observer);
     }
 
-    @Override
     public void notification() {
         // Canvas must implement IObserver
         try {
@@ -110,28 +102,16 @@ public class Model implements IObservable {
 
     public void moveCannonLeft() {
         cannon.move(Arrays.asList(cannon.getPosition().getVector().get(0) - 30.0, cannon.getPosition().getVector().get(1)));
-        if (!cannon.isPositionValid()) {
+        if (cannon.isPositionNotValid()) {
             moveCannonRight();
         }
     }
 
     public void moveCannonRight() {
         cannon.move(Arrays.asList(cannon.getPosition().getVector().get(0) + 30.0, cannon.getPosition().getVector().get(1)));
-        if (!cannon.isPositionValid()) {
+        if (cannon.isPositionNotValid()) {
             moveCannonLeft();
         }
-    }
-
-    public void moveCannonUp() {
-        TwoDimPosition pos = (TwoDimPosition) cannon.getPosition();
-        pos.addVector(Arrays.asList(0.0, pos.getyCoordinate() - 30.0));
-        notification();
-    }
-
-    public void moveCannonDown() {
-        TwoDimPosition pos = (TwoDimPosition) cannon.getPosition();
-        pos.addVector(Arrays.asList(0.0, pos.getyCoordinate() + 30.0));
-        notification();
     }
 
 
@@ -170,7 +150,7 @@ public class Model implements IObservable {
     }
 
 
-    public void fireCannon() {
+    private void fireCannon() {
         if (missileIndicator < missiles.size()) {
             missiles.get(missileIndicator).move(cannon.getPosition().getVector());
             cannon.shoot(missiles.get(missileIndicator));
@@ -178,7 +158,7 @@ public class Model implements IObservable {
         }
     }
 
-    public void createMissile() {
+    private void createMissile() {
         missiles.add((Missile) missileFactory.create());
     }
 

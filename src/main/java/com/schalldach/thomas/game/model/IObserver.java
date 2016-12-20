@@ -5,5 +5,5 @@ package com.schalldach.thomas.game.model;
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
 public interface IObserver {
-    public void update();
+    void update();
 }

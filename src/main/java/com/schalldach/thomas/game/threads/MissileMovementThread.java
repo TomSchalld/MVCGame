@@ -9,7 +9,7 @@ import com.schalldach.thomas.game.objects.Missile;
  */
 public class MissileMovementThread implements Runnable {
 
-    private Missile missile;
+    private final Missile missile;
 
 
     public MissileMovementThread(GameObject missile) {
@@ -21,7 +21,7 @@ public class MissileMovementThread implements Runnable {
 
         for (int i=0; i<100;i++){
             this.missile.move();
-            if (!this.missile.isPositionValid()){
+            if (this.missile.isPositionNotValid()){
                 break;
             }
             try {

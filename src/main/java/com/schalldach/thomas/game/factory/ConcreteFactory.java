@@ -23,10 +23,6 @@ public abstract class ConcreteFactory {
         this.initialPosition = initialPosition;
     }
 
-    public void setImage(BufferedImage image) {
-        this.image = image;
-    }
-
     public BufferedImage getImage() {
         return image;
     }

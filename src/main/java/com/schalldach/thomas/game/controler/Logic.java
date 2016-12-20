@@ -1,7 +1,6 @@
 package com.schalldach.thomas.game.controler;
 
 import com.schalldach.thomas.game.GameHistory;
-import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.model.IObserver;
 import com.schalldach.thomas.game.model.Model;
 import com.schalldach.thomas.game.objects.Cannon;
@@ -25,8 +24,6 @@ import java.util.List;
  */
 public class Logic implements Visitor, IObserver {
 
-    private Thread renderer;
-    private Thread enemyThread;
     private RendererThread renderThread;
     private EnemyMovementThread enemyMovementThread;
     private final KeyListener keyListener;
@@ -36,11 +33,11 @@ public class Logic implements Visitor, IObserver {
     private final static Object lock = new Object();
     private final GameHistory gameHistory;
 
-    public MainWindow getView() {
+    private MainWindow getView() {
         return view;
     }
 
-    public Model getModel() {
+    private Model getModel() {
         return model;
     }
 
@@ -78,8 +75,8 @@ public class Logic implements Visitor, IObserver {
         this.model.attach(this);
         renderThread = new RendererThread(this.model, this.gameHistory);
         enemyMovementThread = new EnemyMovementThread(this.model.getEnemies());
-        renderer = new Thread(renderThread);
-        enemyThread = new Thread(enemyMovementThread);
+        Thread renderer = new Thread(renderThread);
+        Thread enemyThread = new Thread(enemyMovementThread);
         renderer.start();
         enemyThread.start();
         view.addKeyListener(keyListener);
@@ -152,7 +149,6 @@ public class Logic implements Visitor, IObserver {
     }
 
     private void cannonAction(KeyEvent evt) {
-        APosition pos = model.getCannon().getPosition();
         switch (evt.getKeyCode()) {
             case 32:
                 model.shoot();
@@ -161,13 +157,11 @@ public class Logic implements Visitor, IObserver {
                 model.moveCannonLeft();
                 break;
             case 38:
-                //model.moveCannonUp();
                 break;
             case 39:
                 model.moveCannonRight();
                 break;
             case 40:
-                //model.moveCannonDown();
                 break;
 
         }

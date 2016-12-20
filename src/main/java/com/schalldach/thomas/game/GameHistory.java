@@ -12,7 +12,7 @@ import java.util.Stack;
 //caretaker
 public class GameHistory {
 
-    private Stack<GameMemento> gameStates;
+    private final Stack<GameMemento> gameStates;
 
     public GameHistory() {
         gameStates = new Stack<GameMemento>();

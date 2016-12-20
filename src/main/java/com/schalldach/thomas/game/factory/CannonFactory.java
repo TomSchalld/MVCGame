@@ -4,15 +4,10 @@ import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.helper.TwoDimPosition;
 import com.schalldach.thomas.game.objects.Cannon;
 import com.schalldach.thomas.game.objects.GameObject;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileSystem;
-import java.nio.file.Files;
 import java.util.Arrays;
 
 /**

@@ -20,7 +20,6 @@ public class EnemyFactory extends ConcreteFactory {
 
     private final int initialX[] = {400,450,500,550,600,650,750, 800,850,900, 950, 1000, 1050};
     private final int initialY[] = {200,250,300,350};
-    private double moveMentSpeed = -1;
 
     public EnemyFactory() {
         try {
@@ -29,9 +28,6 @@ public class EnemyFactory extends ConcreteFactory {
             e.printStackTrace();
         }
     }
-    public void setMovementSpeed(double speed){
-        this.moveMentSpeed = speed;
-    }
 
     @Override
     public GameObject create() {
@@ -39,7 +35,8 @@ public class EnemyFactory extends ConcreteFactory {
         Enemy o = new Enemy();
         o.getPosition().addVector(getInitialPosition());
         o.setMovementStrategy(new LinearCurveX());
-        o.getMovementStrategy().setSPEED(this.moveMentSpeed);
+        double moveMentSpeed = -1;
+        o.getMovementStrategy().setSPEED(moveMentSpeed);
         o.setImage(getImage());
         return o;
     }

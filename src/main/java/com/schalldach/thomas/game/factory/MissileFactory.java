@@ -2,7 +2,6 @@ package com.schalldach.thomas.game.factory;
 
 import com.schalldach.thomas.game.objects.GameObject;
 import com.schalldach.thomas.game.objects.Missile;
-import com.schalldach.thomas.game.strategy.LinearCurveX;
 import com.schalldach.thomas.game.strategy.LinearCurveY;
 import com.schalldach.thomas.game.strategy.Strategy;
 
@@ -18,7 +17,7 @@ public class MissileFactory extends ConcreteFactory {
 
 
 
-    Strategy missileStrategy;
+    private Strategy missileStrategy;
 
     public MissileFactory() {
         try {
@@ -29,7 +28,7 @@ public class MissileFactory extends ConcreteFactory {
             e.printStackTrace();
         }
     }
-    public void setMissileSpeed(int speed){
+    private void setMissileSpeed(int speed){
         missileStrategy.setSPEED(speed);
       }
 

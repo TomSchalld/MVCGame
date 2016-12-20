@@ -9,7 +9,7 @@ import java.util.List;
  */
 public abstract class APosition {
 
-    protected List<Double> coordinates;
+    List<Double> coordinates;
 
     public void addVector(List<Double> dimension) {
         coordinates.clear();

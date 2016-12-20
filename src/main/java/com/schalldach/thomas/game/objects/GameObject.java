@@ -11,20 +11,20 @@ import java.util.List;
  * as long as you ensure that you credit the author. For commercial usage, please contact software[at]thomas-schalldach.de
  */
 public abstract class GameObject implements Cloneable {
-    protected APosition position;
-    protected BufferedImage image;
+    final APosition position;
+    BufferedImage image;
 
-    public GameObject() {
+    GameObject() {
         this.position = new TwoDimPosition();
     }
 
-    public boolean isPositionValid(){
+    public boolean isPositionNotValid(){
 
         if(position.getVector().get(0)<=1090&&position.getVector().get(1)<=720){
             if(position.getVector().get(0)>=0&&position.getVector().get(1)>=0)
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     public void accept(Visitor visitor) {

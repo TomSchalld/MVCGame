@@ -15,11 +15,11 @@ import java.util.List;
  */
 public class GameMemento {
 
-    private int missileIndicator;
+    private final int missileIndicator;
     private List<Enemy> enemies;
     private List<Missile> missiles;
     private List<Collision> collisions;
-    private Score score;
+    private final Score score;
     private boolean gameEnd = false;
 
 

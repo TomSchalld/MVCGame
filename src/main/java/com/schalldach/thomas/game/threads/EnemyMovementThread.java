@@ -13,9 +13,10 @@ import java.util.List;
  */
 public class EnemyMovementThread implements Runnable, Pausable {
 
-    private List<Enemy> enemies;
+    private final List<Enemy> enemies;
     private boolean threadStop;
 
+    @SuppressWarnings("SameParameterValue")
     public void setThreadStop(boolean threadStop) {
         this.threadStop = threadStop;
     }
@@ -28,7 +29,7 @@ public class EnemyMovementThread implements Runnable, Pausable {
         List<Enemy> enemies = new ArrayList<>(this.enemies);
         for (int i = 0; i < enemies.size(); i++) {
             enemies.get(i).move();
-            if (!enemies.get(i).isPositionValid()) {
+            if (enemies.get(i).isPositionNotValid()) {
                 Logic.getInstance().minusPoint();
                 enemies.get(i).move(Arrays.asList(1080.0, enemies.get(i).getPosition().getVector().get(1)));
             }

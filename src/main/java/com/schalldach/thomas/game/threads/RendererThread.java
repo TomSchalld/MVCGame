@@ -9,10 +9,11 @@ import com.schalldach.thomas.game.model.Model;
  */
 public class RendererThread implements Runnable, Pausable {
 
-    private Model m;
-    private GameHistory history;
+    private final Model m;
+    private final GameHistory history;
     private boolean stopThread;
 
+    @SuppressWarnings("SameParameterValue")
     public void setStopThread(boolean stopThread) {
         this.stopThread = stopThread;
     }
@@ -29,7 +30,7 @@ public class RendererThread implements Runnable, Pausable {
             m.notification();
             try {
                 m.checkForCollision();
-            }catch (Exception e){
+            }catch (Exception ignored){
 
             }
             if (m.isNewLevel()) {

@@ -166,9 +166,7 @@ public class Model implements IObservable {
         if (cannon.getState() == Cannon.CannonState.shootable) {
             this.createMissile();
             this.fireCannon();
-        } else {
-            System.err.println("Cant Shoot cannon is in state: " + cannon.getState());
-        }
+        } 
 
     }
 

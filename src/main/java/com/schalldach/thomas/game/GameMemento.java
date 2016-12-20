@@ -24,9 +24,11 @@ public class GameMemento {
 
 
     public GameMemento(Model game) {
-        missileIndicator = game.getMissileIndicator();
+        //missileIndicator = game.getMissileIndicator();
+        missileIndicator = 0;
         saveEnemies(game);
-        saveMissiles(game);
+        missiles = new ArrayList<>();
+        //saveMissiles(game);
         saveCollisions(game);
         this.score = new Score(game.getScore());
         this.gameEnd = game.isGameEnd();

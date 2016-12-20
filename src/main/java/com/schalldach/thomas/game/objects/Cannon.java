@@ -68,7 +68,7 @@ public class Cannon extends GameObject {
         this.shots = shots;
     }
 
-    public void shoot(Missile missile) {
+    public synchronized void shoot(Missile missile) {
 
         this.state = CannonState.shooting;
         this.changeImageShootingNotShooting();

@@ -16,7 +16,10 @@ public class Missile extends GameObject {
 
     public void move(){
         //move accordingly to strategy
-        this.getPosition().addVector(strategy.generateMovementVector(this.getPosition()));
+        try {
+            this.getPosition().addVector(strategy.generateMovementVector(this.getPosition()));
+        } catch (NullPointerException e) {
+        }
 
     }
     @Override

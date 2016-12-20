@@ -1,25 +1,20 @@
 package com.schalldach.thomas.game.view;
 
 
-import com.schalldach.thomas.game.controler.Logic;
 import com.schalldach.thomas.game.helper.TwoDimPosition;
 import com.schalldach.thomas.game.objects.GameObject;
-import com.schalldach.thomas.game.objects.Visitor;
-
 
 import javax.imageio.ImageIO;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
  * @author Ondrej Stuchlik
  */
 public class GraphicsDrawer {
-    /*private static final int INFO_X = 5;
-    private static final int INFO_Y = 15;*/
+
     private BufferedImage fortress;
     private BufferedImage waves;
 

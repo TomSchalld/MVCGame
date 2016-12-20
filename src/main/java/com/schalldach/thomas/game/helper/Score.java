@@ -6,17 +6,37 @@ package com.schalldach.thomas.game.helper;
  */
 public class Score {
 
-
+    private int lifes;
     private int intScore;
+    private int level;
 
     public Score() {
         this.intScore = 0;
+        this.lifes = 10;
+        this.level = 0;
     }
 
-    public void kill(){
+    public int getLifes() {
+        return lifes;
+    }
+
+    public void kill() {
         this.intScore++;
     }
+
     public int getIntScore() {
         return intScore;
+    }
+
+    public void takeLife() {
+        lifes--;
+    }
+
+    public void levelUp() {
+        this.level++;
+    }
+
+    public int getLevel() {
+        return level;
     }
 }

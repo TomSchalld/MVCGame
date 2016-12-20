@@ -1,19 +1,22 @@
 package com.schalldach.thomas.game.controler;
 
 import com.schalldach.thomas.game.helper.APosition;
-import com.schalldach.thomas.game.threads.EnemyMovementThread;
 import com.schalldach.thomas.game.model.IObserver;
 import com.schalldach.thomas.game.model.Model;
+import com.schalldach.thomas.game.objects.Cannon;
 import com.schalldach.thomas.game.objects.GameObject;
 import com.schalldach.thomas.game.objects.Visitor;
+import com.schalldach.thomas.game.threads.EnemyMovementThread;
 import com.schalldach.thomas.game.threads.RendererThread;
-import com.schalldach.thomas.game.view.MainWindow;
+import com.schalldach.thomas.game.view.*;
+import com.schalldach.thomas.game.view.Box;
 
+import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * Created by B.Sc. Thomas Schalldach on 22/10/2016. The code of this application is free to use for non-commercial projects,
@@ -21,11 +24,17 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 public class Logic implements Visitor, IObserver {
 
+    private final Thread renderer;
+    private final Thread enemyThread;
+    private final RendererThread renderThread;
+    private final EnemyMovementThread enemyMovementThread;
+    private final KeyListener keyListener;
     private MainWindow view;
     private Model model;
     private static Logic instance;
     private static Object lock = new Object();
-    private EnemyMovementThread thread ;
+    private EnemyMovementThread thread;
+    private boolean gameIsPaused = false;
 
     public MainWindow getView() {
         return view;
@@ -55,28 +64,29 @@ public class Logic implements Visitor, IObserver {
     }
 
     private Logic() {
+
         this.model = new Model();
         instantiateGameObjects();
         this.model.attach(this);
-        view = new MainWindow();
-        view.addKeyListener(new KeyAdapter() {
+        this.keyListener = new KeyAdapter() {
+
             @Override
             public void keyPressed(KeyEvent evt) {
-                // delegate to controller
                 cannonAction(evt);
-                //update();
-                System.out.println("key pressed: " + evt.getKeyCode());
             }
-
-
-        });
+        };
+        view = new MainWindow();
+        view.addKeyListener(keyListener);
         view.setVisible(true);
-        Thread renderer = new Thread(new RendererThread(this.model));
-        Thread enemyThread = new Thread(new EnemyMovementThread(this.model.getEnemies()));
+        renderThread = new RendererThread(this.model);
+        enemyMovementThread = new EnemyMovementThread(this.model.getEnemies());
+        renderer = new Thread(renderThread);
+        enemyThread = new Thread(enemyMovementThread);
         renderer.start();
         enemyThread.start();
 
     }
+
 
     private void instantiateGameObjects() {
         this.getModel().doBasicInstantiation();
@@ -90,25 +100,34 @@ public class Logic implements Visitor, IObserver {
         this.setCannonState();
         this.setScore();
         view.getView().repaint();
-
+        if (model.isGameEnd()) {
+            JFrame endBox = new Box(model.getScore());
+            model.detach(this);
+        }
     }
 
     private void setScore() {
-        view.getView().setScore(this.calculateScore());
+        view.getView().setScore(this.calculateScore(),this.calcLife());
+    }
+
+    private int calcLife() {
+        return model.getScore().getLifes();
     }
 
     private int calculateScore() {
-       return model.getScore().getIntScore();
+        return model.getScore().getIntScore();
     }
 
     private void setCannonState() {
-        view.getView().setCannonState(model.getCannon().getState().toString());
+        Cannon.CannonState state = model.getCannon().getState();
+        view.getView().setCannonState(Cannon.CannonState.valueOf(state));
     }
 
     @Override
     public void visit(GameObject object) {
         view.getView().getToBeDrawn().add(object);
     }
+
     private void cannonAction(KeyEvent evt) {
         APosition pos = model.getCannon().getPosition();
         switch (evt.getKeyCode()) {
@@ -116,22 +135,26 @@ public class Logic implements Visitor, IObserver {
                 model.shoot();
                 break;
             case 37:
-                System.out.println("left");
                 model.moveCannonLeft();
                 break;
             case 38:
-                System.out.println("up");
                 //model.moveCannonUp();
                 break;
             case 39:
-                System.out.println("right");
                 model.moveCannonRight();
                 break;
             case 40:
-                System.out.println("down");
                 //model.moveCannonDown();
                 break;
 
+        }
+    }
+
+    public void minusPoint() {
+        if (getModel().hasLifes()) {
+            getModel().takeALife();
+        } else {
+            getView().removeKeyListener(keyListener);
         }
     }
 }

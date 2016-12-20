@@ -2,10 +2,8 @@ package com.schalldach.thomas.game.view;
 
 import com.schalldach.thomas.game.objects.GameObject;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +18,8 @@ public class Canvas extends JPanel {
     private JLabel cannonState;
     private JLabel score;
     private JLabel scoreNumber;
+    private JLabel lifes;
+    private JLabel lifesNumber;
 
 
 
@@ -72,6 +72,18 @@ public class Canvas extends JPanel {
         scoreNumber.setSize(100, 50);
         scoreNumber.setVisible(true);
         this.gameStats.add(scoreNumber);
+        lifes = new JLabel();
+        lifes.setText("Lifes");
+        lifes.setLocation(150, 0);
+        lifes.setSize(100, 50);
+        lifes.setVisible(true);
+        this.gameStats.add(lifes);
+        lifesNumber = new JLabel();
+        lifesNumber.setText("0");
+        lifesNumber.setLocation(100, 0);
+        lifesNumber.setSize(100, 50);
+        lifesNumber.setVisible(true);
+        this.gameStats.add(lifesNumber);
         this.add(gameStats);
 
     }
@@ -106,7 +118,8 @@ public class Canvas extends JPanel {
 
 
 
-    public void setScore(int score) {
+    public void setScore(int score,int lifes) {
         this.scoreNumber.setText("" + score);
+        this.lifesNumber.setText(""+lifes);
     }
 }

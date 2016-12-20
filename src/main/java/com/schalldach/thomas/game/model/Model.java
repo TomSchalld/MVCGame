@@ -2,16 +2,12 @@ package com.schalldach.thomas.game.model;
 
 import com.schalldach.thomas.game.factory.AbstractGameObjectFactory;
 import com.schalldach.thomas.game.factory.ConcreteFactory;
-import com.schalldach.thomas.game.helper.APosition;
 import com.schalldach.thomas.game.helper.Gravity;
 import com.schalldach.thomas.game.helper.Score;
 import com.schalldach.thomas.game.helper.TwoDimPosition;
 import com.schalldach.thomas.game.objects.*;
-import com.schalldach.thomas.game.threads.MissileMovementThread;
 
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * Created by B.Sc. Thomas Schalldach on 16/10/2016. The code of this application is free to use for non-commercial projects,
@@ -32,6 +28,7 @@ public class Model implements IObservable {
     private Score score;
     private Gravity gravity;
     private Timer timer;
+    private boolean gameEnd = false;
 
     public Model() {
 
@@ -52,7 +49,7 @@ public class Model implements IObservable {
         return cannon;
     }
 
-    public  List<Enemy>  getEnemies() {
+    public List<Enemy> getEnemies() {
         return enemies;
     }
 
@@ -89,21 +86,25 @@ public class Model implements IObservable {
     @Override
     public void notification() {
         // Canvas must implement IObserver
-        observers.forEach(IObserver::update);
+        try {
+            observers.forEach(IObserver::update);
+        }catch (ConcurrentModificationException e){
+
+        }
     }
 
     public void doBasicInstantiation() {
 
 
         this.cannon = (Cannon) cannonFactory.create();
-        for (int i = 0; i < 10 ; i++) {
+        generateEnemies(score.getLevel());
+
+    }
+
+    private void generateEnemies(int level) {
+        for (int i = 0; i < 10 + level; i++) {
             this.enemies.add((Enemy) enemyFactory.create());
         }
-        /*for (int i = 0; i < 100; i++) {
-            missiles.add((Missile) factory.create());
-        }
-        this.factory =  AbstractGameObjectFactory.createCollisionFactory();*/
-
     }
 
     public List<GameObject> getObjects() {
@@ -116,43 +117,44 @@ public class Model implements IObservable {
 
     }
 
-    public void moveCannonLeft(){
-        cannon.move(Arrays.asList(cannon.getPosition().getVector().get(0)-30.0, cannon.getPosition().getVector().get(1)));
-        if(!cannon.isPositionValid()){
+    public void moveCannonLeft() {
+        cannon.move(Arrays.asList(cannon.getPosition().getVector().get(0) - 30.0, cannon.getPosition().getVector().get(1)));
+        if (!cannon.isPositionValid()) {
             moveCannonRight();
         }
     }
-    public void moveCannonRight(){
-        cannon.move(Arrays.asList(cannon.getPosition().getVector().get(0)+30.0, cannon.getPosition().getVector().get(1)));
-        if(!cannon.isPositionValid()){
+
+    public void moveCannonRight() {
+        cannon.move(Arrays.asList(cannon.getPosition().getVector().get(0) + 30.0, cannon.getPosition().getVector().get(1)));
+        if (!cannon.isPositionValid()) {
             moveCannonLeft();
         }
     }
+
     public void moveCannonUp() {
         TwoDimPosition pos = (TwoDimPosition) cannon.getPosition();
-        pos.addVector(Arrays.asList(0.0, pos.getyCoordinate()-30.0));
+        pos.addVector(Arrays.asList(0.0, pos.getyCoordinate() - 30.0));
         notification();
     }
 
     public void moveCannonDown() {
         TwoDimPosition pos = (TwoDimPosition) cannon.getPosition();
-        pos.addVector(Arrays.asList(0.0, pos.getyCoordinate()+30.0));
+        pos.addVector(Arrays.asList(0.0, pos.getyCoordinate() + 30.0));
         notification();
     }
 
 
-
-    public void checkForCollision(){
+    public void checkForCollision() {
         List<Enemy> enemyDisposal = new ArrayList<>();
-        List<Missile>missileDisposal = new ArrayList<>();
-
+        List<Missile> missileDisposal = new ArrayList<>();
         for (int i = 0; i < missiles.size(); i++) {
-            for (int j = 0; j <enemies.size() ; j++) {
-                if (missiles.get(i).getPosition().equals(enemies.get(j).getPosition())){
-                    System.err.println("HIT!!!!!");
+            for (int j = 0; j < enemies.size(); j++) {
+                if (missiles.get(i).getPosition().equals(enemies.get(j).getPosition())) {
                     enemyDisposal.add(enemies.get(j));
                     missileDisposal.add(missiles.get(i));
-                    missileIndicator--;
+                    if (missileIndicator > 0) {
+                        missileIndicator--;
+                    }
                     collisionFactory.setInitialPosition(enemies.get(j).getPosition());
                     collisions.add((Collision) collisionFactory.create());
                     score.kill();
@@ -161,7 +163,15 @@ public class Model implements IObservable {
         }
         enemies.removeAll(enemyDisposal);
         missiles.removeAll(missileDisposal);
+        if (enemies.isEmpty() && !gameEnd) {
+            score.levelUp();
+            collisions.clear();
+            missiles.clear();
+            missileIndicator = 0;
+            generateEnemies(score.getLevel());
+        }
     }
+
 
     public void fireCannon() {
         if (missileIndicator < missiles.size()) {
@@ -169,35 +179,41 @@ public class Model implements IObservable {
             cannon.shoot(missiles.get(missileIndicator));
             missileIndicator++;
         }
-        //notification();
     }
 
     public void createMissile() {
         missiles.add((Missile) missileFactory.create());
     }
 
-    public void shoot() {
-        if (cannon.getState()== Cannon.CannonState.shootable){
+    public synchronized void shoot() {
+        if (cannon.getState() == Cannon.CannonState.shootable) {
             this.createMissile();
             this.fireCannon();
-        }else {
+        } else {
             System.err.println("Cant Shoot cannon is in state: " + cannon.getState());
         }
 
     }
 
+    public boolean hasLifes() {
+        return score.getLifes() > 0;
+    }
 
-    //methods
-    /*
-    * moveCanonUp
-    * changeCanonAngle
-    * shoot
-    * changeGravity
-    *
-    * main game loop
-    *
-    * moves missiles, checks collisions, discards old objects
-    *
-    * moves objects
-    * */
+    public void takeALife() {
+        score.takeLife();
+        if (!hasLifes()) {
+            endGame();
+        }
+    }
+
+    private void endGame() {
+        enemies.clear();
+        missiles.clear();
+        collisions.clear();
+        this.gameEnd = true;
+    }
+
+    public boolean isGameEnd() {
+        return gameEnd;
+    }
 }
